@@ -2,4 +2,6 @@
 require("basic")
 -- 快捷键
 require("keybindings")
+-- 插件
+require("plugins")
 
