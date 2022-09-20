@@ -6,6 +6,8 @@ packer.startup({
     use 'wbthomason/packer.nvim'
 
     -- 你的插件列表...
+    -- tokyonight
+    use "folke/tokyonight.nvim"
   end,
 
   config = {
@@ -19,7 +21,7 @@ packer.startup({
     },
     -- 自定义源
     git = {
-      -- default_url_format = "https://hub.fastgit.xyz/%s",
+      default_url_format = "https://hub.fastgit.xyz/%s",
       -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
       -- default_url_format = "https://gitcode.net/mirrors/%s",
       -- default_url_format = "https://gitclone.com/github.com/%s",
