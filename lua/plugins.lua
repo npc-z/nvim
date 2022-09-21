@@ -10,6 +10,8 @@ packer.startup({
     use "folke/tokyonight.nvim"
     -- nvim-tree (新增)
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    -- bufferline
+    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" }})
   end,
 
   config = {
@@ -23,7 +25,7 @@ packer.startup({
     },
     -- 自定义源
     git = {
-      default_url_format = "https://hub.fastgit.xyz/%s",
+      -- default_url_format = "https://hub.fastgit.xyz/%s",
       -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
       -- default_url_format = "https://gitcode.net/mirrors/%s",
       -- default_url_format = "https://gitclone.com/github.com/%s",

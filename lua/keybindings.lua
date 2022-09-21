@@ -16,6 +16,11 @@ local opt = {noremap = true, silent = true}
 
 -- 快速回到 normal mode
 map("i", "jj", "<Esc>", opt)
+map("c", "jj", "<Esc>", opt)
+
+-- 快速保存
+map("n", "<leader>w", ":w<CR>", opt)
+map("n", "<leader>wa", ":wa<CR>", opt)
 
 
 -- 窗口快捷键
@@ -84,7 +89,11 @@ map("i", "<C-a>", "<Esc>I", opt)
 map("i", "<C-e>", "<Esc>A", opt)
 
 
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+--
 -- 插件快捷键绑定
+--
 local pluginKeys = {}
 
 -- nivm-tree
@@ -109,6 +118,22 @@ pluginKeys.nvimTreeList = {
   { key = "c", action = "copy" },
   { key = "p", action = "paste" }, 
 }
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+--
+
+-- bufferline
+-- 左右Tab切换
+map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+-- 关闭
+--"moll/vim-bbye"
+map("n", "<C-w>", ":bdelete<CR>", opt)
+map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
+map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opt)
 
 
 return pluginKeys

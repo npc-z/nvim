@@ -77,7 +77,7 @@ vim.o.swapfile = false
 vim.o.updatetime = 300
 
 -- 设置等待键盘快捷键连击时间, 毫秒
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 900
 
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
