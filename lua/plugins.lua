@@ -8,6 +8,8 @@ packer.startup({
     -- 你的插件列表...
     -- tokyonight
     use "folke/tokyonight.nvim"
+    -- nvim-tree (新增)
+    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
   end,
 
   config = {
@@ -30,12 +32,13 @@ packer.startup({
 })
 
 -- 每次保存 plugins.lua 自动安装插件
+-- autocmd BufWritePost plugins.lua source <afile> | PackerSync
 pcall(
   vim.cmd,
   [[
     augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
   ]]
 )

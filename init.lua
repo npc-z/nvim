@@ -6,4 +6,6 @@ require("keybindings")
 require("plugins")
 -- 主题
 require("colorscheme")
+-- 插件配置
+require("plugin-config.nvim-tree")
 
