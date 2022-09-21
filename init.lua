@@ -21,4 +21,6 @@ require("plugin-config.telescope")
 require("plugin-config.dashboard")
 -- project
 require("plugin-config.project")
+--
+require("plugin-config.nvim-treesitter")
 

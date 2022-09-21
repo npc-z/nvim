@@ -28,6 +28,8 @@ packer.startup({
     -- 项目
     use "ahmedkhalf/project.nvim"
 
+    -- treesitter
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   end,
 
   config = {
