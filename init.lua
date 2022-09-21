@@ -15,4 +15,6 @@ require("plugin-config.nvim-tree")
 require("plugin-config.bufferline")
 -- lualine
 require("plugin-config.lualine")
+-- telescope
+require("plugin-config.telescope")
 
