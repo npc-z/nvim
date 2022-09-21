@@ -13,4 +13,6 @@ require("colorscheme")
 require("plugin-config.nvim-tree")
 -- buffer
 require("plugin-config.bufferline")
+-- lualine
+require("plugin-config.lualine")
 
