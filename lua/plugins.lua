@@ -64,6 +64,9 @@ packer.startup({
 
         -- 成对括号
         use "nvim-autopairs"
+
+        -- 注释
+        use("numToStr/Comment.nvim")
     end,
 
     config = {

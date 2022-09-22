@@ -256,5 +256,20 @@ pluginKeys.cmp = function(cmp)
 end
 
 
+-- 代码注释插件
+-- TODO: 如何自定义快捷键?
+pluginKeys.comment = {
+    -- Normal 模式快捷键
+    toggler = {
+        line = "gcc", -- 行注释
+        block = "gbc", -- 块注释
+    },
+    -- Visual 模式
+    opleader = {
+        line = "gc",
+        bock = "gb",
+    },
+}
+
 return pluginKeys
 

@@ -27,6 +27,8 @@ require("plugin-config.nvim-treesitter")
 require("plugin-config.indent-blankline")
 -- 成对括号
 require("plugin-config.nvim-autopairs")
+-- 注释
+require("plugin-config.comment")
 
 --
 -- lsp config
