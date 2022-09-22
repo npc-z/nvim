@@ -11,7 +11,7 @@ end
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
     pyright = require("lsp.config.pyright"),
-    -- sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
+    sumneko_lua = require("lsp.config.lua"), -- lua/lsp/config/lua.lua
 }
 -- 自动安装 Language Servers
 for name, _ in pairs(servers) do
