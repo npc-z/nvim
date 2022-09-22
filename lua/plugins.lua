@@ -61,6 +61,9 @@ packer.startup({
 
         -- 格式化
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+
+        -- 成对括号
+        use "nvim-autopairs"
     end,
 
     config = {
