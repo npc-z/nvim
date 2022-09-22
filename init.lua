@@ -31,6 +31,8 @@ require("plugin-config.nvim-autopairs")
 require("plugin-config.comment")
 -- git blame
 require("plugin-config.git-blame")
+-- smooth move
+require("plugin-config.neoscroll")
 
 --
 -- lsp config

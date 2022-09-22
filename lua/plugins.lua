@@ -70,6 +70,9 @@ packer.startup({
 
         -- name = gitblame
         use("f-person/git-blame.nvim")
+
+        -- 丝滑的移动
+        use("karb94/neoscroll.nvim")
     end,
 
     config = {

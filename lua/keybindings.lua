@@ -172,7 +172,7 @@ pluginKeys.mapLSP = function(mapbuf)
     mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
     mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
     mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-    mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+    mapbuf("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
 
     -- rename
     -- mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
