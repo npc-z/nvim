@@ -67,6 +67,9 @@ packer.startup({
 
         -- 注释
         use("numToStr/Comment.nvim")
+
+        -- name = gitblame
+        use("f-person/git-blame.nvim")
     end,
 
     config = {

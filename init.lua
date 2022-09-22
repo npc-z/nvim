@@ -29,6 +29,8 @@ require("plugin-config.indent-blankline")
 require("plugin-config.nvim-autopairs")
 -- 注释
 require("plugin-config.comment")
+-- git blame
+require("plugin-config.git-blame")
 
 --
 -- lsp config
