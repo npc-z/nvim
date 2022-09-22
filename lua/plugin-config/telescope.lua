@@ -13,7 +13,7 @@ telescope.setup({
     -- layout_strategy = "horizontal",
     -- layout_strategy = "center",
     layout_strategy = "vertical",
-    layout_config = { width = 0.95, height = 0.95 },
+    layout_config = { width = 0.95, height = 0.95, preview_cutoff = 1 },
   },
   pickers = {
     -- 内置 pickers 配置
