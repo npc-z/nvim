@@ -33,6 +33,8 @@ require("plugin-config.comment")
 require("plugin-config.git-blame")
 -- smooth move
 require("plugin-config.neoscroll")
+-- markdown preview
+require("plugin-config.glow")
 
 --
 -- lsp config

@@ -73,6 +73,9 @@ packer.startup({
 
         -- 丝滑的移动
         use("karb94/neoscroll.nvim")
+
+        -- markdown preview
+        use {"ellisonleao/glow.nvim"}
     end,
 
     config = {
