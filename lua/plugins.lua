@@ -57,7 +57,7 @@ packer.startup({
         use("lukas-reineke/indent-blankline.nvim")
 
         --
-        use("tami5/lspsaga.nvim" )
+        use("glepnir/lspsaga.nvim")
 
         -- 格式化
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -76,6 +76,8 @@ packer.startup({
     end,
 
     config = {
+        -- 快照保存位置目录, 与 init.lua 文件同级位置
+        snapshot_path = "snapshot",
         -- 并发数限制
         max_jobs = 4,
         --
@@ -102,7 +104,7 @@ pcall(
     [[
     augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
     augroup end
   ]]
 )
