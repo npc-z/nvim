@@ -63,7 +63,7 @@ packer.startup({
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 
         -- 成对括号
-        use "nvim-autopairs"
+        use("windwp/nvim-autopairs")
 
         -- 注释
         use("numToStr/Comment.nvim")
