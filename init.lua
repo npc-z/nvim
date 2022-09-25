@@ -1,46 +1,75 @@
+local require_fail_and_continue = require("utils").require_fail_and_continue
+
 -- 基础配置
-require("basic")
--- 快捷键
-require("keybindings")
--- 插件
-require("plugins")
--- 主题
-require("colorscheme")
---
+local function init_basic()
+	-- 基础设置
+	require_fail_and_continue("basic")
+	-- 基础快捷键
+	require_fail_and_continue("basic-keybindings")
+	-- 插件快捷键
+	require_fail_and_continue("plugins-keybindings")
+	-- 自定义命令
+	require_fail_and_continue("auto-commands")
+	-- 插件管理
+	require_fail_and_continue("plugins")
+	-- 主题
+	require_fail_and_continue("colorscheme")
+end
+
 -- 插件配置
---
--- 文件树
-require("plugin-config.nvim-tree")
--- buffer
-require("plugin-config.bufferline")
--- lualine
-require("plugin-config.lualine")
--- telescope
-require("plugin-config.telescope")
--- dashboard
-require("plugin-config.dashboard")
--- project
-require("plugin-config.project")
---
-require("plugin-config.nvim-treesitter")
---
-require("plugin-config.indent-blankline")
--- 成对括号
-require("plugin-config.nvim-autopairs")
--- 注释
-require("plugin-config.comment")
--- git blame
-require("plugin-config.git-blame")
--- smooth move
-require("plugin-config.neoscroll")
--- markdown preview
-require("plugin-config.glow")
+local function init_plugin()
+	-- 文件树
+	require_fail_and_continue("plugin-config.nvim-tree")
+	-- buffer
+	require_fail_and_continue("plugin-config.bufferline")
+	-- lualine
+	require_fail_and_continue("plugin-config.lualine")
+	-- telescope
+	require_fail_and_continue("plugin-config.telescope")
+	-- dashboard
+	require_fail_and_continue("plugin-config.dashboard")
+	-- project
+	require_fail_and_continue("plugin-config.project")
+	-- 语法高亮
+	require_fail_and_continue("plugin-config.nvim-treesitter")
+	-- 缩进竖线
+	require_fail_and_continue("plugin-config.indent-blankline")
+	-- 成对括号
+	require_fail_and_continue("plugin-config.nvim-autopairs")
+	-- 注释
+	require_fail_and_continue("plugin-config.comment")
+	-- git blame
+	require_fail_and_continue("plugin-config.git-blame")
+	-- smooth move
+	require_fail_and_continue("plugin-config.neoscroll")
+	-- markdown preview
+	require_fail_and_continue("plugin-config.glow")
+	-- auto save buffer
+	require_fail_and_continue("plugin-config.auto-save")
+	-- 行尾空格高亮
+	require_fail_and_continue("plugin-config.better-whitespace")
+	-- toggleterm
+	-- require_fail_and_continue("plugin-config.toggleterm")
+	require("plugin-config.toggleterm")
+end
 
---
 -- lsp config
---
-require("lsp.setup")
-require("lsp.cmp")
-require("lsp.ui")
-require("lsp.null-ls")
+local function init_lsp()
+	--
+	require_fail_and_continue("lsp.setup")
+	--
+	require_fail_and_continue("lsp.cmp")
+	--
+	require_fail_and_continue("lsp.ui")
+	--
+	require_fail_and_continue("lsp.null-ls")
+end
 
+local function main()
+	init_basic()
+	init_plugin()
+	init_lsp()
+end
+
+main()
+--

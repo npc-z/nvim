@@ -1,0 +1,76 @@
+-- 自定义工具函数
+
+-- log
+local function log(body)
+	require("notify")(body, "info", { title = "log info" })
+end
+
+-- info
+local function info(body)
+	require("notify")(body, "info", { title = "info" })
+end
+
+---@type fun(filepath: string)
+local function require_fail_and_continue(path)
+	local status_ok, _ = pcall(require, path)
+	if not status_ok then
+		local msg = "requile module " .. path .. " failed"
+		info(msg)
+	end
+end
+
+---@type fun(filepath: string):string, string, string
+local function split_filename(filepath)
+	-- Returns the Path, Filename, and Extension as 3 values
+	return string.match(filepath, "(.-)([^/]-([^/%.]+))$")
+end
+
+---get the current buffer filename
+---@type fun():string
+local function cur_buf_filename()
+	local filepath = vim.api.nvim_buf_get_name(0)
+	local _, name, _ = split_filename(filepath)
+	return name
+end
+
+---get the current buffer filename
+---@type fun():string
+local function cur_buf_filetype()
+	local filepath = vim.api.nvim_buf_get_name(0)
+	local _, _, type = split_filename(filepath)
+	return type
+end
+
+---@type fun(tab: table, val: string):boolean
+local function has_value(tab, val)
+	for _, value in ipairs(tab) do
+		if value == val then
+			return true
+		end
+	end
+
+	return false
+end
+
+-- 移除行尾的空格
+local function trim_trailing_whitespace()
+	-- 排除文件类型
+	local excludes = {
+		"markdown",
+	}
+	if has_value(excludes, vim.bo.filetype) then
+		return
+	end
+	vim.cmd([[%s/\s\+$//e]])
+end
+
+local funcs = {}
+
+funcs.trim_trailing_whitespace = trim_trailing_whitespace
+funcs.split_filename = split_filename
+funcs.cur_buf_filename = cur_buf_filename
+funcs.cur_buf_filetype = cur_buf_filetype
+funcs.require_fail_and_continue = require_fail_and_continue
+funcs.log = log
+
+return funcs

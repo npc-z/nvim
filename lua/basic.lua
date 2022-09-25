@@ -60,7 +60,7 @@ vim.bo.autoread = true
 vim.wo.wrap = false
 
 -- 光标在行首/行尾时 <Left> <Right> 可以跳到下一行
-vim.o.whichwrap = '<,>,[,]'
+vim.o.whichwrap = "<,>,[,]"
 
 -- 允许隐藏被修改过的 buffer
 vim.o.hidden = true
@@ -77,7 +77,7 @@ vim.o.swapfile = false
 vim.o.updatetime = 300
 
 -- 设置等待键盘快捷键连击时间, 毫秒
-vim.o.timeoutlen = 900
+vim.o.timeoutlen = 500
 
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
@@ -88,7 +88,7 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 -- 补全增强
 vim.o.wildmenu = true
 -- don't pass messages to |ins-completin menu|
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.shortmess = vim.o.shortmess .. "c"
 -- 补全最多显示 10 行
 vim.o.pumheight = 10
 
@@ -98,13 +98,13 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 
 -- 显出不可见字符
-vim.o.list = true
-vim.o.listchars = "space:·"
+-- vim.o.list = true
+-- vim.o.listchars = "space:·"
+-- vim.o.listchars = "space:·,eol:↵,trail:~,tab:>-,nbsp:␣"
+vim.o.listchars = "trail:·"
 
 -- 显示 tabline
 vim.o.showtabline = 2
 
 -- 使用增强状态栏插件后不再需要 vim 的显示提示
 -- vim.o.showmode = false
-
-

@@ -1,114 +1,126 @@
 local packer = require("packer")
 
 packer.startup({
-    function(use)
-        -- Packer 可以管理自己本身
-        use 'wbthomason/packer.nvim'
+	function(use)
+		-- Packer 可以管理自己本身
+		use("wbthomason/packer.nvim")
 
-        -- tokyonight
-        use "folke/tokyonight.nvim"
+		-- tokyonight
+		use("folke/tokyonight.nvim")
 
-        -- nvim-tree
-        use ({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+		-- nvim-tree
+		use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 
-        -- bufferline
-        use ({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" }})
+		-- bufferline
+		use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
-        -- lualine
-        use ({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" }})
-        use "arkav/lualine-lsp-progress"
+		-- lualine
+		use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+		use("arkav/lualine-lsp-progress")
 
-        -- telescope
-        -- https://github.com/BurntSushi/ripgrep
-        -- https://github.com/sharkdp/fd
-        use ({ 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" }})
+		-- telescope
+		-- https://github.com/BurntSushi/ripgrep
+		-- https://github.com/sharkdp/fd
+		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
-        -- 启动页
-        use 'glepnir/dashboard-nvim'
-        -- 项目
-        use "ahmedkhalf/project.nvim"
+		-- 启动页
+		use("glepnir/dashboard-nvim")
+		-- 项目
+		use("ahmedkhalf/project.nvim")
 
-        -- treesitter
-        use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+		-- treesitter
+		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-        -- lsp
-        use "williamboman/nvim-lsp-installer"
-        -- Lspconfig
-        use ({ "neovim/nvim-lspconfig" })
+		-- lsp
+		use("williamboman/nvim-lsp-installer")
+		-- Lspconfig
+		use({ "neovim/nvim-lspconfig" })
 
-        -- 补全引擎
-        use("hrsh7th/nvim-cmp")
-        -- snippet 引擎
-        use("hrsh7th/vim-vsnip")
-        -- 补全源
-        use("hrsh7th/cmp-vsnip")
-        use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-        use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-        use("hrsh7th/cmp-path") -- { name = 'path' }
-        use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+		-- 补全引擎
+		use("hrsh7th/nvim-cmp")
+		-- snippet 引擎
+		use("hrsh7th/vim-vsnip")
+		-- 补全源
+		use("hrsh7th/cmp-vsnip")
+		use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
+		use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+		use("hrsh7th/cmp-path") -- { name = 'path' }
+		use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
 
-        -- 常见编程语言代码段
-        use("rafamadriz/friendly-snippets")
+		-- 常见编程语言代码段
+		use("rafamadriz/friendly-snippets")
 
-        -- ui
-        use("onsails/lspkind-nvim")
+		-- ui
+		use("onsails/lspkind-nvim")
 
-        -- indent-blankline
-        use("lukas-reineke/indent-blankline.nvim")
+		-- indent-blankline
+		use("lukas-reineke/indent-blankline.nvim")
 
-        --
-        use("glepnir/lspsaga.nvim")
+		--
+		use("glepnir/lspsaga.nvim")
 
-        -- 格式化
-        use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+		-- 格式化
+		use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 
-        -- 成对括号
-        use("windwp/nvim-autopairs")
+		-- 成对括号
+		use("windwp/nvim-autopairs")
 
-        -- 注释
-        use("numToStr/Comment.nvim")
+		-- 注释
+		use("numToStr/Comment.nvim")
 
-        -- name = gitblame
-        use("f-person/git-blame.nvim")
+		-- name = gitblame
+		use("f-person/git-blame.nvim")
 
-        -- 丝滑的移动
-        use("karb94/neoscroll.nvim")
+		-- 丝滑的移动
+		use("karb94/neoscroll.nvim")
 
-        -- markdown preview
-        use {"ellisonleao/glow.nvim"}
-    end,
+		-- markdown preview
+		use({ "ellisonleao/glow.nvim" })
 
-    config = {
-        -- 快照保存位置目录, 与 init.lua 文件同级位置
-        snapshot_path = "snapshot",
-        -- 并发数限制
-        max_jobs = 4,
-        --
-        display = {
-            open_fn = function()
-                return require("packer.util").float({ border = "single" })
-            end,
-        },
-        -- 自定义源
-        git = {
-            -- default_url_format = "https://hub.fastgit.xyz/%s",
-            -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
-            -- default_url_format = "https://gitcode.net/mirrors/%s",
-            -- default_url_format = "https://gitclone.com/github.com/%s",
-        },
-    },
+		-- auto-save
+		use({ "Pocco81/auto-save.nvim" })
+		-- 显示空格
+		use({ "ntpeters/vim-better-whitespace" })
+
+		-- git diff
+		use({ "airblade/vim-gitgutter" })
+
+		-- tool notify
+		use({ "rcarriga/nvim-notify" })
+		--
+		use({ "akinsho/toggleterm.nvim", tag = "v2.2.1" })
+	end,
+
+	config = {
+		-- 快照保存位置目录, 与 init.lua 文件同级位置
+		snapshot_path = "snapshot",
+		-- 并发数限制
+		max_jobs = 16,
+		--
+		display = {
+			open_fn = function()
+				return require("packer.util").float({ border = "single" })
+			end,
+		},
+		-- 自定义源
+		git = {
+			-- default_url_format = "https://hub.fastgit.xyz/%s",
+			-- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
+			-- default_url_format = "https://gitcode.net/mirrors/%s",
+			-- default_url_format = "https://gitclone.com/github.com/%s",
+		},
+	},
 })
 
 -- 每次保存 plugins.lua 自动安装插件
 -- autocmd BufWritePost plugins.lua source <afile> | PackerSync
 -- autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 pcall(
-    vim.cmd,
-    [[
+	vim.cmd,
+	[[
     augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
     augroup end
   ]]
 )
-
