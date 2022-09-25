@@ -186,8 +186,13 @@ pluginKeys.comment = {
 	},
 }
 
-pluginKeys.toggleterm = {
-	[""] = "",
-}
+-- vim-gitgutter
+-- Both of those take a preceding count.
+-- jump to next hunk
+map("n", "<leader>ghn", ":GitGutterNextHunk<CR>", opt)
+-- jump to previous hunk
+map("n", "<leader>ghp", ":GitGutterPrevHunk<CR>", opt)
+-- preview diff
+map("n", "<leader>hp", ":GitGutterPreviewHunk<CR>", opt)
 
 return pluginKeys

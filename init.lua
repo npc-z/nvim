@@ -49,8 +49,11 @@ local function init_plugin()
 	-- 行尾空格高亮
 	require_fail_and_continue("plugin-config.better-whitespace")
 	-- toggleterm
-	-- require_fail_and_continue("plugin-config.toggleterm")
-	require("plugin-config.toggleterm")
+	require_fail_and_continue("plugin-config.toggleterm")
+	-- gitgutter
+	require_fail_and_continue("plugin-config.gitgutter")
+	-- 显示快捷键
+	require_fail_and_continue("plugin-config.which-key")
 end
 
 -- lsp config

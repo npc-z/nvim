@@ -1,5 +1,6 @@
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
+	require("utils").info("没有安装插件: toggleterm")
 	return
 end
 

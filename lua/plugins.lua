@@ -87,13 +87,18 @@ packer.startup({
 
 		-- tool notify
 		use({ "rcarriga/nvim-notify" })
-		--
+
+		-- 开关终端
 		use({ "akinsho/toggleterm.nvim", tag = "v2.2.1" })
+		-- 显示 keymap
+		use({ "folke/which-key.nvim" })
 	end,
 
 	config = {
-		-- 快照保存位置目录, 与 init.lua 文件同级位置
-		snapshot_path = "snapshot",
+		-- 快照保存位置目录, 使用绝对路径, 否则每个打开的项目都会创建此目录
+		snapshot_path = "/home/npc/.config/nvim/snapshot",
+		-- Name of the snapshot you would like to load at startup
+		snapshot = "v1.4",
 		-- 并发数限制
 		max_jobs = 16,
 		--
