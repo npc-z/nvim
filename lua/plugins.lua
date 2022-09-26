@@ -38,10 +38,13 @@ packer.startup({
 
 		-- 补全引擎
 		use("hrsh7th/nvim-cmp")
+		-- use("L3MON4D3/LuaSnip")
 		-- snippet 引擎
 		use("hrsh7th/vim-vsnip")
+		-- use("saadparwaiz1/cmp_luasnip")
+
 		-- 补全源
-		use("hrsh7th/cmp-vsnip")
+		-- use("hrsh7th/cmp-vsnip")
 		use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
 		use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
 		use("hrsh7th/cmp-path") -- { name = 'path' }

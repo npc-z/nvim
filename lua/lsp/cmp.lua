@@ -12,7 +12,7 @@ cmp.setup({
 			vim.fn["vsnip#anonymous"](args.body)
 
 			-- For `luasnip` users.
-			-- require('luasnip').lsp_expand(args.body)
+			-- require("luasnip").lsp_expand(args.body)
 
 			-- For `ultisnips` users.
 			-- vim.fn["UltiSnips#Anon"](args.body)
@@ -28,7 +28,7 @@ cmp.setup({
 		{ name = "vsnip" },
 
 		-- For luasnip users.
-		-- { name = 'luasnip' },
+		-- { name = "luasnip" },
 
 		--For ultisnips users.
 		-- { name = 'ultisnips' },

@@ -133,15 +133,34 @@ else
 	-- map("t", "<S-j>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 end
 
+local check_backspace = function()
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+end
+
 --
 -- nvim-cmp 自动补全
 --
 pluginKeys.cmp = function(cmp)
+	-- 在下面绑定 tab 健时有用
+	-- require('luasnip') -- For `luasnip` users.
+	-- require('snippy') -- For `snippy` users.
+	-- local status, luasnip = pcall(require, "luasnip")
+	-- if not status then
+	-- 	vim.notify("没有安装插件: luasnip")
+	-- 	return
+	-- end
+
+	-- for `vsnip` users
+	local vsnip = vim.fn["vsnip#anonymous"]
+	-- For `ultisnips` users.
+	-- vim.fn["UltiSnips#Anon"]
+
 	return {
 		-- 出现补全
 		["<C-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		-- 取消
-		["<C-,>"] = cmp.mapping({
+		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
@@ -157,6 +176,38 @@ pluginKeys.cmp = function(cmp)
 		-- 如果窗口内容太多，可以滚动
 		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+				-- vsnip 不支持函数模板
+				-- elseif vsnip.expandable() then
+				-- vsnip.expand({})
+				-- elseif vsnip.expand_or_jumpable() then
+				-- vsnip.expand_or_jump()
+			elseif check_backspace() then
+				fallback()
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+		}),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+				-- vsnip 不支持函数模板
+				-- elseif vsnip.jumpable(-1) then
+				-- vsnip.jump(-1)
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+		}),
 	}
 end
 
