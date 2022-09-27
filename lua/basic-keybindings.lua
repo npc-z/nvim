@@ -33,7 +33,7 @@ map("n", "<C-a>", "0w", opt)
 map("n", "<C-e>", "$", opt)
 
 -- 选中整个文件
-map("n", "va", "ggVG", opt)
+map("n", "vall", "ggVG", opt)
 -- 复制整个文件
 map("n", "ya", "ggVGy<C-o>", opt)
 
