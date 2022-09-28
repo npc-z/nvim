@@ -92,7 +92,7 @@ map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 
 -- 在 visual 模式中粘贴不要复制
-map("v", "p", '"_dp', opt)
+map("v", "p", '"_dP', opt)
 
 -- 退出
 map("n", "<leader>q", ":q<CR>", opt)

@@ -4,6 +4,8 @@
 -- vim.bo.{option}: buffer-local 选项
 -- vim.wo.{option}: window-local 选项
 
+vim.g.clipboard = "unnamedplus"
+
 -- utf-8
 vim.g.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
