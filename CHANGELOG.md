@@ -1,5 +1,15 @@
 change log
 
+## v1.5
+> 2022-10-02
+
+- 添加插件 rest-nvim/rest.nvim, 方便测试 http api
+- fix snapshop path
+- fix past in v mode and config clipboard
+- format some code
+- 调整补全时的样式, 调整补全时 tab 键功能
+
+
 ## v1.4
 > 2022-09-25
 
