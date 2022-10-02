@@ -1,5 +1,8 @@
 local packer = require("packer")
 
+local home_dir = os.getenv("HOME")
+local nvim_config_path = home_dir .. "/.config/nvim/"
+
 packer.startup({
 	function(use)
 		-- Packer 可以管理自己本身
@@ -103,7 +106,7 @@ packer.startup({
 
 	config = {
 		-- 快照保存位置目录, 使用绝对路径, 否则每个打开的项目都会创建此目录
-		snapshot_path = "/home/npc/.config/nvim/snapshot",
+		snapshot_path = nvim_config_path .. "snapshot",
 		-- Name of the snapshot you would like to load at startup
 		snapshot = "v1.4",
 		-- 并发数限制
