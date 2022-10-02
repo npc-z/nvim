@@ -29,13 +29,15 @@ map("i", "<C-b>", "<C-o>h", opt)
 -- 跳到行首行尾
 map("i", "<C-a>", "<Esc>I", opt)
 map("i", "<C-e>", "<Esc>A", opt)
-map("n", "<C-a>", "0w", opt)
+-- map("n", "<C-a>", "0w", opt)
+map("n", "0", "^", opt)
+map("n", "^", "0", opt)
 map("n", "<C-e>", "$", opt)
 
 -- 选中整个文件
 map("n", "vall", "ggVG", opt)
 -- 复制整个文件
-map("n", "ya", "ggVGy<C-o>", opt)
+-- map("n", "ya", "ggVGy<C-o>", opt)
 
 -- 窗口快捷键
 -- 取消 s 默认功能
@@ -48,10 +50,10 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt)
 -- Alt + hjkl 创建之间跳转
-map("n", "<A-h>", "<C-w>h", opt)
-map("n", "<A-j>", "<C-w>j", opt)
-map("n", "<A-k>", "<C-w>k", opt)
-map("n", "<A-l>", "<C-w>l", opt)
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-l>", "<C-w>l", opt)
 
 -- 左右比例控制
 map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
