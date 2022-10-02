@@ -95,6 +95,10 @@ packer.startup({
 		use({ "akinsho/toggleterm.nvim", tag = "v2.2.1" })
 		-- 显示 keymap
 		use({ "folke/which-key.nvim" })
+
+		-- web dev
+		-- http restful
+		use({ " NTBBloodbath/rest.nvim ", requires = "nvim-lua/plenary.nvim" })
 	end,
 
 	config = {
@@ -128,7 +132,7 @@ pcall(
 	[[
     augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
   ]]
 )

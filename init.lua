@@ -16,6 +16,11 @@ local function init_basic()
 	require_fail_and_continue("colorscheme")
 end
 
+local function init_web_dev_plugin()
+	-- http rest
+	require_fail_and_continue("plugin-config.http-rest")
+end
+
 -- 插件配置
 local function init_plugin()
 	-- 文件树
@@ -54,6 +59,8 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.gitgutter")
 	-- 显示快捷键
 	require_fail_and_continue("plugin-config.which-key")
+	--
+	init_web_dev_plugin()
 end
 
 -- lsp config

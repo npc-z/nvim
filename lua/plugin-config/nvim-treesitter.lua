@@ -18,6 +18,7 @@ treesitter.setup({
 		"tsx",
 		"python",
 		"go",
+		"http",
 	},
 	-- 启用代码高亮模块
 	highlight = {
