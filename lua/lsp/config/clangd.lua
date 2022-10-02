@@ -4,7 +4,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 local opts = {
 	settings = {
-		go = {},
+		clangd = {},
 	},
 
 	--
