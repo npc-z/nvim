@@ -42,7 +42,8 @@ diffview.setup({
 		},
 		merge_tool = {
 			-- Config for conflicted files in diff views during a merge or rebase.
-			layout = "diff3_horizontal",
+			-- layout = "diff3_horizontal",
+			layout = "diff1_plain",
 			disable_diagnostics = true, -- Temporarily disable diagnostics for conflict buffers while in the view.
 		},
 		file_history = {
@@ -97,8 +98,8 @@ diffview.setup({
 			["gf"] = actions.goto_file, -- Open the file in a new split in the previous tabpage
 			["<C-w><C-f>"] = actions.goto_file_split, -- Open the file in a new split
 			["<C-w>gf"] = actions.goto_file_tab, -- Open the file in a new tabpage
-			["<leader>e"] = actions.focus_files, -- Bring focus to the file panel
-			["<leader>b"] = actions.toggle_files, -- Toggle the file panel.
+			-- ["<leader>e"] = actions.focus_files, -- Bring focus to the file panel
+			["<leader>e"] = actions.toggle_files, -- Toggle the file panel.
 			["g<C-x>"] = actions.cycle_layout, -- Cycle through available layouts.
 			["[x"] = actions.prev_conflict, -- In the merge_tool: jump to the previous conflict
 			["]x"] = actions.next_conflict, -- In the merge_tool: jump to the next conflict

@@ -13,8 +13,8 @@ toggleterm.setup({
 			return vim.o.columns * 0.4
 		end
 	end,
-	open_mapping = [[<C-j>]],
-	-- open_mapping = [[<leader>t]],
+	-- open_mapping = [[<C-j>]],
+	open_mapping = [[<leader>t]],
 	-- on_open = fun(t: Terminal), -- function to run when the terminal opens
 	-- on_close = fun(t: Terminal), -- function to run when the terminal closes
 	-- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
