@@ -1,5 +1,11 @@
 change log
 
+## v1.7
+> 2022-10-07
+
+- add plugins(auto-session/session-lens) for work session manager
+- update some keymaps
+
 ## v1.6
 > 2022-10-07
 

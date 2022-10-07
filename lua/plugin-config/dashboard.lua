@@ -19,6 +19,11 @@ db.custom_footer = make_custom_footer()
 
 db.custom_center = {
 	{
+		icon = "  ",
+		desc = "Sessions                            ",
+		action = "SearchSession",
+	},
+	{
 		icon = "  ",
 		desc = "Projects                            ",
 		action = "Telescope projects",
