@@ -74,9 +74,6 @@ packer.startup({
 		-- 注释
 		use("numToStr/Comment.nvim")
 
-		-- name = gitblame
-		use("f-person/git-blame.nvim")
-
 		-- 丝滑的移动
 		use("karb94/neoscroll.nvim")
 
@@ -85,11 +82,13 @@ packer.startup({
 
 		-- auto-save
 		use({ "Pocco81/auto-save.nvim" })
+
 		-- 显示空格
 		use({ "ntpeters/vim-better-whitespace" })
 
-		-- git diff
-		use({ "airblade/vim-gitgutter" })
+		-- git
+		use({ "lewis6991/gitsigns.nvim" })
+		use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 		-- tool notify
 		use({ "rcarriga/nvim-notify" })
@@ -111,7 +110,7 @@ packer.startup({
 		-- 快照保存位置目录, 使用绝对路径, 否则每个打开的项目都会创建此目录
 		snapshot_path = nvim_config_path .. "snapshot",
 		-- Name of the snapshot you would like to load at startup
-		snapshot = "v1.5",
+		snapshot = "v1.6",
 		-- 并发数限制
 		max_jobs = 16,
 		--

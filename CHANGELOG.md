@@ -1,5 +1,15 @@
 change log
 
+## v1.6
+> 2022-10-07
+
+- add plugin quick-scope to help move within line quickly
+- add plugins of git(gitsigns and diffview) and remove the git-blame and gitgutter
+- update dashboard footer
+- update lsp server setup method
+- update some keymaps
+
+
 ## v1.5
 > 2022-10-02
 

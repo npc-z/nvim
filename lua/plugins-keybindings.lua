@@ -237,13 +237,56 @@ pluginKeys.comment = {
 	},
 }
 
--- vim-gitgutter
--- Both of those take a preceding count.
--- jump to next hunk
-map("n", "<leader>ghn", ":GitGutterNextHunk<CR>", opt)
--- jump to previous hunk
-map("n", "<leader>ghp", ":GitGutterPrevHunk<CR>", opt)
--- preview diff
-map("n", "<leader>hp", ":GitGutterPreviewHunk<CR>", opt)
+-- gitsigns keymap
+pluginKeys.gitsigns_keymap = function(bufnr)
+	local gs = package.loaded.gitsigns
+
+	local function gitmap(mode, l, r, opts)
+		opts = opts or { noremap = true, silent = true }
+		opts.buffer = bufnr
+		vim.keymap.set(mode, l, r, opts)
+	end
+
+	-- Navigation
+	gitmap("n", "<leader>hn", function()
+		if vim.wo.diff then
+			return "<leader>hn"
+		end
+		vim.schedule(function()
+			gs.next_hunk()
+		end)
+		return "<Ignore>"
+	end, { expr = true })
+
+	gitmap("n", "<leader>hN", function()
+		if vim.wo.diff then
+			return "<leader>hN"
+		end
+		vim.schedule(function()
+			gs.prev_hunk()
+		end)
+		return "<Ignore>"
+	end, { expr = true })
+
+	-- Actions
+	gitmap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+	-- gitmap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+	gitmap("n", "<leader>hS", gs.stage_buffer)
+	gitmap("n", "<leader>hu", gs.undo_stage_hunk)
+	-- gitmap("n", "<leader>hR", gs.reset_buffer)
+	gitmap("n", "<leader>hp", gs.preview_hunk)
+	-- gitmap("n", "<leader>hb", function()
+	-- 	gs.blame_line({ full = true })
+	-- end)
+	-- gitmap("n", "<leader>tb", gs.toggle_current_line_blame)
+	-- gitmap("n", "<leader>hD", gs.diffthis)
+	gitmap("n", "<leader>hd", function()
+		gs.diffthis("~")
+	end)
+	-- gitmap("n", "<leader>td", gs.toggle_deleted)
+
+	-- Text object
+	-- gitmap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+end
 
 return pluginKeys

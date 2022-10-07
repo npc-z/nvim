@@ -43,8 +43,6 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.nvim-autopairs")
 	-- 注释
 	require_fail_and_continue("plugin-config.comment")
-	-- git blame
-	require_fail_and_continue("plugin-config.git-blame")
 	-- smooth move
 	require_fail_and_continue("plugin-config.neoscroll")
 	-- markdown preview
@@ -55,8 +53,9 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.better-whitespace")
 	-- toggleterm
 	require_fail_and_continue("plugin-config.toggleterm")
-	-- gitgutter
-	require_fail_and_continue("plugin-config.gitgutter")
+	-- git
+	require_fail_and_continue("plugin-config.gitsigns")
+	require_fail_and_continue("plugin-config.diffview")
 	-- 显示快捷键
 	require_fail_and_continue("plugin-config.which-key")
 	--
