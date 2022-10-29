@@ -114,7 +114,7 @@ packer.startup({
 		-- 快照保存位置目录, 使用绝对路径, 否则每个打开的项目都会创建此目录
 		snapshot_path = nvim_config_path .. "snapshot",
 		-- Name of the snapshot you would like to load at startup
-		snapshot = "v1.7",
+		-- snapshot = "v1.7",
 		-- 并发数限制
 		max_jobs = 16,
 		--
@@ -141,7 +141,7 @@ pcall(
 	[[
     augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
     augroup end
   ]]
 )
