@@ -1,5 +1,12 @@
 change log
 
+## v1.8
+> 2022-10-29
+
+- add plugin: hop.nvim, for quickly jump
+- do not use snapshop and always update plugins
+
+
 ## v1.7
 > 2022-10-07
 

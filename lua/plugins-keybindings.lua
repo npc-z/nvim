@@ -289,4 +289,15 @@ pluginKeys.gitsigns_keymap = function(bufnr)
 	-- gitmap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 end
 
+pluginKeys.hop_keybings = function()
+	-- go to any line
+	map("n", "<leader>gl", ":HopLine<CR>", opt)
+	map("n", "/", ":HopPattern<CR>", opt)
+	-- 改变 f 的工作方式, 查找当前行所有单字符, 而不仅是光标之后的
+	map("", "f", ":HopChar1CurrentLine<CR>", opt)
+	map("", "F", ":HopChar1CurrentLineBC<CR>", opt)
+	map("", "t", ":HopChar1CurrentLineAC<CR>", opt)
+	map("", "T", ":HopChar1CurrentLineBC<CR>", opt)
+end
+
 return pluginKeys

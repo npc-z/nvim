@@ -1,13 +1,22 @@
 -- 自定义工具函数
 
+local notify_ok, notify = pcall(require, "notify")
 -- log
 local function log(body)
-	require("notify")(body, "info", { title = "log info" })
+	if notify_ok then
+		notify(body, "info", { title = "log info" })
+	else
+		vim.notify(body)
+	end
 end
 
 -- info
 local function info(body)
-	require("notify")(body, "info", { title = "info" })
+	if notify_ok then
+		notify(body, "info", { title = "info" })
+	else
+		vim.notify(body)
+	end
 end
 
 ---@type fun(filepath: string)

@@ -104,6 +104,10 @@ packer.startup({
 
 		-- 行内快速跳转提示
 		use("unblevable/quick-scope")
+		use({
+			"phaazon/hop.nvim",
+			branch = "v2", -- optional but strongly recommended
+		})
 
 		-- web dev
 		-- http restful

@@ -46,6 +46,7 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.comment")
 	-- smooth move
 	require_fail_and_continue("plugin-config.neoscroll")
+	require_fail_and_continue("plugin-config.hop")
 	-- markdown preview
 	require_fail_and_continue("plugin-config.glow")
 	-- auto save buffer
@@ -59,6 +60,8 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.diffview")
 	-- 显示快捷键
 	require_fail_and_continue("plugin-config.which-key")
+	-- nofity
+	require_fail_and_continue("plugin-config.notify")
 	--
 	init_web_dev_plugin()
 end
