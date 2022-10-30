@@ -69,17 +69,17 @@ packer.startup({
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
 		-- lsp
-		use("williamboman/nvim-lsp-installer")
-		-- Lspconfig
-		use({ "neovim/nvim-lspconfig" })
-
+		use({
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+		})
 		-- 补全引擎
 		use("hrsh7th/nvim-cmp")
 		-- use("L3MON4D3/LuaSnip")
 		-- snippet 引擎
 		use("hrsh7th/vim-vsnip")
 		-- use("saadparwaiz1/cmp_luasnip")
-
 		-- 补全源
 		-- use("hrsh7th/cmp-vsnip")
 		use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }

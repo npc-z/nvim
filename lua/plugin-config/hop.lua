@@ -7,4 +7,4 @@ end
 -- hop.setup({ keys = "etovxqpdygfblzhckisuran" })
 hop.setup({ keys = "adfghklqweruiopmnvc" })
 
-require("lua.plugins-keybindings").hop_keybings()
+require("plugins-keybindings").hop_keybings()

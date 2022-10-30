@@ -1,5 +1,13 @@
 change log
 
+## v2.0
+> 2022-10-30
+
+- use mason insead of lsp-installer
+- re-config lsp server
+- some other keymaps change
+
+
 ## v1.9
 > 2022-10-30
 
