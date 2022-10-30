@@ -20,3 +20,32 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         ]])
 	end,
 })
+
+vim.cmd([[
+    augroup _general_settings
+    autocmd!
+    " outline set keymap
+    " or use nvim_set_keymap to set a global keymap
+    autocmd FileType lspsagaoutline nnoremap <silent> <buffer> <leader>o  :LSoutlineToggle<CR>
+    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
+    " 在注释行插入模式下, 回车不要生成新的注释行
+    autocmd BufWinEnter * :set formatoptions-=cro
+    augroup end
+
+    augroup _git
+      autocmd!
+      autocmd FileType gitcommit setlocal wrap
+      autocmd FileType gitcommit setlocal spell
+    augroup end
+
+    augroup _markdown
+      autocmd!
+      autocmd FileType markdown setlocal wrap
+      autocmd FileType markdown setlocal spell
+    augroup end
+
+    augroup _auto_resize
+      autocmd!
+      autocmd VimResized * tabdo wincmd =
+    augroup end
+]])
