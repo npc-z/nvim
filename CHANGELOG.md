@@ -1,5 +1,12 @@
 change log
 
+## v1.9
+> 2022-10-30
+
+- change to use nvim 0.8.0
+- update some config to suit new nvim
+
+
 ## v1.8
 > 2022-10-29
 

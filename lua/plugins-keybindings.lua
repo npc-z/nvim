@@ -88,7 +88,7 @@ pluginKeys.mapLSP = function(mapbuf)
 	-- mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
 	-- mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
 	-- mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-	-- mapbuf("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+	-- mapbuf("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
 	--
 
 	-- 使用 Lspsaga
@@ -103,7 +103,7 @@ pluginKeys.mapLSP = function(mapbuf)
 	mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
 	mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
 	mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-	mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+	mapbuf("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
 
 	-- Outline
 	mapbuf("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })

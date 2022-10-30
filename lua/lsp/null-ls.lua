@@ -51,7 +51,7 @@ null_ls.setup({
 				callback = function()
 					-- 保存自动格式化
 					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					vim.lsp.buf.formatting_sync()
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end
