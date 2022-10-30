@@ -108,5 +108,7 @@ vim.o.listchars = "trail:·"
 -- 显示 tabline
 vim.o.showtabline = 2
 
+vim.cmd([[set iskeyword+=-]])
+
 -- 使用增强状态栏插件后不再需要 vim 的显示提示
 -- vim.o.showmode = false

@@ -36,6 +36,15 @@ pluginKeys.nvimTreeList = {
 -- 左右Tab切换
 map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", opt)
+map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", opt)
+map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", opt)
+map("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>", opt)
+map("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>", opt)
+map("n", "<leader>6", ":BufferLineGoToBuffer 6<CR>", opt)
+map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", opt)
+map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opt)
+map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opt)
 
 -- 关闭
 map("n", "<C-w>", ":bdelete<CR>", opt)
@@ -292,7 +301,7 @@ end
 pluginKeys.hop_keybings = function()
 	-- go to any line
 	map("n", "<leader>gl", ":HopLine<CR>", opt)
-	map("n", "/", ":HopPattern<CR>", opt)
+	map("n", "ss", ":HopPattern<CR>", opt)
 	-- 改变 f 的工作方式, 查找当前行所有单字符, 而不仅是光标之后的
 	map("", "f", ":HopChar1CurrentLine<CR>", opt)
 	map("", "F", ":HopChar1CurrentLineBC<CR>", opt)

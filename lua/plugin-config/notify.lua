@@ -4,4 +4,11 @@ if not ok then
 	return
 end
 
-vim.notify = require("notify")
+notify.setup({
+	-- 在下面显示
+	top_down = false,
+	stages = "fade_in_slide_out",
+	background_colour = "FloatShadow",
+})
+
+vim.notify = notify
