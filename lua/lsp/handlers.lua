@@ -5,6 +5,8 @@ if not status_cmp_ok then
 	return
 end
 
+local has_value = require("utils").has_value
+
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
@@ -52,11 +54,13 @@ M.setup = function()
 end
 
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
-		client.server_capabilities.documentFormattingProvider = false
-	end
+	local format_by_null_ls_servers = {
+		"tsserver",
+		"sumneko_lua",
+		-- "clang",
+	}
 
-	if client.name == "sumneko_lua" then
+	if has_value(format_by_null_ls_servers, client.name) then
 		client.server_capabilities.documentFormattingProvider = false
 	end
 

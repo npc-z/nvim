@@ -36,15 +36,15 @@ pluginKeys.nvimTreeList = {
 -- 左右Tab切换
 map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
-map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", opt)
-map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", opt)
-map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", opt)
-map("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>", opt)
-map("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>", opt)
-map("n", "<leader>6", ":BufferLineGoToBuffer 6<CR>", opt)
-map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", opt)
-map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opt)
-map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opt)
+map("n", "<leader>b2", ":BufferLineGoToBuffer 1<CR>", opt)
+map("n", "<leader>b2", ":BufferLineGoToBuffer 2<CR>", opt)
+map("n", "<leader>b3", ":BufferLineGoToBuffer 3<CR>", opt)
+map("n", "<leader>b4", ":BufferLineGoToBuffer 4<CR>", opt)
+map("n", "<leader>b5", ":BufferLineGoToBuffer 5<CR>", opt)
+map("n", "<leader>b6", ":BufferLineGoToBuffer 6<CR>", opt)
+map("n", "<leader>b7", ":BufferLineGoToBuffer 7<CR>", opt)
+map("n", "<leader>b8", ":BufferLineGoToBuffer 8<CR>", opt)
+map("n", "<leader>b9", ":BufferLineGoToBuffer 9<CR>", opt)
 
 -- 关闭
 map("n", "<C-w>", ":bdelete<CR>", opt)
@@ -97,7 +97,7 @@ pluginKeys.mapLSP = function(mapbuf)
 	-- mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
 	-- mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
 	-- mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-	-- mapbuf("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
+	-- mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()w<CR>:w<CR>", opt)
 	--
 
 	-- 使用 Lspsaga
@@ -112,7 +112,7 @@ pluginKeys.mapLSP = function(mapbuf)
 	mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
 	mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
 	mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-	mapbuf("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
+	mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
 
 	-- Outline
 	mapbuf("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })

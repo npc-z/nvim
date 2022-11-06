@@ -80,6 +80,7 @@ funcs.split_filename = split_filename
 funcs.cur_buf_filename = cur_buf_filename
 funcs.cur_buf_filetype = cur_buf_filetype
 funcs.require_fail_and_continue = require_fail_and_continue
+funcs.has_value = has_value
 funcs.log = log
 
 return funcs

@@ -38,7 +38,8 @@ null_ls.setup({
 			},
 			prefer_local = "node_modules/.bin",
 		}),
-		-- formatting.fixjson,
+		formatting.fixjson,
+		-- formatting.clang_format,
 		-- formatting.black.with({ extra_args = { "--fast" } }),
 	},
 	-- you can reuse a shared lspconfig on_attach callback here

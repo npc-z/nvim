@@ -101,3 +101,22 @@ map("v", "p", '"_dP', opt)
 -- 退出
 map("n", "<leader>q", ":q<CR>", opt)
 map("n", "<leader>wq", ":wq<CR>", opt)
+
+-- 编辑相关
+map("n", "<leader>uw", "gUiw", opt)
+map("n", "<leader>lw", "guiw", opt)
+
+-- 交换以下数字键和符号
+-- 应该考虑使用 ftplugin
+map("i", "-", "_", opt)
+map("i", "_", "-", opt)
+
+map("i", "7", "&", opt)
+map("i", "&", "7", opt)
+
+map("i", "8", "*", opt)
+map("i", "*", "8", opt)
+
+map("i", "9", "(", opt)
+
+map("i", "0", ")", opt)
