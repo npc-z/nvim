@@ -116,7 +116,7 @@ local function __init_lspsaga(saga)
 		-- show symbols in winbar must nightly
 		symbol_in_winbar = {
 			in_custom = false,
-			enable = true,
+			enable = false,
 			separator = " ",
 			show_file = false,
 			click_support = function(node, clicks, button, modifiers)

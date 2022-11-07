@@ -142,6 +142,12 @@ packer.startup({
 		-- web dev
 		-- http restful
 		use({ "rest-nvim/rest.nvim", requires = "nvim-lua/plenary.nvim" })
+
+		-- trouble list
+		use({
+			"folke/trouble.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+		})
 	end,
 
 	config = {

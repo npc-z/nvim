@@ -1,5 +1,13 @@
 change log
 
+
+## v2.1
+> 2022-11-07
+
+- add plugin: trouble
+- update some keymaps
+
+
 ## v2.0
 > 2022-10-30
 

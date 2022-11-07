@@ -62,6 +62,8 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.which-key")
 	-- nofity
 	require_fail_and_continue("plugin-config.notify")
+	-- trouble
+	require_fail_and_continue("plugin-config.trouble")
 	--
 	init_web_dev_plugin()
 end
