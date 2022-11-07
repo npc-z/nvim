@@ -10,6 +10,8 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	debug = false,
 	sources = {
+		-- add code_actions for git opreates
+		null_ls.builtins.code_actions.gitsigns,
 		-- Formatting ---------------------
 		--  brew install shfmt
 		formatting.shfmt,

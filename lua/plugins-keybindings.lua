@@ -56,8 +56,16 @@ map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opt)
 -- Telescope
 -- 查找文件
 map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
+
 -- 全局搜索
 map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
+
+-- git branches
+map("n", "<leader>fb", ":Telescope git_branches<CR>", opt)
+
+-- work sessions
+map("n", "<leader>fs", ":Telescope session-lens search_session<CR>", opt)
+
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
 	i = {

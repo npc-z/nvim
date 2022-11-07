@@ -35,6 +35,7 @@ map("i", "<C-e>", "<Esc>A", opt)
 map("n", "0", "^", opt)
 map("n", "^", "0", opt)
 map("n", "<C-e>", "$", opt)
+map("n", "<leader>gp", "%", opt)
 
 -- 选中整个文件
 map("n", "vall", "ggVG", opt)
