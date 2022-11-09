@@ -125,9 +125,9 @@ pluginKeys.mapLSP = function(mapbuf)
 	mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
 	mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
 	-- diagnostic
-	mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-	mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-	mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+	mapbuf("n", "gdp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+	mapbuf("n", "gdj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
+	mapbuf("n", "gdk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
 	mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
 
 	-- Outline
@@ -273,9 +273,9 @@ pluginKeys.gitsigns_keymap = function(bufnr)
 	end
 
 	-- Navigation
-	gitmap("n", "<leader>hn", function()
+	gitmap("n", "gj", function()
 		if vim.wo.diff then
-			return "<leader>hn"
+			return "gj"
 		end
 		vim.schedule(function()
 			gs.next_hunk()
@@ -283,9 +283,9 @@ pluginKeys.gitsigns_keymap = function(bufnr)
 		return "<Ignore>"
 	end, { expr = true })
 
-	gitmap("n", "<leader>hN", function()
+	gitmap("n", "gk", function()
 		if vim.wo.diff then
-			return "<leader>hN"
+			return "gk"
 		end
 		vim.schedule(function()
 			gs.prev_hunk()
@@ -299,7 +299,7 @@ pluginKeys.gitsigns_keymap = function(bufnr)
 	gitmap("n", "<leader>hS", gs.stage_buffer)
 	gitmap("n", "<leader>hu", gs.undo_stage_hunk)
 	-- gitmap("n", "<leader>hR", gs.reset_buffer)
-	gitmap("n", "<leader>hp", gs.preview_hunk)
+	gitmap("n", "gp", gs.preview_hunk)
 	-- gitmap("n", "<leader>hb", function()
 	-- 	gs.blame_line({ full = true })
 	-- end)

@@ -1,6 +1,13 @@
 change log
 
 
+## v2.2
+- 2022-11-09
+
+- add plugin: illuminate for automatically highlighting other uses of the word under the cursor
+- update some keymaps
+
+
 ## v2.1
 > 2022-11-07
 

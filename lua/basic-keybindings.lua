@@ -28,13 +28,18 @@ map("i", "<C-f>", "<Right>", opt)
 map("i", "<C-b>", "<Left>", opt)
 map("i", "<C-p>", "<Up>", opt)
 map("i", "<C-n>", "<Down>", opt)
+
 -- 跳到行首行尾
 map("i", "<C-a>", "<Esc>I", opt)
 map("i", "<C-e>", "<Esc>A", opt)
--- map("n", "<C-a>", "0w", opt)
+map("i", "<C-h>", "<Bs>", opt)
+map("i", "<C-d>", "<Del>", opt)
+
+map("n", "<C-a>", "0", opt)
 map("n", "0", "^", opt)
 map("n", "^", "0", opt)
 map("n", "<C-e>", "$", opt)
+-- 跳转至对应 pair
 map("n", "<leader>gp", "%", opt)
 
 -- 选中整个文件

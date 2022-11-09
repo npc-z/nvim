@@ -90,6 +90,9 @@ packer.startup({
 		-- 常见编程语言代码段
 		use("rafamadriz/friendly-snippets")
 
+		-- Automatically highlighting other uses of the word under the cursor
+		use("RRethy/vim-illuminate")
+
 		-- ui
 		use("onsails/lspkind-nvim")
 

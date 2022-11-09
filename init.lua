@@ -78,6 +78,8 @@ local function init_lsp()
 	require_fail_and_continue("lsp.ui")
 	--
 	require_fail_and_continue("lsp.null-ls")
+	--
+	require_fail_and_continue("plugin-config.illuminate")
 end
 
 local function main()
