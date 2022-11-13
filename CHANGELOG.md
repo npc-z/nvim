@@ -1,8 +1,15 @@
 change log
 
 
+## v2.3
+> 2022-11-13
+
+- add plugin: nvim-treesitter-context, act as vscode's sticky scroll
+- do not hook vim.notify by notify plugin
+- turn off pyright type check
+
 ## v2.2
-- 2022-11-09
+> 2022-11-09
 
 - add plugin: illuminate for automatically highlighting other uses of the word under the cursor
 - update some keymaps

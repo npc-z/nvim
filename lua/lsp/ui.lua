@@ -80,7 +80,7 @@ local function __init_lspsaga(saga)
 			sign = true,
 			update_time = 150,
 			sign_priority = 20,
-			virtual_text = true,
+			virtual_text = false,
 		},
 		-- finder icons
 		finder_icons = {

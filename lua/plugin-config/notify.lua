@@ -11,4 +11,4 @@ notify.setup({
 	background_colour = "FloatShadow",
 })
 
-vim.notify = notify
+-- vim.notify = notify

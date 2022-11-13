@@ -38,6 +38,7 @@ local function init_plugin()
 	require_fail_and_continue("plugin-config.auto-session")
 	-- 语法高亮
 	require_fail_and_continue("plugin-config.nvim-treesitter")
+	require_fail_and_continue("plugin-config.treesitter-context")
 	-- 缩进竖线
 	require_fail_and_continue("plugin-config.indent-blankline")
 	-- 成对括号
