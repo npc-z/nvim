@@ -128,6 +128,8 @@ packer.startup({
 		-- git
 		use({ "lewis6991/gitsigns.nvim" })
 		use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+		-- like local history
+		use("mbbill/undotree")
 
 		-- tool notify
 		use({ "rcarriga/nvim-notify" })
