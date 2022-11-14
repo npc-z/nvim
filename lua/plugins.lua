@@ -88,6 +88,7 @@ packer.startup({
 		use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
 		use("hrsh7th/cmp-path") -- { name = 'path' }
 		use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+		use("ray-x/lsp_signature.nvim")
 
 		-- 常见编程语言代码段
 		use("rafamadriz/friendly-snippets")

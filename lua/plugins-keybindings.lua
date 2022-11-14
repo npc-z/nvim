@@ -52,6 +52,7 @@ map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opt)
+map("n", "<leader>bb", ":BufferLinePick<CR>", opt)
 
 -- Telescope
 -- 查找文件
