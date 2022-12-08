@@ -35,7 +35,6 @@ map("i", "<C-e>", "<Esc>A", opt)
 map("i", "<C-h>", "<Bs>", opt)
 map("i", "<C-d>", "<Del>", opt)
 
-map("n", "<C-a>", "0", opt)
 map("n", "0", "^", opt)
 map("n", "^", "0", opt)
 map("n", "<C-e>", "$", opt)
@@ -111,18 +110,3 @@ map("n", "<leader>wq", ":wq<CR>", opt)
 -- 编辑相关
 map("n", "<leader>uw", "gUiw", opt)
 map("n", "<leader>lw", "guiw", opt)
-
--- 交换以下数字键和符号
--- 应该考虑使用 ftplugin
-map("i", "-", "_", opt)
-map("i", "_", "-", opt)
-
-map("i", "7", "&", opt)
-map("i", "&", "7", opt)
-
-map("i", "8", "*", opt)
-map("i", "*", "8", opt)
-
-map("i", "9", "(", opt)
-
-map("i", "0", ")", opt)
