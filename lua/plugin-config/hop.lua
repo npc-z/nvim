@@ -5,6 +5,6 @@ end
 
 -- default
 -- hop.setup({ keys = "etovxqpdygfblzhckisuran" })
-hop.setup({ keys = "adfghklqweruiopmnvc" })
+hop.setup({ keys = "adghklqweruiopmnvc" })
 
 require("plugins-keybindings").hop_keybings()

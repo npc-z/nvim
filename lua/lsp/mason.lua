@@ -25,6 +25,7 @@ local servers = {
 	"sumneko_lua",
 	"gopls",
 	"clangd",
+	"tsserver",
 }
 
 mason_lspconfig.setup({

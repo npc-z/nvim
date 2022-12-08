@@ -41,6 +41,9 @@ map("n", "<C-e>", "$", opt)
 -- 跳转至对应 pair
 map("n", "<leader>gp", "%", opt)
 
+-- map("n", "j", "jzz", opt)
+-- map("n", "k", "kzz", opt)
+
 -- 选中整个文件
 map("n", "vall", "ggVG", opt)
 -- 复制整个文件
