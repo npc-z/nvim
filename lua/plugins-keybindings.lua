@@ -36,15 +36,6 @@ pluginKeys.nvimTreeList = {
 -- 左右Tab切换
 map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
-map("n", "<leader>b1", ":BufferLineGoToBuffer 1<CR>", opt)
-map("n", "<leader>b2", ":BufferLineGoToBuffer 2<CR>", opt)
-map("n", "<leader>b3", ":BufferLineGoToBuffer 3<CR>", opt)
-map("n", "<leader>b4", ":BufferLineGoToBuffer 4<CR>", opt)
-map("n", "<leader>b5", ":BufferLineGoToBuffer 5<CR>", opt)
-map("n", "<leader>b6", ":BufferLineGoToBuffer 6<CR>", opt)
-map("n", "<leader>b7", ":BufferLineGoToBuffer 7<CR>", opt)
-map("n", "<leader>b8", ":BufferLineGoToBuffer 8<CR>", opt)
-map("n", "<leader>b9", ":BufferLineGoToBuffer 9<CR>", opt)
 
 -- 关闭
 map("n", "<C-w>", ":bdelete<CR>", opt)

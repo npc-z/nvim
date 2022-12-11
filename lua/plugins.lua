@@ -156,6 +156,10 @@ packer.startup({
 			"folke/trouble.nvim",
 			requires = "kyazdani42/nvim-web-devicons",
 		})
+
+		-- 单词补全
+		use("skywind3000/vim-dict")
+		use("skywind3000/vim-auto-popmenu")
 	end,
 
 	config = {

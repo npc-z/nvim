@@ -14,6 +14,8 @@ local function init_basic()
 	require_fail_and_continue("plugins")
 	-- 主题
 	require_fail_and_continue("colorscheme")
+	-- vim dict
+	require("plugin-config.vim-dict")
 end
 
 local function init_web_dev_plugin()
