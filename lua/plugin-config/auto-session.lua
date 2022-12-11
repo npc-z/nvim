@@ -19,6 +19,7 @@ auto_session.setup({
 		"/",
 		"~/work",
 		"~/github",
+		"~/.local/share",
 	},
 	-- the configs below are lua only
 	bypass_session_save_file_types = nil,
@@ -33,7 +34,7 @@ if not status then
 end
 
 session_lens.setup({
-	path_display = { "shorten" },
+	-- path_display = { "shorten" },
 	theme_conf = { border = true },
 	previewer = false,
 	prompt_title = "work sessions",

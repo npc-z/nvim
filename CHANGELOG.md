@@ -1,4 +1,11 @@
-change log
+# change log
+
+
+## v2.3.1
+> 2022-12-11
+
+- update some keymaps and config
+- 常规更新插件版本
 
 
 ## v2.3
@@ -7,6 +14,7 @@ change log
 - add plugin: nvim-treesitter-context, act as vscode's sticky scroll
 - do not hook vim.notify by notify plugin
 - turn off pyright type check
+
 
 ## v2.2
 > 2022-11-09
