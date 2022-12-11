@@ -4,6 +4,12 @@ if not status then
 	return
 end
 
+-- 自定义函数定制信息
+-- 当前 buffer 的总行数
+local function total_lines()
+	return vim.api.nvim_buf_line_count(0)
+end
+
 lualine.setup({
 	options = {
 		theme = "auto",
@@ -34,6 +40,7 @@ lualine.setup({
 		},
 		lualine_x = {
 			"filesize",
+			total_lines,
 			{
 				"fileformat",
 				-- symbols = {

@@ -13,9 +13,9 @@ bufferline.setup({
 		-- 侧边栏配置
 		-- 左侧让出 nvim-tree 的位置，显示文字 File Explorer
 		-- For ₂
-		numbers = function(opts)
-			return string.format("%s", opts.lower(opts.ordinal))
-		end,
+		-- numbers = function(opts)
+		-- 	return string.format("%s", opts.lower(opts.ordinal))
+		-- end,
 		show_tab_indicators = true,
 		offsets = {
 			{
