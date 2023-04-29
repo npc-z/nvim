@@ -16,7 +16,7 @@ null_ls.setup({
         --  brew install shfmt
         formatting.shfmt,
         -- lua
-        formatting.stylua,
+        -- formatting.stylua,
         -- python
         formatting.isort,
         formatting.black,
