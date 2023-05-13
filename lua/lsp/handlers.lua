@@ -54,7 +54,7 @@ end
 
 M.on_attach = function(client, bufnr)
     local format_by_null_ls_servers = {
-        "tsserver",
+        -- "tsserver",
         -- "lua_ls",
         -- "clang",
     }
