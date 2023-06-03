@@ -131,31 +131,6 @@ else
     -- map("t", "<S-j>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 end
 
--- 代码注释插件
-pluginKeys.comment = {
-    -- Normal 模式快捷键
-    -- LHS of toggle mappings in NORMAL + VISUAL mode
-    -- @type table
-    toggler = {
-        ---Line-comment toggle keymap
-        -- For some reason, vim registers <C-/> as <C-_> (you can see it in insert mode using <C-v><C-/>).
-        -- It can be the terminal or a historical design thing that terminal apps have to suffer.
-        -- And Gvim doesn't even try to recognize <C-/>. Sees it as single /.
-        line = "<C-_>",
-        -- line = "<leader>/",
-        -- Block-comment toggle keymap
-        block = "gbc",
-    },
-    -- LHS of operator-pending mappings in NORMAL + VISUAL mode
-    -- @type table
-    opleader = {
-        ---Line-comment keymap
-        line = "gc",
-        ---Block-comment keymap
-        block = "gb",
-    },
-}
-
 -- gitsigns keymap
 pluginKeys.gitsigns_keymap = function(bufnr)
     local gs = package.loaded.gitsigns
