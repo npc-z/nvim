@@ -26,7 +26,8 @@ end
 -- 插件配置
 local function init_plugin()
     -- 文件树
-    require_fail_and_continue("plugin-config.nvim-tree")
+    -- require_fail_and_continue("plugin-config.nvim-tree")
+    require_fail_and_continue("plugin-config.neo-tree")
     -- buffer
     require_fail_and_continue("plugin-config.bufferline")
     -- lualine
@@ -49,6 +50,7 @@ local function init_plugin()
     require_fail_and_continue("plugin-config.comment")
     -- smooth move
     require_fail_and_continue("plugin-config.neoscroll")
+    -- quickly jump
     require_fail_and_continue("plugin-config.hop")
     -- markdown preview
     require_fail_and_continue("plugin-config.glow")
@@ -84,10 +86,37 @@ local function init_lsp()
     require_fail_and_continue("plugin-config.illuminate")
 end
 
+local function start_from_vscode()
+    vim.notify("start from vscode")
+    -- 基础设置
+    require_fail_and_continue("basic")
+    -- 基础快捷键
+    require_fail_and_continue("basic-keybindings")
+    -- nofity
+    require_fail_and_continue("plugin-config.notify")
+    -- 插件快捷键
+    require_fail_and_continue("plugins-keybindings")
+    -- 自定义命令
+    require_fail_and_continue("auto-commands")
+    -- vim dict
+    require_fail_and_continue("plugin-config.vim-dict")
+    -- 显示快捷键
+    require_fail_and_continue("plugin-config.which-key")
+    -- quickly jump
+    require_fail_and_continue("plugin-config.hop")
+    -- telescope
+    require_fail_and_continue("plugin-config.telescope")
+end
+
 local function main()
-    init_basic()
-    init_plugin()
-    init_lsp()
+    if vim.g.vscode then
+        start_from_vscode()
+    else
+        vim.notify("start from nvim")
+        init_basic()
+        init_plugin()
+        init_lsp()
+    end
 end
 
 main()

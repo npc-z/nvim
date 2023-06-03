@@ -43,7 +43,16 @@ packer.startup({
         use("joshdick/onedark.vim")
 
         -- nvim-tree
-        use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+        -- use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+        use {
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v2.x",
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+                "MunifTanjim/nui.nvim",
+            }
+        }
 
         -- bufferline
         use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = { "kyazdani42/nvim-web-devicons" } })

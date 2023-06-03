@@ -1,5 +1,11 @@
 # change log
 
+## v2.5.0
+> 2023-06-02
+
+- change `nvim-tree` to `neo-tree`
+
+
 ## v2.4.0
 > 2022-12-11
 

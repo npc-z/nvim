@@ -11,7 +11,9 @@ local pluginKeys = {}
 
 -- nivm-tree
 -- 打开文件树
-map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
+-- map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>e", ":NeoTreeFocusToggle<CR>", opt)
+map("n", "<leader>E", ":NeoTreeFloatToggle<CR>", opt)
 
 -- bufferline
 -- 左右Tab切换
