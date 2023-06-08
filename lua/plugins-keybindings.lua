@@ -85,9 +85,6 @@ pluginKeys.mapLSP = function(mapbuf)
     -- code action
     mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
     -- diagnostic
-    mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-    mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-    mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
     mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()w<CR>:w<CR>", opt)
     --
 
@@ -131,58 +128,6 @@ else
     -- mapbuf("n", "<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
     -- close floaterm
     -- map("t", "<S-j>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
-end
-
--- gitsigns keymap
-pluginKeys.gitsigns_keymap = function(bufnr)
-    local gs = package.loaded.gitsigns
-
-    local function gitmap(mode, l, r, opts)
-        opts = opts or { noremap = true, silent = true }
-        opts.buffer = bufnr
-        vim.keymap.set(mode, l, r, opts)
-    end
-
-    -- Navigation
-    gitmap("n", "gj", function()
-        if vim.wo.diff then
-            return "gj"
-        end
-        vim.schedule(function()
-            gs.next_hunk()
-        end)
-        return "<Ignore>"
-    end, { expr = true })
-
-    gitmap("n", "gk", function()
-        if vim.wo.diff then
-            return "gk"
-        end
-        vim.schedule(function()
-            gs.prev_hunk()
-        end)
-        return "<Ignore>"
-    end, { expr = true })
-
-    -- Actions
-    gitmap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-    -- gitmap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-    gitmap("n", "<leader>hS", gs.stage_buffer)
-    gitmap("n", "<leader>hu", gs.undo_stage_hunk)
-    -- gitmap("n", "<leader>hR", gs.reset_buffer)
-    gitmap("n", "gp", gs.preview_hunk)
-    -- gitmap("n", "<leader>hb", function()
-    -- 	gs.blame_line({ full = true })
-    -- end)
-    -- gitmap("n", "<leader>tb", gs.toggle_current_line_blame)
-    -- gitmap("n", "<leader>hD", gs.diffthis)
-    gitmap("n", "<leader>hd", function()
-        gs.diffthis("~")
-    end)
-    -- gitmap("n", "<leader>td", gs.toggle_deleted)
-
-    -- Text object
-    -- gitmap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 end
 
 pluginKeys.hop_keybings = function()
