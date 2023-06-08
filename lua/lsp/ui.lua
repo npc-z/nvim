@@ -125,8 +125,12 @@ else
     lspsaga.setup(lspsaga_opts)
 
     -- keybindings
-    local keymap = vim.keymap.set
-
+    local function keymap(mode, left, right, options)
+        options = options or {}
+        local defaults = { noremap = true, silent = true }
+        local opts = vim.tbl_deep_extend("force", defaults, options)
+        vim.keymap.set(mode, left, right, opts)
+    end
     -- LSP finder - Find the symbol's definition
     -- If there is no definition, it will instead be hidden
     -- When you use an action in finder like "open vsplit",
@@ -179,16 +183,16 @@ else
 
     -- Diagnostic jump
     -- You can use <C-o> to jump back to your previous location
-    keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-    keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+    keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "diagnostic_jump_prev" })
+    keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "diagnostic_jump_next" })
 
     -- Diagnostic jump with filters such as only jumping to an error
     keymap("n", "[E", function()
         require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
-    end)
+    end, { desc = "diagnostic_jump_prev with filter" })
     keymap("n", "]E", function()
         require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
-    end)
+    end, { desc = "diagnostic_jump_next with filter" })
 
     -- Toggle outline
     -- keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
@@ -206,11 +210,12 @@ else
     -- Note that if you use hover with ++keep, pressing this key again will
     -- close the hover window. If you want to jump to the hover window
     -- you should use the wincmd command "<C-w>w"
-    keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<CR>")
+    keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", { desc = "hover_doc ++keep" })
 
     -- Call hierarchy
-    keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
-    keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
+    -- note: 在 desc 中关键字 `call` 会被 which-key(?) 屏蔽
+    keymap("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", { desc = 'incoming Call hierarchy' })
+    keymap("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", { desc = "outgoing Call hierarchy" })
 end
 
 vim.diagnostic.config({
@@ -219,7 +224,8 @@ vim.diagnostic.config({
     -- 在输入模式下也更新提示，设置为 true 也许会影响性能
     update_in_insert = true,
 })
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+-- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "Error", Warn = "Warn", Hint = "Hint", Info = "Info" }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
