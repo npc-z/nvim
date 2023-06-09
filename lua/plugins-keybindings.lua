@@ -68,77 +68,53 @@ vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opt)
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opt)
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opt)
 
+-- hop
+-- go to any line
+map("n", "<leader>gl", ":HopLine<CR>", opt)
+map("n", "ss", ":HopPattern<CR>", opt)
+-- 改变 f 的工作方式, 查找当前行所有单字符, 而不仅是光标之后的
+map("", "f", ":HopChar1CurrentLine<CR>", opt)
+-- map("", "F", ":HopChar1CurrentLineBC<CR>", opt)
+-- map("", "t", ":HopChar1CurrentLineAC<CR>", opt)
+-- map("", "T", ":HopChar1CurrentLineBC<CR>", opt)
+
 --
 -- lsp 回调函数快捷键设置
 --
 pluginKeys.mapLSP = function(mapbuf)
     -- go xx
     mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-    mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-    mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-    mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
     mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+    mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
     mapbuf("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
 
     -- rename
     mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
     -- code action
     mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
-    -- diagnostic
-    mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()w<CR>:w<CR>", opt)
-    --
+    -- format code
+    mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
 
     -- 使用 Lspsaga
+    local lspsaga_status, _ = pcall(require, "lspsaga")
+    if not lspsaga_status then
+        vim.notify("没有安装插件: lspsaga")
+        return
+    end
+
     -- rename
-    -- mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
+    mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
     -- code action
-    -- mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-    -- mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-    -- mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-    -- mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
-    -- diagnostic
-    -- mapbuf("n", "gdp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-    -- mapbuf("n", "gdj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-    -- mapbuf("n", "gdk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-    -- mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
+    mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
+    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+    mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
+    mapbuf("n", "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", opt)
+    mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
 
-    -- Outline
-    mapbuf("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
-
-    -- Hover Doc
-    -- 同上面快捷键 gh
-    -- mapbuf("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-
-    -- 没用到
-    -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-    -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-    -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-    -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-    -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
-end
-
-local status_ok, _ = pcall(require, "lspsaga")
-if not status_ok then
-    vim.notify("没有安装插件: lspsaga. When setup lspsaga keybindings")
-else
-    -- Float terminal
-    -- map("n", "<S-j>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-    -- if you want pass somc cli command into terminal you can do like this
-    -- open lazygit in lspsaga float terminal
-    -- mapbuf("n", "<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
-    -- close floaterm
-    -- map("t", "<S-j>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
-end
-
-pluginKeys.hop_keybings = function()
-    -- go to any line
-    map("n", "<leader>gl", ":HopLine<CR>", opt)
-    map("n", "ss", ":HopPattern<CR>", opt)
-    -- 改变 f 的工作方式, 查找当前行所有单字符, 而不仅是光标之后的
-    -- map("", "f", ":HopChar1CurrentLine<CR>", opt)
-    -- map("", "F", ":HopChar1CurrentLineBC<CR>", opt)
-    -- map("", "t", ":HopChar1CurrentLineAC<CR>", opt)
-    -- map("", "T", ":HopChar1CurrentLineBC<CR>", opt)
+    -- Call hierarchy
+    -- note: 在 desc 中关键字 `call` 会被 which-key(?) 屏蔽
+    mapbuf("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", { desc = 'incoming Call hierarchy' })
+    mapbuf("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", { desc = "outgoing Call hierarchy" })
 end
 
 return pluginKeys
