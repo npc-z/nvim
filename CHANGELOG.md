@@ -1,5 +1,12 @@
 # change log
 
+## v2.6.0
+> 2023-06-11
+
+- use kanagawa colorscheme
+- add lazygit.nvim
+
+
 ## v2.5.0
 > 2023-06-02
 

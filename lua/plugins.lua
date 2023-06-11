@@ -40,7 +40,7 @@ packer.startup({
 
         -- tokyonight
         use("folke/tokyonight.nvim")
-        use("joshdick/onedark.vim")
+        use("rebelot/kanagawa.nvim")
 
         -- nvim-tree
         -- use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
@@ -138,6 +138,13 @@ packer.startup({
         use({
             "lewis6991/gitsigns.nvim",
             tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+        })
+        use({
+            "kdheepak/lazygit.nvim",
+            -- optional for floating window border decoration
+            requires = {
+                "nvim-lua/plenary.nvim",
+            },
         })
         -- like local history
         use("mbbill/undotree")

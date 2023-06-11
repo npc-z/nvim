@@ -62,6 +62,7 @@ local function init_plugin()
     require_fail_and_continue("plugin-config.toggleterm")
     -- git
     require_fail_and_continue("plugin-config.gitsigns")
+    require_fail_and_continue("plugin-config.lazygit")
     -- 显示快捷键
     require_fail_and_continue("plugin-config.which-key")
     -- nofity

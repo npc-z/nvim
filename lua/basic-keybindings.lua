@@ -16,8 +16,8 @@ local opt = { noremap = true, silent = true }
 
 -- 快速回到 normal mode
 map("i", "jj", "<Esc>", opt)
-map("c", "jj", "<Esc>", opt)
-map("t", "jj", "<Esc>", opt)
+-- map("c", "jj", "<Esc>", opt)
+-- map("t", "jj", "<Esc>", opt)
 
 -- 快速保存
 map("n", "<leader>w", ":w<CR>", opt)
