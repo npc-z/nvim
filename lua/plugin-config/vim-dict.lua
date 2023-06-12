@@ -20,5 +20,6 @@ vim.cmd([[
         \ "go": "go,text",
         \ "python": "python,text",
         \ "c": "c,text",
+        \ "markdown": "markdown,text",
     \ }
 ]])
