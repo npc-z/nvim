@@ -177,6 +177,10 @@ packer.startup({
         -- 单词补全
         use("skywind3000/vim-dict")
         use("skywind3000/vim-auto-popmenu")
+
+        -- tools
+        -- 退出 insert mode 时切换成英文输入法
+        use("lilydjwg/fcitx.vim")
     end,
     config = {
         -- 快照保存位置目录, 使用绝对路径, 否则每个打开的项目都会创建此目录
