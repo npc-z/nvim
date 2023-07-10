@@ -88,13 +88,13 @@ local function init_lsp()
 end
 
 local function start_from_vscode()
-    vim.notify("start from vscode")
+    -- vim.notify("start from vscode")
     -- 基础设置
     require_fail_and_continue("basic")
     -- 基础快捷键
     require_fail_and_continue("basic-keybindings")
     -- nofity
-    require_fail_and_continue("plugin-config.notify")
+    -- require_fail_and_continue("plugin-config.notify")
     -- 插件快捷键
     require_fail_and_continue("plugins-keybindings")
     -- 自定义命令
@@ -102,7 +102,7 @@ local function start_from_vscode()
     -- vim dict
     require_fail_and_continue("plugin-config.vim-dict")
     -- 显示快捷键
-    require_fail_and_continue("plugin-config.which-key")
+    -- require_fail_and_continue("plugin-config.which-key")
     -- quickly jump
     require_fail_and_continue("plugin-config.hop")
     -- telescope
@@ -113,7 +113,7 @@ local function main()
     if vim.g.vscode then
         start_from_vscode()
     else
-        vim.notify("start from nvim")
+        -- vim.notify("start from nvim")
         init_basic()
         init_plugin()
         init_lsp()
