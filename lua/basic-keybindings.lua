@@ -26,8 +26,8 @@ map("n", "<leader>wa", ":wa<CR>", opt)
 -- 插入模式下上下左右移动光标
 map("i", "<C-f>", "<Right>", opt)
 map("i", "<C-b>", "<Left>", opt)
-map("i", "<C-p>", "<Up>", opt)
-map("i", "<C-n>", "<Down>", opt)
+map("i", "<C-k>", "<Up>", opt)
+map("i", "<C-j>", "<Down>", opt)
 
 -- 跳到行首行尾
 map("i", "<C-a>", "<Esc>I", opt)
