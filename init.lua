@@ -90,23 +90,17 @@ end
 local function start_from_vscode()
     -- vim.notify("start from vscode")
     -- 基础设置
-    require_fail_and_continue("basic")
+    require_fail_and_continue("basic-for-vscode")
     -- 基础快捷键
     require_fail_and_continue("basic-keybindings")
-    -- nofity
-    -- require_fail_and_continue("plugin-config.notify")
     -- 插件快捷键
     require_fail_and_continue("plugins-keybindings")
     -- 自定义命令
     require_fail_and_continue("auto-commands")
     -- vim dict
     require_fail_and_continue("plugin-config.vim-dict")
-    -- 显示快捷键
-    -- require_fail_and_continue("plugin-config.which-key")
     -- quickly jump
     require_fail_and_continue("plugin-config.hop")
-    -- telescope
-    require_fail_and_continue("plugin-config.telescope")
 end
 
 local function main()
