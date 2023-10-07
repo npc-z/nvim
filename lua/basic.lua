@@ -77,7 +77,7 @@ vim.o.writebackup = false
 vim.o.swapfile = false
 
 -- smaller updatetime
-vim.o.updatetime = 300
+vim.o.updatetime = 500
 
 -- 设置等待键盘快捷键连击时间, 毫秒
 vim.o.timeoutlen = 500

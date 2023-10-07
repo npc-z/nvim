@@ -30,8 +30,8 @@ map("i", "<C-k>", "<Up>", opt)
 map("i", "<C-j>", "<Down>", opt)
 
 -- 跳到行首行尾
-map("i", "<C-a>", "<Esc>I", opt)
-map("i", "<C-e>", "<Esc>A", opt)
+map("i", "<C-a>", "<Home>", opt)
+map("i", "<C-e>", "<End>", opt)
 -- map("i", "<C-h>", "<Bs>", opt)
 -- map("i", "<C-d>", "<Del>", opt)
 
@@ -41,8 +41,8 @@ map("n", "<C-e>", "$", opt)
 -- 跳转至对应 pair
 map("n", "<leader>gp", "%", opt)
 
--- map("n", "j", "jzz", opt)
--- map("n", "k", "kzz", opt)
+map("n", "j", "jzz", opt)
+map("n", "k", "kzz", opt)
 
 -- 选中整个文件
 map("n", "vall", "ggVG", opt)
@@ -60,10 +60,10 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt)
 -- Alt + hjkl 创建之间跳转
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<A-h>", "<C-w>h", opt)
+map("n", "<A-j>", "<C-w>j", opt)
+map("n", "<A-k>", "<C-w>k", opt)
+map("n", "<A-l>", "<C-w>l", opt)
 
 -- 左右比例控制
 map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
