@@ -42,6 +42,9 @@ local function init_plugin()
     -- 语法高亮
     require_fail_and_continue("plugin-config.nvim-treesitter")
     require_fail_and_continue("plugin-config.treesitter-context")
+    -- formatter
+    -- require("plugin-config.neoformat")
+    -- vim.cmd("source ./lua/plugin-config/neoformat.vim")
     -- 缩进竖线
     require_fail_and_continue("plugin-config.indent-blankline")
     -- 成对括号
@@ -82,7 +85,7 @@ local function init_lsp()
     --
     require_fail_and_continue("lsp.ui")
     --
-    require_fail_and_continue("lsp.null-ls")
+    -- require_fail_and_continue("lsp.null-ls")
     --
     require_fail_and_continue("plugin-config.illuminate")
 end

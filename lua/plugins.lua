@@ -114,7 +114,8 @@ packer.startup({
         use("glepnir/lspsaga.nvim")
 
         -- 格式化
-        use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+        -- use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+        use({ "sbdchd/neoformat" })
 
         -- 成对括号
         use("windwp/nvim-autopairs")
