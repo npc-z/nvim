@@ -2,8 +2,16 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local map = vim.api.nvim_set_keymap
--- 复用 opt 参数
-local opt = { noremap = true, silent = true }
+-- 复用 opts 参数
+local opts = { noremap = true, silent = true }
+
+local opts_with_desc = function(desc)
+    return vim.tbl_deep_extend("force", opts, { desc = desc })
+end
+
+map("v", "<leader>ws", "<cmd>WordSelectedCount<CR>", opts)
+-- map("v", "<leader>ws", "<cmd>WordSelectedCount<CR>", opts_with_desc("WordSelectedCount"))
+
 --
 -- 插件快捷键绑定
 --
@@ -12,34 +20,34 @@ local pluginKeys = {}
 -- nivm-tree
 -- 打开文件树
 -- map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>e", ":NeoTreeFocusToggle<CR>", opt)
-map("n", "<leader>E", ":NeoTreeFloatToggle<CR>", opt)
+map("n", "<leader>e", ":NeoTreeFocusToggle<CR>", opts)
+map("n", "<leader>E", ":NeoTreeFloatToggle<CR>", opts)
 
 -- bufferline
 -- 左右Tab切换
-map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<S-l>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+map("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 
 -- 关闭
-map("n", "<C-w>", ":bdelete<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
-map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opt)
-map("n", "<leader>bb", ":BufferLinePick<CR>", opt)
+map("n", "<C-w>", ":bdelete<CR>", opts)
+map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opts)
+map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opts)
+map("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
+map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opts)
+map("n", "<leader>bb", ":BufferLinePick<CR>", opts)
 
 -- Telescope
 -- 查找文件
-map("n", "<leader>ff", ":Telescope find_files<CR>", opt)
+map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 
 -- 全局搜索
-map("n", "<leader>fg", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 
 -- git branches
-map("n", "<leader>fb", ":Telescope git_branches<CR>", opt)
+map("n", "<leader>fb", ":Telescope git_branches<CR>", opts)
 
 -- work sessions
-map("n", "<leader>fs", ":Telescope session-lens search_session<CR>", opt)
+map("n", "<leader>fs", ":Telescope session-lens search_session<CR>", opts)
 
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
@@ -61,19 +69,19 @@ pluginKeys.telescopeList = {
 }
 
 -- trouble
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opt)
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opt)
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opt)
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opt)
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opt)
-vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opt)
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 -- hop
 -- go to any line
-map("n", "<leader>gl", ":HopLine<CR>", opt)
-map("n", "ss", ":HopPattern<CR>", opt)
+map("n", "<leader>gl", ":HopLine<CR>", opts)
+map("n", "ss", ":HopPattern<CR>", opts)
 -- 改变 f 的工作方式, 查找当前行所有单字符, 而不仅是光标之后的
-map("", "f", ":HopChar1CurrentLine<CR>", opt)
+map("", "f", ":HopChar1CurrentLine<CR>", opts)
 -- map("", "F", ":HopChar1CurrentLineBC<CR>", opt)
 -- map("", "t", ":HopChar1CurrentLineAC<CR>", opt)
 -- map("", "T", ":HopChar1CurrentLineBC<CR>", opt)
@@ -83,17 +91,17 @@ map("", "f", ":HopChar1CurrentLine<CR>", opt)
 --
 pluginKeys.mapLSP = function(mapbuf)
     -- go xx
-    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-    mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-    mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-    mapbuf("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    mapbuf("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
     -- rename
-    mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+    mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     -- code action
-    mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+    mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     -- format code
-    mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
+    mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
     -- 使用 Lspsaga
     local lspsaga_status, _ = pcall(require, "lspsaga")
@@ -103,18 +111,18 @@ pluginKeys.mapLSP = function(mapbuf)
     end
 
     -- rename
-    mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
+    mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
     -- code action
-    mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-    mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-    mapbuf("n", "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", opt)
-    mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+    mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts_with_desc("code actions"))
+    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts_with_desc("goto definition"))
+    mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opts_with_desc("show doc in hover"))
+    mapbuf("n", "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", opts_with_desc("show doc fixed in right corner"))
+    mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
 
     -- Call hierarchy
     -- note: 在 desc 中关键字 `call` 会被 which-key(?) 屏蔽
-    mapbuf("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", { desc = 'incoming Call hierarchy' })
-    mapbuf("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", { desc = "outgoing Call hierarchy" })
+    mapbuf("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts_with_desc("incoming Call hierarchy"))
+    mapbuf("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts_with_desc("outgoing Call hierarchy"))
 end
 
 return pluginKeys

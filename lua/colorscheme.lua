@@ -99,4 +99,4 @@ if not status_ok then
     return
 end
 
-vim.notify("use colorscheme " .. selected_theme)
+-- vim.notify("use colorscheme " .. selected_theme)

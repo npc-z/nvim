@@ -182,6 +182,11 @@ packer.startup({
         -- tools
         -- 退出 insert mode 时切换成英文输入法
         use("lilydjwg/fcitx.vim")
+        use({
+            -- "npc-z/wordcounter.nvim",
+            "/home/npc/github/lua/wordcounter.nvim",
+            requires = "uga-rosa/utf8.nvim",
+        })
     end,
     config = {
         -- 快照保存位置目录, 使用绝对路径, 否则每个打开的项目都会创建此目录
