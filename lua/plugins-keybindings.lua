@@ -99,8 +99,6 @@ pluginKeys.mapLSP = function(mapbuf)
     mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     -- code action
     mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    -- format code
-    -- mapbuf("n", "<leader>fc", ":Neoformat<CR>:w<CR>", opts)
 
     -- 使用 Lspsaga
     local lspsaga_status, _ = pcall(require, "lspsaga")

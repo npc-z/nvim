@@ -41,9 +41,9 @@ local function init_plugin()
     -- 语法高亮
     require_fail_and_continue("plugin-config.nvim-treesitter")
     require_fail_and_continue("plugin-config.treesitter-context")
-    -- formatter
-    -- require("plugin-config.neoformat")
-    -- vim.cmd("source ./lua/plugin-config/neoformat.vim")
+    -- format
+    require("plugin-config.conform")
+    require("plugin-config.nvim-lint")
     -- 缩进竖线
     require_fail_and_continue("plugin-config.indent-blankline")
     -- 成对括号
