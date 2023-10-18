@@ -55,16 +55,27 @@ packer.startup({
         })
 
         -- bufferline
-        use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = { "kyazdani42/nvim-web-devicons" } })
+        use({
+            "akinsho/bufferline.nvim",
+            tag = "v3.*",
+            requires = { "kyazdani42/nvim-web-devicons" },
+        })
 
         -- lualine
-        use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+        use({
+            "nvim-lualine/lualine.nvim",
+            requires = { "kyazdani42/nvim-web-devicons" },
+        })
         use("arkav/lualine-lsp-progress")
 
         -- telescope
         -- https://github.com/BurntSushi/ripgrep
         -- https://github.com/sharkdp/fd
-        use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } })
+        use({
+            "nvim-telescope/telescope.nvim",
+            branch = "0.1.x",
+            requires = { "nvim-lua/plenary.nvim" },
+        })
 
         -- 启动页
         use("glepnir/dashboard-nvim")
@@ -115,11 +126,10 @@ packer.startup({
         -- rust
         use("simrat39/rust-tools.nvim")
 
+        -- UI
         -- indent-blankline
         use("lukas-reineke/indent-blankline.nvim")
-
-        --
-        use("glepnir/lspsaga.nvim")
+        use({ "nvimdev/lspsaga.nvim" })
 
         -- 格式化
         use({ "stevearc/conform.nvim" })

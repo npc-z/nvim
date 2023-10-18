@@ -11,6 +11,8 @@ conform.formatters.stylua = {
         "--quote-style",
         "ForceDouble",
         "--sort-requires",
+        "--column-width",
+        "88",
         "--indent-width",
         "4",
         "--call-parentheses",

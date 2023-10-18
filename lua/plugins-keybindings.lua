@@ -9,7 +9,12 @@ local opts_with_desc = function(desc)
     return vim.tbl_deep_extend("force", opts, { desc = desc })
 end
 
-map("v", "<leader>ws", "<cmd>WordSelectedCount<CR>", opts_with_desc("WordSelectedCount"))
+map(
+    "v",
+    "<leader>ws",
+    "<cmd>WordSelectedCount<CR>",
+    opts_with_desc("WordSelectedCount")
+)
 
 --
 -- 插件快捷键绑定
@@ -37,16 +42,22 @@ map("n", "<leader>bb", ":BufferLinePick<CR>", opts)
 
 -- Telescope
 -- 查找文件
-map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+map("n", "<leader>ff", ":Telescope find_files<CR>", opts_with_desc("find files"))
+map("n", "<leader><leader>", ":Telescope buffers<CR>", opts_with_desc("find buffers"))
 
 -- 全局搜索
-map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+map("n", "<leader>fg", ":Telescope live_grep<CR>", opts_with_desc("global search"))
 
 -- git branches
-map("n", "<leader>fb", ":Telescope git_branches<CR>", opts)
+map("n", "<leader>fb", ":Telescope git_branches<CR>", opts_with_desc("find branches"))
 
 -- work sessions
-map("n", "<leader>fs", ":Telescope session-lens search_session<CR>", opts)
+map(
+    "n",
+    "<leader>fs",
+    ":Telescope session-lens search_session<CR>",
+    opts_with_desc("find sessions")
+)
 
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
@@ -107,19 +118,45 @@ pluginKeys.mapLSP = function(mapbuf)
         return
     end
 
+    mapbuf("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts_with_desc("outline"))
     -- rename
-    mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+    mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts_with_desc("rename"))
     -- code action
-    mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts_with_desc("code actions"))
-    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts_with_desc("goto definition"))
+    mapbuf(
+        "n",
+        "<leader>ca",
+        "<cmd>Lspsaga code_action<CR>",
+        opts_with_desc("code actions")
+    )
+    mapbuf(
+        "n",
+        "gd",
+        "<cmd>lua vim.lsp.buf.definition()<CR>",
+        opts_with_desc("goto definition")
+    )
     mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opts_with_desc("show doc in hover"))
-    mapbuf("n", "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", opts_with_desc("show doc fixed in right corner"))
-    mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
+    mapbuf(
+        "n",
+        "gH",
+        "<cmd>Lspsaga hover_doc ++keep<CR>",
+        opts_with_desc("show doc fixed in right corner")
+    )
+    mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts_with_desc("find references"))
 
     -- Call hierarchy
     -- note: 在 desc 中关键字 `call` 会被 which-key(?) 屏蔽
-    mapbuf("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts_with_desc("incoming Call hierarchy"))
-    mapbuf("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts_with_desc("outgoing Call hierarchy"))
+    mapbuf(
+        "n",
+        "<leader>ci",
+        "<cmd>Lspsaga incoming_calls<CR>",
+        opts_with_desc("incoming Call hierarchy")
+    )
+    mapbuf(
+        "n",
+        "<leader>co",
+        "<cmd>Lspsaga outgoing_calls<CR>",
+        opts_with_desc("outgoing Call hierarchy")
+    )
 end
 
 return pluginKeys
