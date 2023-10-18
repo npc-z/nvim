@@ -44,15 +44,15 @@ packer.startup({
 
         -- nvim-tree
         -- use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-        use {
+        use({
             "nvim-neo-tree/neo-tree.nvim",
             branch = "v2.x",
             requires = {
                 "nvim-lua/plenary.nvim",
                 "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
                 "MunifTanjim/nui.nvim",
-            }
-        }
+            },
+        })
 
         -- bufferline
         use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = { "kyazdani42/nvim-web-devicons" } })
@@ -64,7 +64,7 @@ packer.startup({
         -- telescope
         -- https://github.com/BurntSushi/ripgrep
         -- https://github.com/sharkdp/fd
-        use({ "nvim-telescope/telescope.nvim", branch = '0.1.x', requires = { "nvim-lua/plenary.nvim" } })
+        use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } })
 
         -- 启动页
         use("glepnir/dashboard-nvim")
@@ -92,10 +92,19 @@ packer.startup({
         -- 补全源
         -- use("hrsh7th/cmp-vsnip")
         use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-        use("hrsh7th/cmp-buffer")   -- { name = 'buffer' },
-        use("hrsh7th/cmp-path")     -- { name = 'path' }
-        use("hrsh7th/cmp-cmdline")  -- { name = 'cmdline' }
+        use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+        use("hrsh7th/cmp-path") -- { name = 'path' }
+        use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
         use("ray-x/lsp_signature.nvim")
+
+        use({
+            "jackMort/ChatGPT.nvim",
+            requires = {
+                "MunifTanjim/nui.nvim",
+                "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope.nvim",
+            },
+        })
 
         -- 常见编程语言代码段
         use("rafamadriz/friendly-snippets")
@@ -104,7 +113,7 @@ packer.startup({
         use("RRethy/vim-illuminate")
 
         -- rust
-        use 'simrat39/rust-tools.nvim'
+        use("simrat39/rust-tools.nvim")
 
         -- indent-blankline
         use("lukas-reineke/indent-blankline.nvim")
@@ -137,7 +146,7 @@ packer.startup({
         -- git
         use({
             "lewis6991/gitsigns.nvim",
-            tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+            tag = "release", -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
         })
         use({
             "kdheepak/lazygit.nvim",

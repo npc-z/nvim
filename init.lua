@@ -71,6 +71,8 @@ local function init_plugin()
     require_fail_and_continue("plugin-config.notify")
     -- trouble
     require_fail_and_continue("plugin-config.trouble")
+    -- chatgpt
+    require_fail_and_continue("plugin-config.chatgpt")
     --
     init_web_dev_plugin()
 end

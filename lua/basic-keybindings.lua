@@ -21,7 +21,7 @@ map("i", "jj", "<Esc>", opt)
 
 -- 快速保存
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wa", ":wa<CR>", opt)
+-- map("n", "<leader>wa", ":wa<CR>", opt)
 
 -- 插入模式下上下左右移动光标
 map("i", "<C-l>", "<Right>", opt)
@@ -104,11 +104,11 @@ map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 
 -- 在 visual 模式中粘贴不要复制
-map("v", "p", '"_dP', opt)
+map("v", "p", "\"_dP", opt)
 
 -- 退出
 map("n", "<leader>q", ":q<CR>", opt)
-map("n", "<leader>wq", ":wq<CR>", opt)
+-- map("n", "<leader>wq", ":wq<CR>", opt)
 
 -- 编辑相关
 map("n", "<leader>uw", "gUiw", opt)
