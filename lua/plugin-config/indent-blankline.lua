@@ -4,4 +4,8 @@ if not status then
     return
 end
 
-ident_blankline.setup()
+ident_blankline.setup({
+    exclude = {
+        filetypes = { "dashboard" },
+    },
+})

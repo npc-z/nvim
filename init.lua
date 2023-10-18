@@ -37,7 +37,6 @@ local function init_plugin()
     -- dashboard
     require_fail_and_continue("plugin-config.dashboard")
     -- project
-    require_fail_and_continue("plugin-config.project")
     require_fail_and_continue("plugin-config.auto-session")
     -- 语法高亮
     require_fail_and_continue("plugin-config.nvim-treesitter")

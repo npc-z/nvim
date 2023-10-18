@@ -1,7 +1,7 @@
 vim.cmd([[
 
 let g:neoformat_try_formatprg = 1
-let g:neoformat_try_node_exe = 0
+let g:neoformat_try_node_exe = 1
 
 
 " Enable alignment
@@ -17,7 +17,7 @@ let g:neoformat_basic_format_trim = 1
 
 
 " Python
-let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_python = ["black"]
 
 
 " Lua

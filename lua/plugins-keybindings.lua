@@ -9,8 +9,7 @@ local opts_with_desc = function(desc)
     return vim.tbl_deep_extend("force", opts, { desc = desc })
 end
 
-map("v", "<leader>ws", "<cmd>WordSelectedCount<CR>", opts)
--- map("v", "<leader>ws", "<cmd>WordSelectedCount<CR>", opts_with_desc("WordSelectedCount"))
+map("v", "<leader>ws", "<cmd>WordSelectedCount<CR>", opts_with_desc("WordSelectedCount"))
 
 --
 -- 插件快捷键绑定
@@ -101,7 +100,7 @@ pluginKeys.mapLSP = function(mapbuf)
     -- code action
     mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     -- format code
-    mapbuf("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+    -- mapbuf("n", "<leader>fc", ":Neoformat<CR>:w<CR>", opts)
 
     -- 使用 Lspsaga
     local lspsaga_status, _ = pcall(require, "lspsaga")

@@ -70,7 +70,6 @@ packer.startup({
         use("glepnir/dashboard-nvim")
 
         -- 项目
-        use("ahmedkhalf/project.nvim")
         use({ "rmagatti/auto-session" })
 
         -- treesitter
@@ -214,6 +213,7 @@ packer.startup({
 -- 每次保存 plugins.lua 自动安装插件
 -- autocmd BufWritePost plugins.lua source <afile> | PackerSync
 -- autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+-- autocmd BufWritePost plugins.lua source <afile> | PackerInstall
 vim.cmd([[
     augroup packer_user_config
     autocmd!
