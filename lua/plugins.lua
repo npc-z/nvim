@@ -129,7 +129,7 @@ packer.startup({
         -- UI
         -- indent-blankline
         use("lukas-reineke/indent-blankline.nvim")
-        use({ "nvimdev/lspsaga.nvim" })
+        use({ "stevearc/dressing.nvim" })
 
         -- 格式化
         use({ "stevearc/conform.nvim" })
@@ -146,12 +146,6 @@ packer.startup({
 
         -- markdown preview
         use({ "ellisonleao/glow.nvim" })
-
-        -- auto-save
-        -- use({ "Pocco81/auto-save.nvim" })
-
-        -- 显示空格
-        use({ "ntpeters/vim-better-whitespace" })
 
         -- git
         use({

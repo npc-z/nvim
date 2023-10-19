@@ -56,10 +56,6 @@ local function init_plugin()
     require_fail_and_continue("plugin-config.hop")
     -- markdown preview
     require_fail_and_continue("plugin-config.glow")
-    -- auto save buffer
-    -- require_fail_and_continue("plugin-config.auto-save")
-    -- 行尾空格高亮
-    require_fail_and_continue("plugin-config.better-whitespace")
     -- toggleterm
     require_fail_and_continue("plugin-config.toggleterm")
     -- git
@@ -85,8 +81,6 @@ local function init_lsp()
     require_fail_and_continue("lsp.cmp")
     --
     require_fail_and_continue("lsp.ui")
-    --
-    -- require_fail_and_continue("lsp.null-ls")
     --
     require_fail_and_continue("plugin-config.illuminate")
 end

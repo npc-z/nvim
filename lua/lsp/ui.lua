@@ -11,18 +11,10 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-local lspsaga_status, lspsaga = pcall(require, "lspsaga")
+local lspsaga_status, dressing = pcall(require, "dressing")
 if not lspsaga_status then
-    vim.notify("没有安装插件: lspsaga")
+    vim.notify("没有安装插件: dressing")
     return
 end
 
-lspsaga.setup({
-    lightbulb = {
-        enable = true,
-        enable_in_insert = false,
-        sign = true,
-        sign_priority = 40,
-        virtual_text = false,
-    },
-})
+dressing.setup()

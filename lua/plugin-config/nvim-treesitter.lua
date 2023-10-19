@@ -1,35 +1,35 @@
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
-	vim.notify("没有安装插件: nvim-treesitter")
-	return
+    vim.notify("没有安装插件: nvim-treesitter")
+    return
 end
 
 treesitter.setup({
-	-- 安装 language parser
-	-- :TSInstallInfo 命令查看支持的语言
-	ensure_installed = {
-		"json",
-		"html",
-		"css",
-		"vim",
-		"lua",
-		"javascript",
-		"typescript",
-		"tsx",
-		"python",
-		"go",
-		"http",
-	},
-	-- 启用代码高亮模块
-	highlight = {
-		enable = true,
-		-- 关闭 vim 的正则语法高亮
-		additional_vim_regex_highlighting = false,
-	},
-	-- 启动代码缩进模块 (=)
-	indent = {
-		enable = true,
-	},
+    -- 安装 language parser
+    -- :TSInstallInfo 命令查看支持的语言
+    ensure_installed = {
+        "json",
+        "html",
+        "css",
+        "vim",
+        "lua",
+        "javascript",
+        "typescript",
+        "tsx",
+        "python",
+        "go",
+        "http",
+    },
+    -- 启用代码高亮模块
+    highlight = {
+        enable = true,
+        -- 关闭 vim 的正则语法高亮
+        additional_vim_regex_highlighting = false,
+    },
+    -- 启动代码缩进模块 (=)
+    indent = {
+        enable = true,
+    },
 })
 
 -- 开启 Folding 模块

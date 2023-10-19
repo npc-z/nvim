@@ -41,6 +41,7 @@ map("n", "<leader>bp", ":BufferLineTogglePin<CR>", opts)
 map("n", "<leader>bb", ":BufferLinePick<CR>", opts)
 
 -- Telescope
+map("n", "<leader>s", ":Telescope<CR>", opts_with_desc("open Telescope"))
 -- 查找文件
 map("n", "<leader>ff", ":Telescope find_files<CR>", opts_with_desc("find files"))
 map("n", "<leader><leader>", ":Telescope buffers<CR>", opts_with_desc("find buffers"))
@@ -112,51 +113,51 @@ pluginKeys.mapLSP = function(mapbuf)
     mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
     -- 使用 Lspsaga
-    local lspsaga_status, _ = pcall(require, "lspsaga")
-    if not lspsaga_status then
-        vim.notify("没有安装插件: lspsaga")
-        return
-    end
-
-    mapbuf("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts_with_desc("outline"))
-    -- rename
-    mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts_with_desc("rename"))
-    -- code action
-    mapbuf(
-        "n",
-        "<leader>ca",
-        "<cmd>Lspsaga code_action<CR>",
-        opts_with_desc("code actions")
-    )
-    mapbuf(
-        "n",
-        "gd",
-        "<cmd>lua vim.lsp.buf.definition()<CR>",
-        opts_with_desc("goto definition")
-    )
-    mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opts_with_desc("show doc in hover"))
-    mapbuf(
-        "n",
-        "gH",
-        "<cmd>Lspsaga hover_doc ++keep<CR>",
-        opts_with_desc("show doc fixed in right corner")
-    )
-    mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts_with_desc("find references"))
-
-    -- Call hierarchy
-    -- note: 在 desc 中关键字 `call` 会被 which-key(?) 屏蔽
-    mapbuf(
-        "n",
-        "<leader>ci",
-        "<cmd>Lspsaga incoming_calls<CR>",
-        opts_with_desc("incoming Call hierarchy")
-    )
-    mapbuf(
-        "n",
-        "<leader>co",
-        "<cmd>Lspsaga outgoing_calls<CR>",
-        opts_with_desc("outgoing Call hierarchy")
-    )
+    -- local lspsaga_status, _ = pcall(require, "lspsaga")
+    -- if not lspsaga_status then
+    --     vim.notify("没有安装插件: lspsaga")
+    --     return
+    -- end
+    --
+    -- mapbuf("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts_with_desc("outline"))
+    -- -- rename
+    -- mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts_with_desc("rename"))
+    -- -- code action
+    -- mapbuf(
+    --     "n",
+    --     "<leader>ca",
+    --     "<cmd>Lspsaga code_action<CR>",
+    --     opts_with_desc("code actions")
+    -- )
+    -- mapbuf(
+    --     "n",
+    --     "gd",
+    --     "<cmd>lua vim.lsp.buf.definition()<CR>",
+    --     opts_with_desc("goto definition")
+    -- )
+    -- mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opts_with_desc("show doc in hover"))
+    -- mapbuf(
+    --     "n",
+    --     "gH",
+    --     "<cmd>Lspsaga hover_doc ++keep<CR>",
+    --     opts_with_desc("show doc fixed in right corner")
+    -- )
+    -- mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts_with_desc("find references"))
+    --
+    -- -- Call hierarchy
+    -- -- note: 在 desc 中关键字 `call` 会被 which-key(?) 屏蔽
+    -- mapbuf(
+    --     "n",
+    --     "<leader>ci",
+    --     "<cmd>Lspsaga incoming_calls<CR>",
+    --     opts_with_desc("incoming Call hierarchy")
+    -- )
+    -- mapbuf(
+    --     "n",
+    --     "<leader>co",
+    --     "<cmd>Lspsaga outgoing_calls<CR>",
+    --     opts_with_desc("outgoing Call hierarchy")
+    -- )
 end
 
 return pluginKeys
