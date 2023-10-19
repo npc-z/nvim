@@ -4,9 +4,8 @@
 -- vim.bo.{option}: buffer-local 选项
 -- vim.wo.{option}: window-local 选项
 
--- install gvim and do not need set this
--- vim.g.clipboard = "unnamedplus"
-vim.g.clipboard = "unnamed"
+-- install gvim and set this
+vim.o.clipboard = "unnamedplus"
 
 -- utf-8
 vim.g.encoding = "utf-8"
