@@ -162,6 +162,12 @@ return {
             },
         })
 
+        -- configure golang server
+        lspconfig["gopls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {},
+        })
         -- configure python server
         lspconfig["pyright"].setup({
             capabilities = capabilities,
