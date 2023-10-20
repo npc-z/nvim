@@ -19,6 +19,25 @@ local function info(body)
     end
 end
 
+local daysoftheweek = {
+    Sunday = "周日",
+    Monday = "周一",
+    Tuesday = "周二",
+    Wednesday = "周三",
+    Thrusday = "周四",
+    Friday = "周五",
+    Saturday = "周六",
+}
+
+local function current_week_zh()
+    local week = os.date("%A")
+    for k, v in pairs(daysoftheweek) do
+        if k == week then
+            return v
+        end
+    end
+    return week
+end
 ---@type fun(filepath: string)
 local function require_fail_and_continue(path)
     local status_ok, _ = pcall(require, path)
@@ -76,6 +95,7 @@ end
 local funcs = {}
 
 funcs.trim_trailing_whitespace = trim_trailing_whitespace
+funcs.current_week_zh = current_week_zh
 funcs.split_filename = split_filename
 funcs.cur_buf_filename = cur_buf_filename
 funcs.cur_buf_filetype = cur_buf_filetype
