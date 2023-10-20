@@ -5,6 +5,9 @@ return {
         "nvim-lua/plenary.nvim",
     },
     config = function()
+        -- scaling factor for floating window
+        vim.g.lazygit_floating_window_scaling_factor = 1
+
         vim.api.nvim_set_keymap(
             "n",
             "<leader>lg",

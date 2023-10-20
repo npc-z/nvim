@@ -17,6 +17,12 @@ return {
             local illuminate = require("illuminate")
             illuminate.on_attach(client)
 
+            -- use conform to formatting
+            if client.name == "clangd" then
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+            end
+
             opts.buffer = bufnr
 
             -- set keybinds
@@ -162,12 +168,29 @@ return {
             },
         })
 
-        -- configure golang server
-        lspconfig["gopls"].setup({
+        -- configure c/c++ server
+        lspconfig["clangd"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
             settings = {},
         })
+
+        -- configure golang server
+        lspconfig["gopls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "go", "gomod", "gowork", "gotmpl" },
+            settings = {
+                gopls = {
+                    completeUnimported = true,
+                    usePlaceholders = true,
+                    analyses = {
+                        unusedparams = true,
+                    },
+                },
+            },
+        })
+
         -- configure python server
         lspconfig["pyright"].setup({
             capabilities = capabilities,

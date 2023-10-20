@@ -5,6 +5,27 @@ return {
     config = function()
         local conform = require("conform")
 
+        conform.formatters.clang_format = {
+            -- prepend_args = {
+            --     "--style",
+            --     "{ BasedOnStyle: Google, PointerAlignment: Left, IndentWidth: 4, ColumnLimit: 88}",
+            -- },
+
+            ---@diagnostic disable-next-line: unused-local
+            prepend_args = function(ctx)
+                local styles = {
+                    BasedOnStyle = "Google",
+                    PointerAlignment = "Left",
+                    IndentWidth = 4,
+                    ColumnLimit = 88,
+                }
+                return {
+                    "--style",
+                    vim.json.encode(styles),
+                }
+            end,
+        }
+
         conform.formatters.stylua = {
             prepend_args = {
                 "--indent-type",
@@ -22,7 +43,9 @@ return {
         }
 
         conform.setup({
+            log_level = vim.log.levels.DEBUG,
             formatters_by_ft = {
+                c = { "clang_format" },
                 lua = { "stylua" },
                 python = { "isort", "black" },
                 go = { "gofmt" },

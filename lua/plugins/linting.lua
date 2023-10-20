@@ -12,6 +12,7 @@ return {
             python = { "mypy" },
             markdown = { "markdownlint" },
             json = { "jsonlint" },
+            -- c = { "cpplint" },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
