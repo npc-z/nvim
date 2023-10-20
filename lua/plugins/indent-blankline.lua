@@ -1,8 +1,6 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-    -- cond = function()
-    --     return vim.g.vscode == nil
-    -- end,
+    event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
     opts = {
         scope = {
