@@ -8,17 +8,17 @@ M.setup_keymaps = function(bufnr)
     opts.desc = "LSP references"
     keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
-    -- opts.desc = "Go to declaration"
-    -- keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+    opts.desc = "Go to declaration"
+    keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
     opts.desc = "Show LSP definitions"
     keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
-    -- opts.desc = "Show LSP implementations"
-    -- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+    opts.desc = "Show LSP implementations"
+    keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
-    -- opts.desc = "Show LSP type definitions"
-    -- keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+    opts.desc = "Show LSP type definitions"
+    keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
     -- see available code actions, in visual mode will apply to selection
     opts.desc = "See available code actions"
@@ -45,8 +45,8 @@ M.setup_keymaps = function(bufnr)
     opts.desc = "Show signature help"
     keymap.set("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
-    -- opts.desc = "Restart LSP"
-    -- keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+    opts.desc = "Restart LSP"
+    keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 end
 
 return M
