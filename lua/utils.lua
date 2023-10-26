@@ -24,7 +24,7 @@ local daysoftheweek = {
     Monday = "周一",
     Tuesday = "周二",
     Wednesday = "周三",
-    Thrusday = "周四",
+    Thursday = "周四",
     Friday = "周五",
     Saturday = "周六",
 }
@@ -38,6 +38,8 @@ local function current_week_zh()
     end
     return week
 end
+
+current_week_zh()
 ---@type fun(filepath: string)
 local function require_fail_and_continue(path)
     local status_ok, _ = pcall(require, path)

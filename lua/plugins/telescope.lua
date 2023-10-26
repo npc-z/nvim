@@ -56,6 +56,12 @@ return {
         )
         map(
             "n",
+            "<leader>rf",
+            ":Telescope oldfiles<CR>",
+            opts_with_desc("find recent files")
+        )
+        map(
+            "n",
             "<leader><leader>",
             ":Telescope buffers<CR>",
             opts_with_desc("find buffers")
