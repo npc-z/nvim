@@ -31,6 +31,10 @@ return {
             close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 
             filesystem = {
+                filtered_items = {
+                    hide_dotfiles = false,
+                    hide_gitignored = false,
+                },
                 follow_current_file = {
                     -- This will find and focus the file in the active buffer every time
                     -- the current file is changed while the tree is open.
