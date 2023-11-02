@@ -1,6 +1,7 @@
 return {
     "ellisonleao/glow.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    ft = { "markdown" },
     config = function()
         require("glow").setup({
             glow_path = "/usr/bin/glow", -- filled automatically with your glow bin in $PATH,
