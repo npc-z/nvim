@@ -18,6 +18,9 @@ return {
                     PointerAlignment = "Left",
                     IndentWidth = 4,
                     ColumnLimit = 88,
+                    AllowShortBlocksOnASingleLine = "Never",
+                    AllowShortIfStatementsOnASingleLine = "Never",
+                    AllowShortFunctionsOnASingleLine = false,
                 }
                 return {
                     "--style",
