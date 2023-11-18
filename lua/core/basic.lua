@@ -102,10 +102,16 @@ vim.opt.termguicolors = true
 
 -- 显出不可见字符
 vim.o.list = true
--- vim.o.listchars = "space:·"
--- vim.o.listchars = "space:·,eol:↵,trail:~,tab:>-,nbsp:␣"
-vim.o.listchars = "space:·,trail:·,tab:>·,nbsp:·"
--- vim.o.listchars = "trail:·"
+vim.opt.listchars = {
+    space = "·",
+    tab = "⇥ ",
+    trail = "·",
+    nbsp = "·",
+    -- leadmultispace = "┊ ",
+    -- eol = "↵",
+    -- trail = "␣",
+    -- nbsp = "⍽",
+}
 
 -- 显示 tabline
 vim.o.showtabline = 2
