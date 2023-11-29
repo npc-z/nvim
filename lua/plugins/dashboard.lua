@@ -14,12 +14,6 @@ return {
                 },
                 shortcut = {
                     {
-                        desc = "󰊳 Update",
-                        group = "@property",
-                        action = "PackerUpdate",
-                        key = "u",
-                    },
-                    {
                         icon = " ",
                         icon_hl = "@variable",
                         desc = "Files",
@@ -28,10 +22,16 @@ return {
                         key = "f",
                     },
                     {
-                        desc = " sessions",
+                        desc = " Sessions",
                         group = "Number",
                         action = "Telescope session-lens search_session",
                         key = "s",
+                    },
+                    {
+                        desc = "󰩈 QUIT",
+                        group = "Label",
+                        action = "q",
+                        key = "q",
                     },
                 },
             },
