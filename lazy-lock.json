@@ -53,6 +53,7 @@
   "toggleterm.nvim": { "branch": "main", "commit": "cbd041d91b90cd3c02df03fe6133208888f8e008" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
   "utf8.nvim": { "branch": "main", "commit": "954cbbadabe5cd19f202e918fec191d64eea7766" },
+  "venv-selector.nvim": { "branch": "main", "commit": "79709f8ad99ac2082d99a713985f3da0c924f4a2" },
   "vim-auto-popmenu": { "branch": "master", "commit": "2a03d31d9a34533ddc36cfd087ede789e938ad8b" },
   "vim-dict": { "branch": "master", "commit": "121671a77d5bec45a00fa6895f2af28c4e3ffd6d" },
   "vim-illuminate": { "branch": "master", "commit": "3bd2ab64b5d63b29e05691e624927e5ebbf0fb86" },
