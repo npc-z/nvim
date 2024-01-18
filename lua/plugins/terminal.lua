@@ -1,3 +1,5 @@
+-- terminal
+
 return {
     "akinsho/toggleterm.nvim",
     event = "VeryLazy",
@@ -14,7 +16,8 @@ return {
                     return vim.o.columns * 0.4
                 end
             end,
-            open_mapping = [[<A-b>]],
+            -- open_mapping = [[<A-b>]],
+            open_mapping = [[<C-\>]],
             -- 使用下面这个映射时, 在插入模式下写入空格冲突
             -- open_mapping = [[<leader>t]],
             -- on_open = fun(t: Terminal), -- function to run when the terminal opens
