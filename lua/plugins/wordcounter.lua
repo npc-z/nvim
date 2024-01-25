@@ -1,6 +1,6 @@
 return {
-    -- "npc-z/wordcounter.nvim",
-    dir = "/home/npc/github/lua/wordcounter.nvim",
+    "npc-z/wordcounter.nvim",
+    -- dir = "/home/npc/github/lua/wordcounter.nvim",
     dependencies = {
         "uga-rosa/utf8.nvim",
     },
