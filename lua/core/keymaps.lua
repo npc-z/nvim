@@ -111,7 +111,7 @@ map("n", "<C-d>", "9j", opt)
 map("v", "p", "\"_dP", opt)
 
 -- 退出
-map("n", "<leader>q", ":q<CR>", opt)
+map("n", "<leader>q", ":Neotree close<CR>:q<CR>", opt)
 -- map("n", "<leader>wq", ":wq<CR>", opt)
 
 -- 编辑相关

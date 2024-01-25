@@ -52,8 +52,8 @@ vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- 命令行高为 2
-vim.o.cmdheight = 2
+-- 命令行高为 1
+vim.o.cmdheight = 1
 
 -- 当文件被外部程序修改时, 自动加载
 vim.o.autoread = true
@@ -103,7 +103,7 @@ vim.opt.termguicolors = true
 -- 显出不可见字符
 vim.o.list = true
 vim.opt.listchars = {
-    space = "·",
+    -- space = "·",
     tab = "⇥ ",
     trail = "·",
     nbsp = "·",
