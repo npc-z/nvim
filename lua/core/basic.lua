@@ -52,8 +52,9 @@ vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- 命令行高为 1
-vim.o.cmdheight = 1
+-- 命令行高为 0
+-- use noice
+vim.o.cmdheight = 0
 
 -- 当文件被外部程序修改时, 自动加载
 vim.o.autoread = true

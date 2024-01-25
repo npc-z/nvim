@@ -20,8 +20,8 @@ map("i", "jj", "<Esc>", opt)
 -- map("t", "jj", "<Esc>", opt)
 
 -- buffers
-map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 
 -- 快速保存
 map("n", "<leader>w", ":w<CR>", opt)
