@@ -35,6 +35,7 @@ return {
                 "pyright",
                 "gopls",
                 "rust_analyzer",
+                "nil_ls",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
