@@ -9,6 +9,8 @@ return {
             current_line_blame_opts = {
                 virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
                 delay = 300,
+                -- 让 blame 尽量显示在其他 virt_text 后面
+                virt_text_priority = 10000,
             },
             current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d %H-%M-%S> - <summary>",
             max_file_length = 40000, -- Disable if file is longer than this (in lines)
@@ -36,6 +38,17 @@ return {
                     return "<Ignore>"
                 end, { expr = true, desc = "goto next hunk" })
 
+                gitmap("n", "gJ", function()
+                    if vim.wo.diff then
+                        return "gj"
+                    end
+                    vim.schedule(function()
+                        gs.next_hunk()
+                        gs.preview_hunk()
+                    end)
+                    return "<Ignore>"
+                end, { expr = true, desc = "goto next hunk and preview it" })
+
                 gitmap("n", "gk", function()
                     if vim.wo.diff then
                         return "gk"
@@ -45,6 +58,17 @@ return {
                     end)
                     return "<Ignore>"
                 end, { expr = true, desc = "goto prev hunk" })
+
+                gitmap("n", "gK", function()
+                    if vim.wo.diff then
+                        return "gk"
+                    end
+                    vim.schedule(function()
+                        gs.prev_hunk()
+                        gs.prev_hunk()
+                    end)
+                    return "<Ignore>"
+                end, { expr = true, desc = "goto prev hunk and preview it" })
 
                 -- Actions
                 -- stage
@@ -67,7 +91,7 @@ return {
                 -- )
                 -- gitmap("n", "<leader>hR", gs.reset_buffer, {desc = "reset buffer"})
 
-                gitmap("n", "<leader>hp", gs.preview_hunk, { desc = "git previe hunk" })
+                gitmap("n", "<leader>hp", gs.preview_hunk, { desc = "git preview hunk" })
                 gitmap(
                     "n",
                     "<leader>hd",
