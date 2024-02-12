@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         -- 移除行尾空格
         utils.trim_trailing_whitespace()
         -- fmt
-        vim.lsp.buf.format({ aysnc = true })
+        -- vim.lsp.buf.format({ aysnc = true })
     end,
 })
 
