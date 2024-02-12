@@ -3,6 +3,7 @@ return {
     dependencies = {
         "skywind3000/vim-auto-popmenu",
     },
+    enabled = false,
     event = "VeryLazy",
     config = function()
         vim.cmd([[
