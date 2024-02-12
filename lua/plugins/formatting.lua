@@ -62,10 +62,11 @@ return {
                 yaml = { "prettier" },
                 markdown = { "prettier" },
                 graphql = { "prettier" },
+                nix = { "alejandra" }
             },
 
             format_after_save = {
-                lsp_fallback = true,
+                lsp_fallback = false,
             },
 
             format_on_save = {
