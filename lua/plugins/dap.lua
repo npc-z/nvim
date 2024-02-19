@@ -30,39 +30,39 @@ return {
         end
 
         vim.keymap.set("n", "<leader>dc", function()
-            require("dap").continue()
-        end, { desc = "debug continue" })
+            dap.continue()
+        end, { desc = "dap continue" })
 
         vim.keymap.set("n", "<leader>dso", function()
-            require("dap").step_over()
-        end, { desc = "debug step_over" })
+            dap.step_over()
+        end, { desc = "dap step_over" })
 
         vim.keymap.set("n", "<leader>dsi", function()
-            require("dap").step_into()
-        end, { desc = "debug step_into" })
+            dap.step_into()
+        end, { desc = "dap step_into" })
 
         vim.keymap.set("n", "<leader>dso", function()
-            require("dap").step_out()
-        end, { desc = "debug step_out" })
+            dap.step_out()
+        end, { desc = "dap step_out" })
 
         vim.keymap.set("n", "<Leader>db", function()
-            require("dap").toggle_breakpoint()
+            dap.toggle_breakpoint()
         end, { desc = "dap toggle_breakpoint" })
 
         -- vim.keymap.set("n", "<Leader>B", function()
-        --     require("dap").set_breakpoint()
-        -- end, { desc = "debug continue" })
+        --     dap.set_breakpoint()
+        -- end, { desc = "dap continue" })
 
         -- vim.keymap.set("n", "<Leader>lp", function()
-        --     require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-        -- end, { desc = "debug continue" })
+        --     dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+        -- end, { desc = "dap continue" })
 
         vim.keymap.set("n", "<Leader>dr", function()
-            require("dap").repl.open()
-        end, { desc = "dap repl open" })
+            dap.repl.toggle()
+        end, { desc = "dap repl toggle" })
 
         vim.keymap.set("n", "<Leader>dl", function()
-            require("dap").run_last()
+            dap.run_last()
         end, { desc = "dap run last" })
 
         vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
