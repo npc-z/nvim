@@ -13,8 +13,35 @@ return {
 
         local mason_tool_installer = require("mason-tool-installer")
 
+        local ensure_installed = {
+            "tsserver",
+            "html",
+            "cssls",
+            "tailwindcss",
+            "lua_ls",
+            "pyright",
+            "gopls",
+            "rust_analyzer",
+            -- "nil_ls",
+        }
+
+        -- 当系统为 nixos 时才安装 nil_ls
+        local handle = io.popen("uname -a")
+        if handle ~= nil then
+            local u = require("utils")
+            local os_name = handle:read("*a")
+            handle:close()
+
+            local b = u.contains(os_name, "nixos")
+            if b then
+                table.insert(ensure_installed, "nil_ls")
+            end
+            -- print(vim.inspect(ensure_installed))
+        end
+
         -- enable mason and configure icons
         mason.setup({
+            ensure_installed = ensure_installed,
             ui = {
                 icons = {
                     package_installed = "✓",
@@ -26,17 +53,6 @@ return {
 
         mason_lspconfig.setup({
             -- list of servers for mason to install
-            ensure_installed = {
-                "tsserver",
-                "html",
-                "cssls",
-                "tailwindcss",
-                "lua_ls",
-                "pyright",
-                "gopls",
-                "rust_analyzer",
-                "nil_ls",
-            },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
         })

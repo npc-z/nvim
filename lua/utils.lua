@@ -82,6 +82,11 @@ local function has_value(tab, val)
     return false
 end
 
+---@type fun(source: string, pattern: string):boolean
+local function contains(source, pattern)
+    return string.find(source, pattern) ~= nil
+end
+
 -- 移除行尾的空格
 local function trim_trailing_whitespace()
     -- 排除文件类型
@@ -103,6 +108,7 @@ funcs.cur_buf_filename = cur_buf_filename
 funcs.cur_buf_filetype = cur_buf_filetype
 funcs.require_fail_and_continue = require_fail_and_continue
 funcs.has_value = has_value
+funcs.contains = contains
 funcs.log = log
 
 return funcs
