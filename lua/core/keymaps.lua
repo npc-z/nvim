@@ -28,14 +28,22 @@ map("n", "<leader>w", ":w<CR>", opt)
 -- map("n", "<leader>wa", ":wa<CR>", opt)
 
 -- 插入模式下上下左右移动光标
-map("i", "<C-l>", "<Right>", opt)
-map("i", "<C-h>", "<Left>", opt)
-map("i", "<C-k>", "<Up>", opt)
-map("i", "<C-j>", "<Down>", opt)
+-- map("i", "<C-l>", "<Right>", opt)
+-- map("i", "<C-h>", "<Left>", opt)
+-- map("i", "<C-k>", "<Up>", opt)
+-- map("i", "<C-j>", "<Down>", opt)
 
 -- 跳到行首行尾
 map("i", "<C-a>", "<Home>", opt)
+map("n", "<C-a>", "<Home>", opt)
 map("i", "<C-e>", "<End>", opt)
+map("n", "<C-e>", "<End>", opt)
+
+map("i", "<C-f>", "<Right>", opt)
+map("i", "<C-b>", "<Left>", opt)
+map("i", "<C-n>", "<Down>", opt)
+map("i", "<C-p>", "<Up>", opt)
+
 -- map("i", "<C-h>", "<Bs>", opt)
 -- map("i", "<C-d>", "<Del>", opt)
 
@@ -104,8 +112,8 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 -- map("n", "<C-j>", "4j", opt)
 -- map("n", "<C-k>", "4k", opt)
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏
-map("n", "<C-u>", "9k", opt)
-map("n", "<C-d>", "9j", opt)
+-- map("n", "<C-u>", "9k", opt)
+-- map("n", "<C-d>", "9j", opt)
 
 -- 在 visual 模式中粘贴不要复制
 map("v", "p", "\"_dP", opt)
@@ -117,3 +125,8 @@ map("n", "<leader>q", ":Neotree close<CR>:q<CR>", opt)
 -- 编辑相关
 map("n", "<leader>uw", "gUiw", opt)
 map("n", "<leader>lw", "guiw", opt)
+
+map("i", "<C-u>", "<del>", opt)
+map("n", "<C-u>", "d0", opt)
+map("i", "<C-k>", "<c-o>D", opt)
+map("n", "<C-k>", "D", opt)
