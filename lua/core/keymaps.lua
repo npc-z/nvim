@@ -35,14 +35,7 @@ map("n", "<leader>w", ":w<CR>", opt)
 
 -- 跳到行首行尾
 map("i", "<C-a>", "<Home>", opt)
-map("n", "<C-a>", "<Home>", opt)
 map("i", "<C-e>", "<End>", opt)
-map("n", "<C-e>", "<End>", opt)
-
-map("i", "<C-f>", "<Right>", opt)
-map("i", "<C-b>", "<Left>", opt)
-map("i", "<C-n>", "<Down>", opt)
-map("i", "<C-p>", "<Up>", opt)
 
 -- map("i", "<C-h>", "<Bs>", opt)
 -- map("i", "<C-d>", "<Del>", opt)
@@ -125,8 +118,3 @@ map("n", "<leader>q", ":Neotree close<CR>:q<CR>", opt)
 -- 编辑相关
 map("n", "<leader>uw", "gUiw", opt)
 map("n", "<leader>lw", "guiw", opt)
-
-map("i", "<C-u>", "<del>", opt)
-map("n", "<C-u>", "d0", opt)
-map("i", "<C-k>", "<c-o>D", opt)
-map("n", "<C-k>", "D", opt)
