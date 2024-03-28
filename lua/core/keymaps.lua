@@ -37,6 +37,10 @@ map("n", "<leader>w", ":w<CR>", opt)
 map("i", "<C-a>", "<Home>", opt)
 map("i", "<C-e>", "<End>", opt)
 
+-- 在折行的情况下，移动一个逻辑行
+map("n", "j", "gj", opt)
+map("n", "k", "gk", opt)
+
 -- map("i", "<C-h>", "<Bs>", opt)
 -- map("i", "<C-d>", "<Del>", opt)
 
