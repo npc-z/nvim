@@ -10,11 +10,72 @@ return {
         local telescope = require("telescope")
         local actions = require("telescope.actions")
 
+        local additional_args = {
+            "--hidden",
+            "--no-ignore-dot",
+            "--hidden",
+            -- this flag allows you to hide exclude these files and folders from your search 👇
+            "--glob=!**/.git/*",
+            "--glob=!**/.idea/*",
+            "--glob=!**/.vscode/*",
+            "--glob=!**/build/*",
+            "--glob=!**/dist/*",
+            "--glob=!**/yarn.lock",
+            "--glob=!**/package-lock.json",
+        }
+
         telescope.setup({
 
+            pickers = {
+                find_files = {
+                    hidden = true,
+                    -- needed to exclude some files & dirs from general search
+                    -- when not included or specified in .gitignore
+                    find_command = {
+                        "rg",
+                        "--files",
+                        "--hidden",
+                        "--glob=!**/.git/*",
+                        "--glob=!**/.idea/*",
+                        "--glob=!**/.vscode/*",
+                        "--glob=!**/build/*",
+                        "--glob=!**/dist/*",
+                        "--glob=!**/yarn.lock",
+                        "--glob=!**/package-lock.json",
+                    },
+                },
+                grep_string = {
+                    additional_args = additional_args,
+                },
+                live_grep = {
+                    additional_args = additional_args,
+                },
+            },
+
             defaults = {
+                vimgrep_arguments = {
+                    "rg",
+                    "--follow", -- Follow symbolic links
+                    "--hidden", -- Search for hidden files
+                    "--no-heading", -- Don't group matches by each file
+                    "--with-filename", -- Print the file path with the matched lines
+                    "--line-number", -- Show line numbers
+                    "--column", -- Show column numbers
+                    "--smart-case", -- Smart case search
+
+                    -- Exclude some patterns from search
+                    "--glob=!**/.git/*",
+                    "--glob=!**/.idea/*",
+                    "--glob=!**/.vscode/*",
+                    "--glob=!**/build/*",
+                    "--glob=!**/dist/*",
+                    "--glob=!**/yarn.lock",
+                    "--glob=!**/package-lock.json",
+                },
+
                 layout_config = { width = 0.95, height = 0.95, preview_cutoff = 1 },
                 layout_strategy = "vertical",
+                -- layout_strategy = "horizontal",
                 mappings = {
                     i = {
                         -- 上下移动
