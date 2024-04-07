@@ -74,6 +74,13 @@ return {
             ":Telescope live_grep<CR>",
             opts_with_desc("global search")
         )
+        map(
+            "n",
+            "<leader>fw",
+            -- 末尾的 `<Esc>` 退出插入模式
+            ":lua require('telescope.builtin').grep_string( {search = vim.fn.expand('<cword>')} )<CR><Esc>",
+            opts_with_desc("search cword in global ")
+        )
 
         -- git branches
         map(
