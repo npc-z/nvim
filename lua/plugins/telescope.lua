@@ -106,6 +106,19 @@ return {
             return vim.tbl_deep_extend("force", opts, { desc = desc })
         end
 
+        function vim.getVisualSelection()
+            vim.cmd("noau normal! \"vy\"")
+            local text = vim.fn.getreg("v")
+            vim.fn.setreg("v", {})
+
+            text = string.gsub(text, "\n", "")
+            if #text > 0 then
+                return text
+            else
+                return ""
+            end
+        end
+
         -- Telescope
         map("n", "<leader>s", ":Telescope<CR>", opts_with_desc("open Telescope"))
         -- 查找文件
@@ -140,8 +153,14 @@ return {
             "<leader>fw",
             -- 末尾的 `<Esc>` 退出插入模式
             ":lua require('telescope.builtin').grep_string( {search = vim.fn.expand('<cword>')} )<CR><Esc>",
-            opts_with_desc("search cword in global ")
+            opts_with_desc("search cword in global")
         )
+
+        vim.keymap.set("v", "<space>fw", function()
+            local tb = require("telescope.builtin")
+            local text = vim.getVisualSelection()
+            tb.live_grep({ default_text = text })
+        end, opts_with_desc("search selected text in global"))
 
         -- git branches
         map(
