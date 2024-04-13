@@ -63,12 +63,12 @@ local function cur_buf_filename()
     return name
 end
 
----get the current buffer filename
+---get the current buffer file extension
 ---@type fun():string
-local function cur_buf_filetype()
+local function cur_buf_file_ext()
     local filepath = vim.api.nvim_buf_get_name(0)
-    local _, _, type = split_filename(filepath)
-    return type
+    local _, _, ext = split_filename(filepath)
+    return ext
 end
 
 ---@type fun(tab: table, val: string):boolean
@@ -105,7 +105,7 @@ funcs.trim_trailing_whitespace = trim_trailing_whitespace
 funcs.current_week_zh = current_week_zh
 funcs.split_filename = split_filename
 funcs.cur_buf_filename = cur_buf_filename
-funcs.cur_buf_filetype = cur_buf_filetype
+funcs.cur_buf_file_ext = cur_buf_file_ext
 funcs.require_fail_and_continue = require_fail_and_continue
 funcs.has_value = has_value
 funcs.contains = contains

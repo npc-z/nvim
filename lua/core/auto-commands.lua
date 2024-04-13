@@ -29,6 +29,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             \ |   exe "normal! g`\""
             \ | endif
         ]])
+
+        -- 为 .conf 文件设置 filetype, for plugin Comment
+        local ext = utils.cur_buf_file_ext()
+        if ext == "conf" then
+            vim.cmd([[ set ft=conf ]])
+        end
     end,
 })
 
