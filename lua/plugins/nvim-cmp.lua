@@ -132,6 +132,10 @@ return {
                 },
                 -- file system paths
                 { name = "path" },
+                {
+                    name = "dictionary",
+                    keyword_length = 2,
+                },
             }),
 
             -- configure lspkind for vs-code like pictograms in completion menu
