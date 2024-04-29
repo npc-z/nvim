@@ -97,9 +97,18 @@ map("t", "<Esc>", "<C-\\><C-n>", opt)
 -- map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
 -- map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 
+-- normal 模式中缩进代码
+map("n", "<C-[>", "<<", opt)
+map("n", "<C-]>", ">>", opt)
+
 -- visual 模式中缩进代码
-map("v", "<", "<gv", opt)
-map("v", ">", ">gv", opt)
+map("v", "<C-[>", "<gv", opt)
+map("v", "<C-]>", ">gv", opt)
+
+-- map("v", "<", "<gv", opt)
+-- map("v", ">", ">gv", opt)
+
+map("v", "<esc>", "<esc>", opt)
 
 -- 上下移动选中文本
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
@@ -114,6 +123,21 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
 -- 在 visual 模式中粘贴不要复制
 map("v", "p", "\"_dP", opt)
+
+local smart_dd = function()
+    if vim.api.nvim_get_current_line():match("^%s*$") then
+        -- 空白行
+        return "\"_dd"
+    else
+        return "dd"
+    end
+end
+vim.keymap.set("n", "dd", smart_dd, { noremap = true, expr = true })
+
+-- delete a word backward in insert mode with Ctrl+Backspace
+vim.keymap.set("i", "<C-BS>", "<C-w>", opt)
+-- to work in command-line mode
+vim.api.nvim_set_keymap("!", "<C-BS>", "<C-w>", opt)
 
 -- 退出
 map("n", "<leader>q", ":Neotree close<CR>:q<CR>", opt)
