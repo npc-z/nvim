@@ -100,14 +100,13 @@ map("t", "<Esc>", "<C-\\><C-n>", opt)
 -- normal 模式中缩进代码
 map("n", "<C-[>", "<<", opt)
 map("n", "<C-]>", ">>", opt)
+-- 因为 <C-[> 默认为行为就是 esc
+-- 不加下面这一行的话，导致在 normal 模式中按下 esc 键触发向左缩进
+map("n", "<esc>", "<esc>", opt)
 
 -- visual 模式中缩进代码
 map("v", "<C-[>", "<gv", opt)
 map("v", "<C-]>", ">gv", opt)
-
--- map("v", "<", "<gv", opt)
--- map("v", ">", ">gv", opt)
-
 map("v", "<esc>", "<esc>", opt)
 
 -- 上下移动选中文本

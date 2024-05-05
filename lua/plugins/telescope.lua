@@ -119,8 +119,9 @@ return {
             end
         end
 
-        -- Telescope
-        map("n", "<leader>s", ":Telescope<CR>", opts_with_desc("open Telescope"))
+        -- Open Telescope
+        map("n", "<C-p>", ":Telescope<CR>", opts_with_desc("Open Telescope"))
+
         -- 查找文件
         map(
             "n",
