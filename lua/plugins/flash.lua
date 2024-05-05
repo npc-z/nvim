@@ -1,15 +1,19 @@
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
+    dependencies = {
+        -- 小鹤双拼
+        "rainzm/flash-zh.nvim",
+    },
     opts = {},
     keys = {
         {
             "s",
             mode = { "n", "x", "o" },
             function()
-                require("flash").jump()
+                require("flash-zh").jump({ chines_only = false })
             end,
-            desc = "Flash",
+            desc = "Flash between Chinese",
         },
         {
             "S",
