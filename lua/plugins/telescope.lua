@@ -130,7 +130,7 @@ return {
         )
         map(
             "n",
-            "<leader>rf",
+            "<leader>fr",
             ":Telescope oldfiles<CR>",
             opts_with_desc("find recent files")
         )
@@ -162,12 +162,12 @@ return {
             tb.live_grep({ default_text = text })
         end, opts_with_desc("search selected text in global"))
 
-        -- git branches
+        -- git current_buffer_fuzzy_find
         map(
             "n",
             "<leader>fb",
-            ":Telescope git_branches<CR>",
-            opts_with_desc("find branches")
+            ":Telescope current_buffer_fuzzy_find<CR>",
+            opts_with_desc("find current_buffer_fuzzy_find")
         )
 
         -- work sessions
