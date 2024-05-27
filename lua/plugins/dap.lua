@@ -9,6 +9,15 @@ return {
         },
         "theHamsta/nvim-dap-virtual-text",
         "nvim-telescope/telescope-dap.nvim",
+        {
+
+            "Joakker/lua-json5",
+            -- if you're on windows
+            -- run = 'powershell ./install.ps1'
+            -- not work on nixos, have to build the json5 by self
+            -- run = "./install.sh",
+        },
+
         -- py
         "mfussenegger/nvim-dap-python",
     },
@@ -20,6 +29,14 @@ return {
         dapui.setup()
         dap_vt.setup()
         require("telescope").load_extension("dap")
+
+        require("dap.ext.vscode").json_decode = require("json5").parse
+        require("dap.ext.vscode").load_launchjs(nil, {
+            debugpy = { "python" },
+            cppdbg = { "c", "cpp" },
+        })
+
+        require("dap-python").setup("python")
 
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
@@ -36,7 +53,7 @@ return {
 
         vim.keymap.set("n", "<leader>dc", function()
             dap.continue()
-        end, { desc = "dap continue" })
+        end, { desc = "dap start or continue" })
 
         vim.keymap.set("n", "<leader>dso", function()
             dap.step_over()
@@ -46,17 +63,13 @@ return {
             dap.step_into()
         end, { desc = "dap step_into" })
 
-        vim.keymap.set("n", "<leader>dso", function()
+        vim.keymap.set("n", "<leader>dsO", function()
             dap.step_out()
         end, { desc = "dap step_out" })
 
         vim.keymap.set("n", "<Leader>db", function()
             dap.toggle_breakpoint()
         end, { desc = "dap toggle_breakpoint" })
-
-        -- vim.keymap.set("n", "<Leader>B", function()
-        --     dap.set_breakpoint()
-        -- end, { desc = "dap continue" })
 
         -- vim.keymap.set("n", "<Leader>lp", function()
         --     dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
@@ -78,16 +91,13 @@ return {
             require("dap.ui.widgets").preview()
         end, { desc = "dap preview" })
 
-        -- vim.keymap.set("n", "<Leader>df", function()
-        --     local widgets = require("dap.ui.widgets")
-        --     widgets.centered_float(widgets.frames)
-        -- end, { desc = "dap centered_float" })
+        vim.keymap.set({ "n", "v" }, "<Leader>du", function()
+            require("dapui").toggle()
+        end, { desc = "dap ui toggle" })
 
-        -- vim.keymap.set("n", "<Leader>ds", function()
-        --     local widgets = require("dap.ui.widgets")
-        --     widgets.centered_float(widgets.scopes)
-        -- end, { desc = "dap centered_float" })
-
-        require("dap-python").setup("python")
+        vim.fn.sign_define(
+            "DapBreakpoint",
+            { text = "🛑", texthl = "", linehl = "", numhl = "" }
+        )
     end,
 }
