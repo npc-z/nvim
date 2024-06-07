@@ -118,6 +118,8 @@ return {
 
             -- sources for autocompletion
             sources = cmp.config.sources({
+                -- ai code completion
+                { name = "codeium" },
                 { name = "nvim_lsp" },
                 -- snippets
                 { name = "luasnip" },
