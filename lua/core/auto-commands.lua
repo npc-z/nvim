@@ -1,21 +1,12 @@
 local utils = require("utils")
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-    desc = "Auto select virtualenv Nvim open",
-    pattern = "*",
-    once = true,
-    callback = function()
-        require("venv-selector").retrieve_from_cache()
-    end,
-})
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
     callback = function()
         -- 移除行尾空格
         utils.trim_trailing_whitespace()
         -- fmt
-        -- vim.lsp.buf.format({ aysnc = true })
+        -- vim.lsp.buf.format({ async = true })
     end,
 })
 
