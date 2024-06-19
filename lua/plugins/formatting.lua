@@ -62,27 +62,30 @@ return {
                 yaml = { "prettier" },
                 markdown = { "prettier" },
                 graphql = { "prettier" },
-                nix = { "alejandra" }
+                nix = { "alejandra" },
             },
 
-            format_after_save = {
-                lsp_fallback = false,
-            },
-
-            format_on_save = {
-                -- These options will be passed to conform.format()
-                async = false,
-                timeout_ms = 500,
-                lsp_fallback = true,
-            },
+            -- If this is set, Conform will run the formatter asynchronously after save.
+            -- format_after_save = {
+            --     lsp_fallback = false,
+            -- },
+            --
+            -- format_on_save = {
+            --     -- These options will be passed to conform.format()
+            --     async = false,
+            --     timeout_ms = 500,
+            --     lsp_fallback = true,
+            -- },
         })
 
-        vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+        vim.keymap.set({ "n", "v" }, "<leader>fc", function()
             conform.format({
                 lsp_fallback = true,
                 async = false,
                 timeout_ms = 1000,
             })
+
+            vim.cmd(":w")
         end, {
             noremap = true,
             silent = true,
