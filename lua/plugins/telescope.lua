@@ -122,6 +122,8 @@ return {
         -- Open Telescope
         map("n", "<C-p>", ":Telescope<CR>", opts_with_desc("Open Telescope"))
 
+        map("n", "<C-S-p>", ":Telescope keymaps<CR>", opts_with_desc("find files"))
+
         -- 查找文件
         map(
             "n",
