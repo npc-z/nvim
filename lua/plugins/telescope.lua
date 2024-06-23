@@ -5,6 +5,13 @@ return {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-tree/nvim-web-devicons",
+        {
+            "aaronhallaert/advanced-git-search.nvim",
+            cmd = { "AdvancedGitSearch" },
+            dependencies = {
+                "sindrets/diffview.nvim",
+            },
+        },
     },
     config = function()
         local telescope = require("telescope")
@@ -25,7 +32,29 @@ return {
         }
 
         telescope.setup({
-
+            extensions = {
+                advanced_git_search = {
+                    git_diff_flags = {},
+                    show_builtin_git_pickers = true,
+                    diff_plugin = "diffview",
+                    layout_config = {
+                        horizontal = {
+                            preview_width = 0.6,
+                        },
+                        -- Telescope layout setup
+                        telescope_theme = {
+                            -- function_name_1 = {
+                            --     -- Theme options
+                            -- },
+                            function_name_2 = "dropdown",
+                            -- e.g. realistic example
+                            show_custom_functions = {
+                                layout_config = { width = 0.4, height = 0.4 },
+                            },
+                        },
+                    },
+                },
+            },
             pickers = {
                 find_files = {
                     hidden = true,
@@ -97,6 +126,7 @@ return {
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("advanced_git_search")
 
         -- set keymaps
         local map = vim.api.nvim_set_keymap
@@ -123,6 +153,14 @@ return {
         map("n", "<C-p>", ":Telescope<CR>", opts_with_desc("Open Telescope"))
 
         map("n", "<C-S-p>", ":Telescope keymaps<CR>", opts_with_desc("find files"))
+
+        -- 查找文件
+        map(
+            "n",
+            "<leader>gf",
+            ":Telescope advanced_git_search show_custom_functions<CR>",
+            opts_with_desc("find files")
+        )
 
         -- 查找文件
         map(
