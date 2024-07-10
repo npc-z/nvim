@@ -123,6 +123,8 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 -- 在 visual 模式中粘贴不要复制
 map("v", "p", "\"_dP", opt)
 
+map("i", "<C-v>", "<C-r>+", opt)
+
 local smart_dd = function()
     if vim.api.nvim_get_current_line():match("^%s*$") then
         -- 空白行
