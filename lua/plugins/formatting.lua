@@ -45,37 +45,53 @@ return {
             },
         }
 
+        local fts = {
+            c = { "clang_format" },
+            lua = { "stylua" },
+            -- python = { "isort", "black" },
+            go = { "gofmt" },
+            javascript = { "prettier" },
+            typescript = { "prettier" },
+            javascriptreact = { "prettier" },
+            typescriptreact = { "prettier" },
+            css = { "prettier" },
+            html = { "prettier" },
+            -- json = { "prettier" },
+            yaml = { "prettier" },
+            markdown = { "prettier" },
+            graphql = { "prettier" },
+            nix = { "alejandra" },
+        }
+
+        local handle = io.popen("uname -a")
+        if handle ~= nil then
+            local u = require("utils")
+            local os_name = handle:read("*a")
+            handle:close()
+
+            local is_workstation = u.contains(os_name, "thinkpad")
+            if is_workstation then
+                -- do nothing now
+            else
+                fts.python = { "black", "isort" }
+            end
+        end
+
         conform.setup({
             log_level = vim.log.levels.DEBUG,
-            formatters_by_ft = {
-                c = { "clang_format" },
-                lua = { "stylua" },
-                python = { "isort", "black" },
-                go = { "gofmt" },
-                javascript = { "prettier" },
-                typescript = { "prettier" },
-                javascriptreact = { "prettier" },
-                typescriptreact = { "prettier" },
-                css = { "prettier" },
-                html = { "prettier" },
-                json = { "prettier" },
-                yaml = { "prettier" },
-                markdown = { "prettier" },
-                graphql = { "prettier" },
-                nix = { "alejandra" },
-            },
+            formatters_by_ft = fts,
 
             -- If this is set, Conform will run the formatter asynchronously after save.
-            -- format_after_save = {
-            --     lsp_fallback = false,
-            -- },
-            --
-            -- format_on_save = {
-            --     -- These options will be passed to conform.format()
-            --     async = false,
-            --     timeout_ms = 500,
-            --     lsp_fallback = true,
-            -- },
+            format_after_save = {
+                lsp_fallback = false,
+            },
+
+            format_on_save = {
+                -- These options will be passed to conform.format()
+                async = false,
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>fc", function()
