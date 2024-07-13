@@ -23,6 +23,7 @@ return {
             "gopls",
             "rust_analyzer",
             -- "nil_ls",
+            "sqls",
         }
 
         local ensure_installed_tools = {
@@ -35,6 +36,7 @@ return {
             "eslint_d", -- js linter
             "markdownlint",
             "jsonlint",
+            "sqlfluff",
         }
 
         local handle = io.popen("uname -a")

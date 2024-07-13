@@ -8,13 +8,19 @@ return {
     config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local utils = require("utils")
+
+        -- use conform to formatting
+        local formatter_disabled_lsps = {
+            "clangd",
+            "sqls",
+        }
 
         local on_attach = function(client, bufnr)
             local illuminate = require("illuminate")
             illuminate.on_attach(client)
 
-            -- use conform to formatting
-            if client.name == "clangd" then
+            if utils.has_value(formatter_disabled_lsps, client.name) then
                 client.server_capabilities.documentFormattingProvider = false
                 client.server_capabilities.documentRangeFormattingProvider = false
             end
@@ -185,6 +191,12 @@ return {
             settings = {
                 cargo = { allFeatures = true },
             },
+        })
+
+        -- configure sqls server
+        lspconfig["sqls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
         })
     end,
 }
