@@ -4,6 +4,19 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
+        {
+            "rmagatti/goto-preview",
+            event = "BufEnter",
+            config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+        },
+        {
+            "dnlhc/glance.nvim",
+            config = function()
+                require("glance").setup({
+                    -- your configuration
+                })
+            end,
+        },
     },
     config = function()
         local lspconfig = require("lspconfig")

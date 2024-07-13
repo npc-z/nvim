@@ -1,24 +1,54 @@
+---@diagnostic disable: cast-local-type
+
 M = {}
 
 M.setup_keymaps = function(bufnr)
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
     opts.buffer = bufnr
+    local use_goto_preview = not true
+    local use_glance = true
+
+    local preview_references = "<cmd>Telescope lsp_references<CR>"
+    local preview_definition = "<cmd>Telescope lsp_definitions<CR>"
+    local preview_impl = "<cmd>Telescope lsp_implementations<CR>"
+    --@type string|function
+    local preview_declaration = vim.lsp.buf.declaration
+    -- local preview_type_definition = "<cmd>Telescope lsp_type_definitions<CR>"
+
+    if use_goto_preview then
+        -- local cmd = "gP <cmd>lua require('goto-preview').close_all_win()<CR>"
+        preview_references =
+            "<cmd>lua require('goto-preview').goto_preview_references()<CR>"
+        preview_definition =
+            "<cmd>lua require('goto-preview').goto_preview_definition()<CR>"
+        -- local preview_type_definition =
+        --     "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>"
+        preview_impl =
+            "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>"
+        preview_declaration =
+            "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>"
+    elseif use_glance then
+        preview_references = "<CMD>Glance references<CR>"
+        preview_definition = "<CMD>Glance definitions<CR>"
+        -- preview_type_definition = "<CMD>Glance type_definitions<CR>"
+        preview_impl = "<CMD>Glance implementations<CR>"
+    end
 
     opts.desc = "LSP references"
-    keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+    keymap.set("n", "gr", preview_references, opts)
 
     opts.desc = "Go to declaration"
-    keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+    keymap.set("n", "gD", preview_declaration, opts) -- go to declaration
 
     opts.desc = "Show LSP definitions"
-    keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+    keymap.set("n", "gd", preview_definition, opts)
 
     opts.desc = "Show LSP implementations"
-    keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+    keymap.set("n", "gi", preview_impl, opts)
 
-    opts.desc = "Show LSP type definitions"
-    keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+    -- opts.desc = "Show LSP type definitions"
+    -- keymap.set("n", "gt", preview_type_definition, opts)
 
     -- see available code actions, in visual mode will apply to selection
     opts.desc = "See available code actions"
