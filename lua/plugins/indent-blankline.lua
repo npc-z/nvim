@@ -1,5 +1,19 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
+    dependencies = {
+        {
+            "gh-liu/fold_line.nvim",
+            event = "VeryLazy",
+            init = function()
+                -- To show lines for the current fold only
+                vim.g.fold_line_current_fold_only = true
+
+                -- Set vim.g.fold_line_disable (globally) or
+                -- vim.w.fold_line_disable (for a window) or
+                -- vim.b.fold_line_disable (for a buffer) to true.
+            end,
+        },
+    },
     event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
     config = function()
