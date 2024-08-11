@@ -48,28 +48,28 @@ local mapping = function(cmp)
         ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif check_backspace() then
-                fallback()
-            else
-                fallback()
-            end
-        end, {
-            "i",
-            "s",
-        }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end, {
-            "i",
-            "s",
-        }),
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_next_item()
+        --     elseif check_backspace() then
+        --         fallback()
+        --     else
+        --         fallback()
+        --     end
+        -- end, {
+        --     "i",
+        --     "s",
+        -- }),
+        -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_prev_item()
+        --     else
+        --         fallback()
+        --     end
+        -- end, {
+        --     "i",
+        --     "s",
+        -- }),
 
         -- 如果窗口内容太多，可以滚动
         ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
@@ -101,6 +101,24 @@ return {
 
         -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        -- vim.keymap.set({ "i" }, "<Tab>", function()
+        --     luasnip.expand()
+        -- end, { silent = true })
+
+        vim.keymap.set({ "i", "s" }, "<Tab>", function()
+            luasnip.jump(1)
+        end, { silent = true })
+
+        vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+            luasnip.jump(-1)
+        end, { silent = true })
+
+        -- vim.keymap.set({ "i", "s" }, "<C-E>", function()
+        --     if luasnip.choice_active() then
+        --         luasnip.change_choice(1)
+        --     end
+        -- end, { silent = true })
 
         cmp.setup({
             completion = {
