@@ -1,5 +1,11 @@
 ---@diagnostic disable: cast-local-type
 
+local function rename(opts)
+    return function()
+        require("plugins.lsp.after.rename").rename(opts)
+    end
+end
+
 M = {}
 
 M.setup_keymaps = function(bufnr)
@@ -55,7 +61,8 @@ M.setup_keymaps = function(bufnr)
     keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
     opts.desc = "Smart rename"
-    keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+    -- keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+    keymap.set("n", "<leader>rn", rename({}), opts) -- smart rename
 
     opts.desc = "Show buffer diagnostics"
     keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
