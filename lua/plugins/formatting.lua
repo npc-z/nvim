@@ -5,12 +5,6 @@ return {
     config = function()
         local conform = require("conform")
 
-        require("conform").formatters.sqlfluff = {
-            inherit = false,
-            command = "sqlfluff",
-            args = { "fix", "--dialect=mysql", "-" },
-        }
-
         conform.formatters.clang_format = {
             -- prepend_args = {
             --     "--style",
@@ -67,7 +61,7 @@ return {
             markdown = { "prettier" },
             graphql = { "prettier" },
             nix = { "alejandra" },
-            sql = { "sqlfluff" },
+            sql = { "sleek" },
         }
 
         local handle = io.popen("uname -a")
