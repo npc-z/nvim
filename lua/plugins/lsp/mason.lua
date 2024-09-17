@@ -14,7 +14,7 @@ return {
         local mason_tool_installer = require("mason-tool-installer")
 
         local ensure_installed_lsp_servers = {
-            "tsserver",
+            "ts_ls",
             "html",
             "cssls",
             "tailwindcss",
