@@ -37,6 +37,7 @@ return {
             "markdownlint",
             "jsonlint",
             "sqlfluff",
+            "codelldb",
         }
 
         local handle = io.popen("uname -a")

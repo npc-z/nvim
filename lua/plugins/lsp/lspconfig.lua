@@ -198,13 +198,13 @@ return {
         })
 
         -- configure rust server
-        lspconfig["rust_analyzer"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                cargo = { allFeatures = true },
-            },
-        })
+        -- lspconfig["rust_analyzer"].setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     settings = {
+        --         cargo = { allFeatures = true },
+        --     },
+        -- })
 
         -- configure sqls server
         lspconfig["sqls"].setup({
