@@ -6,6 +6,12 @@ return {
 
         comment.setup({})
 
+        local ft = require("Comment.ft")
+
+        ft.http = "#%s"
+        -- Justfile
+        ft.just = "#%s"
+
         function _G.__toggle_contextual(vmode)
             local cfg = require("Comment.config"):get()
             local U = require("Comment.utils")
