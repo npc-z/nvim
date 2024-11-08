@@ -52,7 +52,7 @@ return {
             -- direction = "vertical" | "horizontal" | "tab" | "float",
             direction = "horizontal",
             close_on_exit = true, -- close the terminal window when the process exits
-            shell = vim.o.shell, -- change the default shell
+            shell = "zsh", -- change the default shell
             auto_scroll = true, -- automatically scroll to the bottom on terminal output
             -- This field is only relevant if direction is set to 'float'
             float_opts = {
