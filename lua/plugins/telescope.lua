@@ -12,10 +12,60 @@ return {
                 "sindrets/diffview.nvim",
             },
         },
+
+        -- Tab-based Searching:
+        -- Easily switch between different search modes, each represented by a tab.
+        "FabianWirth/search.nvim",
     },
     config = function()
         local telescope = require("telescope")
+        local builtin = require("telescope.builtin")
         local actions = require("telescope.actions")
+        local search_tab = require("search")
+
+        search_tab.setup({
+            initial_tab = 1,
+            tabs = {
+                {
+                    "Files",
+                    function(opts)
+                        opts = opts or {}
+                        if vim.fn.isdirectory(".git") == 1 then
+                            builtin.git_files(opts)
+                        else
+                            builtin.find_files(opts)
+                        end
+                    end,
+                },
+                {
+                    name = "Buffers",
+                    tele_func = builtin.buffers,
+                },
+                {
+                    name = "Grep",
+                    tele_func = builtin.live_grep,
+                },
+                {
+                    name = "Modified",
+                    tele_func = builtin.git_status,
+                },
+                {
+                    name = "current_buffer_fuzzy_find",
+                    tele_func = builtin.current_buffer_fuzzy_find,
+                },
+            },
+            -- collections usage: require('search').open({ collection = 'git' })
+            collections = {
+                git = {
+                    initial_tab = 1, -- Git branches
+                    tabs = {
+                        { name = "Branches", tele_func = builtin.git_branches },
+                        { name = "Commits", tele_func = builtin.git_commits },
+                        { name = "Stashes", tele_func = builtin.git_stash },
+                    },
+                },
+            },
+        })
 
         local additional_args = {
             "--hidden",
@@ -151,44 +201,51 @@ return {
 
         -- Open Telescope
         map("n", "<C-p>", ":Telescope<CR>", opts_with_desc("Open Telescope"))
+        -- map("n", "<C-S-p>", ":Telescope keymaps<CR>", opts_with_desc("find files"))
 
-        map("n", "<C-S-p>", ":Telescope keymaps<CR>", opts_with_desc("find files"))
+        vim.keymap.set("n", "<leader><leader>", function()
+            search_tab.open()
+        end, {
+            noremap = true,
+            silent = true,
+            desc = "Open Search",
+        })
 
-        -- 查找文件
+        -- git
         map(
             "n",
             "<leader>gf",
             ":Telescope advanced_git_search show_custom_functions<CR>",
-            opts_with_desc("find files")
+            opts_with_desc("advanced_[G]it_search [F]ind")
         )
 
         -- 查找文件
-        map(
-            "n",
-            "<leader>ff",
-            ":Telescope find_files<CR>",
-            opts_with_desc("find files")
-        )
-        map(
-            "n",
-            "<leader>fr",
-            ":Telescope oldfiles<CR>",
-            opts_with_desc("find recent files")
-        )
-        map(
-            "n",
-            "<leader><leader>",
-            ":Telescope buffers<CR>",
-            opts_with_desc("find buffers")
-        )
+        -- map(
+        --     "n",
+        --     "<leader>ff",
+        --     ":Telescope find_files<CR>",
+        --     opts_with_desc("find files")
+        -- )
+        -- map(
+        --     "n",
+        --     "<leader>fr",
+        --     ":Telescope oldfiles<CR>",
+        --     opts_with_desc("find recent files")
+        -- )
+        -- map(
+        --     "n",
+        --     "<leader><leader>",
+        --     ":Telescope buffers<CR>",
+        --     opts_with_desc("find buffers")
+        -- )
 
         -- 全局搜索
-        map(
-            "n",
-            "<leader>fg",
-            ":Telescope live_grep<CR>",
-            opts_with_desc("global search")
-        )
+        -- map(
+        --     "n",
+        --     "<leader>fg",
+        --     ":Telescope live_grep<CR>",
+        --     opts_with_desc("global search")
+        -- )
         map(
             "n",
             "<leader>fw",
@@ -204,19 +261,19 @@ return {
         end, opts_with_desc("search selected text in global"))
 
         -- git current_buffer_fuzzy_find
-        map(
-            "n",
-            "<leader>fb",
-            ":Telescope current_buffer_fuzzy_find<CR>",
-            opts_with_desc("find current_buffer_fuzzy_find")
-        )
+        -- map(
+        --     "n",
+        --     "<leader>fb",
+        --     ":Telescope current_buffer_fuzzy_find<CR>",
+        --     opts_with_desc("find current_buffer_fuzzy_find")
+        -- )
 
         -- work sessions
         map(
             "n",
             "<leader>fs",
             ":Telescope session-lens search_session<CR>",
-            opts_with_desc("find sessions")
+            opts_with_desc("[F]ind [S]essions")
         )
     end,
 }
