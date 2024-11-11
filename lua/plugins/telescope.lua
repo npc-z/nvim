@@ -27,15 +27,16 @@ return {
             initial_tab = 1,
             tabs = {
                 {
-                    "Files",
-                    function(opts)
-                        opts = opts or {}
-                        if vim.fn.isdirectory(".git") == 1 then
-                            builtin.git_files(opts)
-                        else
-                            builtin.find_files(opts)
-                        end
-                    end,
+                    name = "Files",
+                    tele_func = builtin.find_files,
+                    -- function(opts)
+                    --     opts = opts or {}
+                    --     if vim.fn.isdirectory(".git") == 1 then
+                    --         builtin.git_files(opts)
+                    --     else
+                    --         builtin.find_files(opts)
+                    --     end
+                    -- end,
                 },
                 {
                     name = "Buffers",
