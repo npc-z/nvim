@@ -70,7 +70,8 @@ return {
             local os_name = handle:read("*a")
             handle:close()
 
-            local is_workstation = u.contains(os_name, "thinkpad")
+            -- NOTE: make sure the hostname contains the `work`
+            local is_workstation = u.contains(os_name, "work")
             if is_workstation then
                 -- do nothing now
             else
