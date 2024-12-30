@@ -26,6 +26,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         if ext == "conf" then
             vim.cmd([[ set ft=conf ]])
         end
+
+        -- remove all the others diagnostics.
+        -- for "rachartier/tiny-inline-diagnostic.nvim",
+        vim.diagnostic.config({ virtual_text = false })
     end,
 })
 
