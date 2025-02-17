@@ -20,6 +20,9 @@ return {
 
             -- When true, aerial will automatically close after jumping to a symbol
             close_on_select = true,
+
+            -- Jump to symbol in source window when the cursor moves
+            autojump = true,
         })
         -- You probably also want to set a keymap to toggle aerial
         vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>")
