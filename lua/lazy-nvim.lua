@@ -16,6 +16,8 @@ require("lazy").setup({
         { import = "plugins" },
         { import = "plugins.lsp" },
         { import = "plugins.git" },
+        -- 使用增强
+        { import = "plugins.helpers" },
     },
     install = {
         colorscheme = { "nightfly" },
