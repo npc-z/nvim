@@ -175,6 +175,10 @@
     "branch": "v3.x",
     "commit": "e96fd85bf18bc345dab332b345098fa5460dffac"
   },
+  "neoscroll.nvim": {
+    "branch": "master",
+    "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c"
+  },
   "none-ls.nvim": {
     "branch": "main",
     "commit": "f41624ea1a73f020ddbd33438f74abb95ea17d55"
