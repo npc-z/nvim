@@ -131,6 +131,10 @@
     "branch": "harpoon2",
     "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7"
   },
+  "haskell-tools.nvim": {
+    "branch": "master",
+    "commit": "1eba02f17a05ccb00f2dbfea7038b7658dc05dc0"
+  },
   "http-client.nvim": {
     "branch": "master",
     "commit": "d88c9680261708b91e1ec8aa88d7812efa262a03"
