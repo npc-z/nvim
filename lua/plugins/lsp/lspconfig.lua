@@ -62,9 +62,32 @@ return {
         end
 
         -- configure nix server
-        lspconfig["nil_ls"].setup({
+        -- lspconfig["nil_ls"].setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
+        lspconfig["nixd"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            cmd = { "nixd" },
+            settings = {
+                nixd = {
+                    nixpkgs = {
+                        expr = "import <nixpkgs> { }",
+                    },
+                    formatting = {
+                        command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+                    },
+                    options = {
+                        nixos = {
+                            expr = "(builtins.getFlake \"/home/npc/.config/nixos\").nixosConfigurations.ser7-nixos.options",
+                        },
+                        home_manager = {
+                            expr = "(builtins.getFlake \"/home/npc/.config/nixos\").homeConfigurations.ser7-nixos.options",
+                        },
+                    },
+                },
+            },
         })
 
         -- configure html server
