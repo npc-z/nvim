@@ -19,6 +19,10 @@
     "branch": "main",
     "commit": "9c3f977aafb56bd73ba0d082c4dcbdba5666faf3"
   },
+  "avante.nvim": {
+    "branch": "main",
+    "commit": "510bf2ff3530de88ed7cc467c18f9decd2636317"
+  },
   "barbecue": {
     "branch": "main",
     "commit": "cd7e7da622d68136e13721865b4d919efd6325ed"
