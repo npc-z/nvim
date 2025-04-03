@@ -11,6 +11,8 @@ return {
         ft.http = "#%s"
         -- Justfile
         ft.just = "#%s"
+        ft.conf = "#%s"
+        ft.sh = "#%s"
 
         function _G.__toggle_contextual(vmode)
             local cfg = require("Comment.config"):get()

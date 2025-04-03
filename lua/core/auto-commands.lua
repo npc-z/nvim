@@ -21,12 +21,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             \ | endif
         ]])
 
-        -- 为 .conf 文件设置 filetype, for plugin Comment
-        local ext = utils.cur_buf_file_ext()
-        if ext == "conf" then
-            vim.cmd([[ set ft=conf ]])
-        end
-
         -- remove all the others diagnostics.
         -- for "rachartier/tiny-inline-diagnostic.nvim",
         vim.diagnostic.config({ virtual_text = false })
