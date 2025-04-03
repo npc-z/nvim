@@ -33,6 +33,7 @@ return {
             "isort", -- python formatter
             "black", -- python formatter
             "mypy", -- python linter
+            "pylint", -- python linter
             "eslint_d", -- js linter
             "markdownlint",
             "jsonlint",
