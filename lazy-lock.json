@@ -67,10 +67,6 @@
     "branch": "main",
     "commit": "fd2bbca7aa588f24ffc3517831934b4c4a9588e9"
   },
-  "cspell.nvim": {
-    "branch": "main",
-    "commit": "fb104ec1e06e984baefcad6a0559381f5d933442"
-  },
   "dashboard-nvim": {
     "branch": "master",
     "commit": "000448d837f6e7a47f8f342f29526c4d7e49e9ce"
@@ -194,10 +190,6 @@
   "neoscroll.nvim": {
     "branch": "master",
     "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c"
-  },
-  "none-ls.nvim": {
-    "branch": "main",
-    "commit": "f41624ea1a73f020ddbd33438f74abb95ea17d55"
   },
   "nui.nvim": {
     "branch": "main",
