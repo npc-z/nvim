@@ -20,6 +20,8 @@ return {
 
                 -- 使用 nvim 内置 LSP
                 diagnostics = "nvim_lsp",
+
+                sort_by = "insert_after_current",
             },
         })
 
