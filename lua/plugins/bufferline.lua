@@ -33,7 +33,7 @@ return {
         map("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 
         -- 关闭
-        map("n", "<C-w>", ":Neotree close<CR>:bdelete<CR>", opts)
+        map("n", "<C-s>", ":Neotree close<CR>:bdelete<CR>", opts)
         map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opts)
         map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opts)
         map("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
