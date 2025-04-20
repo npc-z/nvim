@@ -155,3 +155,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
+
+vim.opt.fillchars = {
+    diff = " ",
+    -- diff = "/",
+}
+
+vim.opt.diffopt = {
+    "internal",
+    "filler",
+    "closeoff",
+    "context:12",
+    "algorithm:histogram",
+    "linematch:200",
+    "indent-heuristic",
+}
