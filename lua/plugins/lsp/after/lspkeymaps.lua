@@ -13,7 +13,7 @@ M.setup_keymaps = function(bufnr)
     local opts = { noremap = true, silent = true }
     opts.buffer = bufnr
     local use_goto_preview = not true
-    local use_glance = true
+    local use_glance = not true
 
     local preview_references = "<cmd>Telescope lsp_references<CR>"
     local preview_definition = "<cmd>Telescope lsp_definitions<CR>"
