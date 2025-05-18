@@ -52,7 +52,7 @@ function M.rename(opts)
     local editing_ranges = nil
     local on_same_line = 0
     for _, client in ipairs(clients) do
-        if client.supports_method(lsp_methods.textDocument_references) then
+        if client:supports_method(lsp_methods.textDocument_references) then
             local params =
                 vim.lsp.util.make_position_params(M.doc_win, client.offset_encoding)
             params.context = { includeDeclaration = true }

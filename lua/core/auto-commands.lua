@@ -33,7 +33,7 @@ vim.cmd([[
     " outline set keymap
     " or use nvim_set_keymap to set a global keymap
     autocmd FileType lspsagaoutline nnoremap <silent> <buffer> <leader>o  :LSoutlineToggle<CR>
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
+    autocmd TextYankPost * silent!lua require('vim.hl').on_yank({higroup = 'Visual', timeout = 200})
     " 在注释行插入模式下, 回车不要生成新的注释行
     autocmd BufWinEnter * :set formatoptions-=cro
     augroup end
