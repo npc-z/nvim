@@ -26,6 +26,10 @@ map("i", "jj", "<Esc>", opt)
 -- 快速保存
 map("n", "<leader>w", ":w<CR>", opt)
 -- map("n", "<leader>wa", ":wa<CR>", opt)
+-- quickly input the htree letter `wxx` to save with sudo
+vim.keymap.set("c", "wxx", require("utils").sudo_write, { silent = true })
+-- or just run below cmd
+-- :lua require'utils'.sudo_write()
 
 -- 插入模式下上下左右移动光标
 -- map("i", "<C-l>", "<Right>", opt)
@@ -36,6 +40,8 @@ map("n", "<leader>w", ":w<CR>", opt)
 -- 跳到行首行尾
 map("i", "<C-a>", "<Home>", opt)
 map("i", "<C-e>", "<End>", opt)
+map("c", "<C-a>", "<home>", {})
+map("c", "<C-e>", "<end>", {})
 
 -- 在折行的情况下，移动一个逻辑行
 map("n", "j", "gj", opt)
