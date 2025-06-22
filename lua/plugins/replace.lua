@@ -1,42 +1,20 @@
 -- A search panel for neovim.
 
 return {
-    "nvim-pack/nvim-spectre",
-    dependences = {
-        "nvim-lua/plenary.nvim",
-    },
+    "MagicDuck/grug-far.nvim",
+    -- Note (lazy loading): grug-far.lua defers all it's requires so it's lazy by default
+    -- additional lazy config to defer loading is not really needed...
     config = function()
-        require("spectre").setup()
-
-        vim.keymap.set("n", "<leader>S", "<cmd>lua require(\"spectre\").toggle()<CR>", {
-            desc = "Toggle Spectre",
+        -- optional setup call to override plugin options
+        -- alternatively you can set options with vim.g.grug_far = { ... }
+        local far = require("grug-far")
+        far.setup({
+            -- options, see Configuration section below
+            -- there are no required options atm
         })
 
-        vim.keymap.set(
-            "n",
-            "<leader>sw",
-            "<cmd>lua require(\"spectre\").open_visual({select_word=true})<CR>",
-            {
-                desc = "Search current word",
-            }
-        )
-
-        vim.keymap.set(
-            "v",
-            "<leader>sw",
-            "<esc><cmd>lua require(\"spectre\").open_visual()<CR>",
-            {
-                desc = "Search current word",
-            }
-        )
-
-        vim.keymap.set(
-            "n",
-            "<leader>sp",
-            "<cmd>lua require(\"spectre\").open_file_search({select_word=true})<CR>",
-            {
-                desc = "Search on current file",
-            }
-        )
+        vim.keymap.set({ "n", "x" }, "<leader>F", function()
+            far.open({ visualSelectionUsage = "operate-within-range" })
+        end, { desc = "grug-far: Search within range" })
     end,
 }
