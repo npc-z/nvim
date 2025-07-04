@@ -41,15 +41,6 @@ return {
             require("plugins.lsp.after.lspkeymaps").setup_keymaps(bufnr)
         end
 
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
-
-        vim.lsp.handlers["textDocument/signatureHelp"] =
-            vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = "rounded",
-            })
-
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
