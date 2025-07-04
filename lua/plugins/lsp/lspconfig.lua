@@ -175,19 +175,10 @@ return {
         })
 
         -- configure python server
-        lspconfig["pyright"].setup({
+        vim.lsp.enable("pyright")
+        vim.lsp.config("pyright", {
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = {
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        diagnosticMode = "workspace",
-                        useLibraryCodeForTypes = true,
-                        typeCheckingMode = "off",
-                    },
-                },
-            },
         })
 
         -- configure lua server (with special settings)
