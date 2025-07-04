@@ -248,6 +248,8 @@ return {
                         },
                     })
             end,
+            capabilities = capabilities,
+            on_attach = on_attach,
             settings = {
                 Lua = {
                     -- make the language server recognize "vim" global
