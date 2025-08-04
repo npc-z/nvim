@@ -22,6 +22,8 @@ M.setup_keymaps = function(bufnr)
     local preview_declaration = vim.lsp.buf.declaration
     -- local preview_type_definition = "<cmd>Telescope lsp_type_definitions<CR>"
 
+    local live_rename = require("live-rename")
+
     if use_goto_preview then
         -- local cmd = "gP <cmd>lua require('goto-preview').close_all_win()<CR>"
         preview_references =
@@ -61,9 +63,10 @@ M.setup_keymaps = function(bufnr)
     -- keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
     keymap.set({ "n", "v" }, "<C-.>", vim.lsp.buf.code_action, opts)
 
-    opts.desc = "Smart rename"
+    opts.desc = "LSP rename"
     -- keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-    keymap.set("n", "<leader>rn", rename({}), opts) -- smart rename
+    -- start in normal mode and jump to the start of the word
+    keymap.set("n", "<leader>rn", live_rename.rename, opts)
 
     opts.desc = "Show buffer diagnostics"
     keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file

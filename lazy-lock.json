@@ -155,6 +155,10 @@
     "branch": "main",
     "commit": "cdd3527e251f96eb0527162b156ad839286fcd97"
   },
+  "live-rename.nvim": {
+    "branch": "main",
+    "commit": "78fcdb4072c6b1a8e909872f9a971b2f2b642d1e"
+  },
   "lsp_signature.nvim": {
     "branch": "master",
     "commit": "62cadce83aaceed677ffe7a2d6a57141af7131ea"
