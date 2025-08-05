@@ -23,10 +23,6 @@
     "branch": "main",
     "commit": "66cfbb4c190da1b558c0e2f6dda59b89002f0c24"
   },
-  "barbecue": {
-    "branch": "main",
-    "commit": "cd7e7da622d68136e13721865b4d919efd6325ed"
-  },
   "blame.nvim": {
     "branch": "main",
     "commit": "b87b8c820e4cec06fbbd2f946b7b35c45906ee0c"
@@ -82,6 +78,10 @@
   "dressing.nvim": {
     "branch": "master",
     "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639"
+  },
+  "dropbar.nvim": {
+    "branch": "master",
+    "commit": "418897fe7828b2749ca78056ec8d8ad43136b695"
   },
   "fcitx.vim": {
     "branch": "fcitx5",
@@ -242,10 +242,6 @@
   "nvim-lspconfig": {
     "branch": "master",
     "commit": "63a38440989c58e1f100373ab603fd24665bdc9a"
-  },
-  "nvim-navic": {
-    "branch": "master",
-    "commit": "f887d794a0f4594882814d7780980a949200a238"
   },
   "nvim-nio": {
     "branch": "master",
