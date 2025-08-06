@@ -6,8 +6,8 @@ return {
     -- priority = 9990000, -- needs to be loaded in first
     priority = 1000, -- needs to be loaded in first
     config = function()
-        -- remove all the others diagnostics.
-        vim.diagnostic.config({ virtual_text = false })
+        local utils = require("utils")
+        utils.config_diagnostic()
 
         require("tiny-inline-diagnostic").setup({
             options = {

@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 
         -- remove all the others diagnostics.
         -- for "rachartier/tiny-inline-diagnostic.nvim",
-        vim.diagnostic.config({ virtual_text = false })
+        utils.config_diagnostic()
     end,
 })
 
