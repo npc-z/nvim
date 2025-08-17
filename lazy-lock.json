@@ -277,7 +277,7 @@
   },
   "rustaceanvim": {
     "branch": "master",
-    "commit": "e9c5aaba16fead831379d5f44617547a90b913c7"
+    "commit": "eb606eb3785f6c6e31ef675c32b706694b76923b"
   },
   "search.nvim": {
     "branch": "main",
