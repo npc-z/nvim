@@ -47,10 +47,7 @@ return {
         utils.config_diagnostic()
 
         -- configure nix server
-        -- vim.lsp.config("nil_ls", {
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        -- })
+        vim.lsp.enable("nixd")
         vim.lsp.config("nixd", {
             capabilities = capabilities,
             on_attach = on_attach,
