@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
+        "saghen/blink.cmp",
         { "antosha417/nvim-lsp-file-operations", config = true },
         {
             "rmagatti/goto-preview",
@@ -20,7 +20,6 @@ return {
     },
     config = function()
         local lspconfig = require("lspconfig")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local utils = require("utils")
 
         -- use conform to formatting
@@ -42,7 +41,7 @@ return {
         end
 
         -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
         utils.config_diagnostic()
 
@@ -173,6 +172,7 @@ return {
         })
 
         -- configure lua server (with special settings)
+        vim.lsp.enable("lua_ls")
         vim.lsp.config("lua_ls", {
             on_init = function(client)
                 if client.workspace_folders then

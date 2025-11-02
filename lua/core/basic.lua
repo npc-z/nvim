@@ -89,6 +89,7 @@ vim.o.splitright = true
 
 -- 自动补全, 不自动选中
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
+vim.o.winborder = "rounded"
 -- 补全增强
 vim.o.wildmenu = true
 -- don't pass messages to |ins-completin menu|

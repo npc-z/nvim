@@ -40,7 +40,5 @@ return {
                 hover = true,
             },
         })
-
-        require("crates.completion.cmp").setup()
     end,
 }
