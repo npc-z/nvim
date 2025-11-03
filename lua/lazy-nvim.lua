@@ -16,6 +16,7 @@ require("lazy").setup({
         { import = "plugins" },
         { import = "plugins.lsp" },
         { import = "plugins.git" },
+        { import = "plugins.py" },
         -- 使用增强
         { import = "plugins.helpers" },
     },

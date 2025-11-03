@@ -167,6 +167,10 @@
     "branch": "v3.x",
     "commit": "8cdd6b1940f333c1dd085526a9c45b30fb2dbf50"
   },
+  "neogen": {
+    "branch": "main",
+    "commit": "d7f9461727751fb07f82011051338a9aba07581d"
+  },
   "neoscroll.nvim": {
     "branch": "master",
     "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c"
