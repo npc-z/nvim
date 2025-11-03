@@ -222,6 +222,7 @@ return {
             cmdline = {
                 keymap = {
                     preset = "inherit",
+                    ["<CR>"] = { "select_accept_and_enter", "fallback" },
                 },
                 completion = {
                     menu = {
