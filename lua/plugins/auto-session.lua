@@ -5,6 +5,11 @@ return {
         local auto_session = require("auto-session")
 
         auto_session.setup({
+            -- Buffers with matching filetypes will be closed before saving
+            close_filetypes_on_save = {
+                "checkhealth",
+                "json.lulala_ui",
+            },
             suppressed_dirs = {
                 "~/",
                 "~/Projects",
