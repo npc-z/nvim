@@ -37,7 +37,7 @@
   },
   "conform.nvim": {
     "branch": "master",
-    "commit": "4993e07fac6679d0a5005aa7499e0bad2bd39f19"
+    "commit": "ffe26e8df8115c9665d24231f8a49fadb2d611ce"
   },
   "crates.nvim": {
     "branch": "main",
@@ -93,7 +93,7 @@
   },
   "go.nvim": {
     "branch": "master",
-    "commit": "81bb94c1d21648245eb14c69461f5c7f8c705752"
+    "commit": "41a18f0c05534c375bafec7ed05cdb409c4abcc6"
   },
   "goto-preview": {
     "branch": "main",
@@ -121,7 +121,7 @@
   },
   "kulala.nvim": {
     "branch": "main",
-    "commit": "5d3916195a97928b8f9b79d96029f37d19ba866d"
+    "commit": "b48c86f71f0f84a11cb3aab3b850c7409c74245f"
   },
   "lazy.nvim": {
     "branch": "main",
@@ -153,7 +153,7 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "7d527c76c43f46294de9c19d39c5a86317809b4b"
+    "commit": "0b9bb925c000ae649ff7e7149c8cd00031f4b539"
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
@@ -205,7 +205,7 @@
   },
   "nvim-lint": {
     "branch": "master",
-    "commit": "d1118791070d090777398792a73032a0ca5c79ff"
+    "commit": "ebe535956106c60405b02220246e135910f6853d"
   },
   "nvim-lsp-file-operations": {
     "branch": "master",
@@ -213,7 +213,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "effe4bf2e1afb881ea67291c648b68dd3dfc927a"
+    "commit": "a2bd1cf7b0446a7414aaf373cea5e4ca804c9c69"
   },
   "nvim-nio": {
     "branch": "master",
@@ -245,7 +245,7 @@
   },
   "render-markdown": {
     "branch": "main",
-    "commit": "6e0e8902dac70fecbdd8ce557d142062a621ec38"
+    "commit": "b2b135347e299ffbf7f4123fb7811899b0c9f4b8"
   },
   "rustaceanvim": {
     "branch": "master",
@@ -269,7 +269,7 @@
   },
   "tiny-inline-diagnostic.nvim": {
     "branch": "main",
-    "commit": "38b06435305c30966b7ceb0a43e460dc43acaada"
+    "commit": "9b55d36b797875b6e513f6bcc526e17cb9fe31f4"
   },
   "todo-comments.nvim": {
     "branch": "main",
