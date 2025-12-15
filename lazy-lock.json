@@ -9,7 +9,7 @@
   },
   "advanced-git-search.nvim": {
     "branch": "main",
-    "commit": "e6d0fa39c7b058b4f3019912c3e26f854c4e36af"
+    "commit": "cead1214709226bdef89093f0c58964fb65c81e8"
   },
   "aerial.nvim": {
     "branch": "master",
@@ -37,7 +37,7 @@
   },
   "conform.nvim": {
     "branch": "master",
-    "commit": "ffe26e8df8115c9665d24231f8a49fadb2d611ce"
+    "commit": "9b8fa5e0b78168f68bee9bf886dc20f287c61e02"
   },
   "crates.nvim": {
     "branch": "main",
@@ -46,10 +46,6 @@
   "dashboard-nvim": {
     "branch": "master",
     "commit": "0775e567b6c0be96d01a61795f7b64c1758262f6"
-  },
-  "debugprint.nvim": {
-    "branch": "main",
-    "commit": "0374b2017a888c9ad78ddf881fb192caecb34d81"
   },
   "diffview.nvim": {
     "branch": "main",
@@ -121,7 +117,7 @@
   },
   "kulala.nvim": {
     "branch": "main",
-    "commit": "b48c86f71f0f84a11cb3aab3b850c7409c74245f"
+    "commit": "b36aff673915391e415d4acc7c90ca6ca6891750"
   },
   "lazy.nvim": {
     "branch": "main",
@@ -153,7 +149,7 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "0b9bb925c000ae649ff7e7149c8cd00031f4b539"
+    "commit": "c55bd8a8fb191e24176c206a7af1dd51ce7276a5"
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
@@ -181,7 +177,7 @@
   },
   "nvim-autopairs": {
     "branch": "master",
-    "commit": "7a2c97cccd60abc559344042fefb1d5a85b3e33b"
+    "commit": "d9e44e54384e5b0f3536339c65484f2e41b528e3"
   },
   "nvim-dap": {
     "branch": "master",
@@ -205,7 +201,7 @@
   },
   "nvim-lint": {
     "branch": "master",
-    "commit": "ebe535956106c60405b02220246e135910f6853d"
+    "commit": "ae64d6466ed92b68353122d920e314ff2c8dd0a8"
   },
   "nvim-lsp-file-operations": {
     "branch": "master",
@@ -213,7 +209,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "a2bd1cf7b0446a7414aaf373cea5e4ca804c9c69"
+    "commit": "f3979663c9c8cd9ad258344b9cfb5ad83cff61c1"
   },
   "nvim-nio": {
     "branch": "master",
@@ -245,7 +241,7 @@
   },
   "render-markdown": {
     "branch": "main",
-    "commit": "b2b135347e299ffbf7f4123fb7811899b0c9f4b8"
+    "commit": "7a43c8b444fa15b7736b34b248addb951126f723"
   },
   "rustaceanvim": {
     "branch": "master",
@@ -269,7 +265,7 @@
   },
   "tiny-inline-diagnostic.nvim": {
     "branch": "main",
-    "commit": "9b55d36b797875b6e513f6bcc526e17cb9fe31f4"
+    "commit": "d9d12d4bfb9a4c5b8b8bdf7f612551df6972946c"
   },
   "todo-comments.nvim": {
     "branch": "main",
