@@ -39,16 +39,16 @@ return {
                     -- end,
                 },
                 {
-                    name = "Buffers",
-                    tele_func = builtin.buffers,
-                },
-                {
                     name = "Grep",
                     tele_func = builtin.live_grep,
                 },
                 {
                     name = "Modified",
                     tele_func = builtin.git_status,
+                },
+                {
+                    name = "Buffers",
+                    tele_func = builtin.buffers,
                 },
                 {
                     name = "current_buffer_fuzzy_find",
