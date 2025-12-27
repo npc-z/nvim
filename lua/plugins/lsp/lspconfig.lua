@@ -247,5 +247,13 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
         })
+
+        -- configure jdtls server for java
+        -- and see java.lua
+        vim.lsp.config("jdtls", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+        vim.lsp.enable("jdtls")
     end,
 }

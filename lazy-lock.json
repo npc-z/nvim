@@ -199,6 +199,10 @@
     "branch": "master",
     "commit": "dda517694889a5d238d7aa407403984da9f80cc0"
   },
+  "nvim-java": {
+    "branch": "main",
+    "commit": "d196b25eda89ae957110f2966d1753889dc197b2"
+  },
   "nvim-lint": {
     "branch": "master",
     "commit": "7a64f4067065c16a355d40d0d599b8ca6b25de6d"
@@ -250,6 +254,10 @@
   "search.nvim": {
     "branch": "main",
     "commit": "7b8f2315d031be73e14bc2d82386dfac15952614"
+  },
+  "spring-boot.nvim": {
+    "branch": "main",
+    "commit": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0"
   },
   "telescope-dap.nvim": {
     "branch": "master",
