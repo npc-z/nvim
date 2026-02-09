@@ -48,6 +48,10 @@ return {
         "archie-judd/blink-cmp-words",
 
         "onsails/lspkind.nvim", -- vs-code like pictograms
+
+        {
+            "giuxtaposition/blink-cmp-copilot",
+        },
     },
     config = function()
         local opts = {
@@ -55,8 +59,8 @@ return {
                 -- 'none' for no mappings
                 preset = "none",
 
-                -- 出现补全
-                -- ["<C-.>"] = { "show", "show_documentation", "hide_documentation" },
+                -- 触发补全
+                ["<C-.>"] = { "show", "show_documentation", "hide_documentation" },
                 -- 取消
                 ["<C-e>"] = { "hide", "fallback" },
                 -- 确认
@@ -93,6 +97,7 @@ return {
                     "snippets",
                     "buffer",
                     "dictionary",
+                    "copilot",
                 },
 
                 providers = {
@@ -129,6 +134,23 @@ return {
                             definition_pointers = { "!", "&", "^" },
                         },
                     },
+                    -- use copilot
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-cmp-copilot",
+                        score_offset = 100,
+                        async = true,
+                        transform_items = function(_, items)
+                            local CompletionItemKind =
+                                require("blink.cmp.types").CompletionItemKind
+                            local kind_idx = #CompletionItemKind + 1
+                            CompletionItemKind[kind_idx] = "Copilot"
+                            for _, item in ipairs(items) do
+                                item.kind = kind_idx
+                            end
+                            return items
+                        end,
+                    },
                 },
             },
 
@@ -143,6 +165,9 @@ return {
 
             appearance = {
                 nerd_font_variant = "mono",
+                kind_icons = {
+                    Copilot = "",
+                },
             },
 
             completion = {
