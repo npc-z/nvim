@@ -40,7 +40,10 @@ return {
                 },
                 {
                     name = "Grep",
-                    tele_func = builtin.live_grep,
+                    tele_func = function(opts)
+                        local enhanced_grep = require("utils.enhanced_grep")
+                        enhanced_grep.create_enhanced_grep(opts)
+                    end,
                 },
                 {
                     name = "Modified",
