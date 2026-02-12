@@ -4,6 +4,8 @@ A modern, feature-rich Neovim configuration focused on development efficiency an
 
 [中文文档](./README_CN.md)
 
+![example](assets/example.png)
+
 ## Features
 
 ### Core Capabilities

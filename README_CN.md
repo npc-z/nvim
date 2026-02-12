@@ -4,6 +4,8 @@
 
 [English Documentation](./README.md)
 
+![example](assets/example.png)
+
 ## 特性
 
 ### 核心功能
