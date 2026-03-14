@@ -5,6 +5,10 @@ return {
     config = function()
         local conform = require("conform")
 
+        conform.formatters.black = {
+            command = "black",
+        }
+
         conform.formatters.clang_format = {
             -- prepend_args = {
             --     "--style",

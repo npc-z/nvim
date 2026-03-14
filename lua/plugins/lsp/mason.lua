@@ -19,7 +19,13 @@ return {
             "cssls",
             "tailwindcss",
             -- "lua_ls",
-            "pyright",
+
+            -- python lsp
+            -- "pyright",
+            -- "ty",
+            -- "pyrefly",
+            "zuban",
+
             "gopls",
             "rust_analyzer",
             -- "nil_ls",
@@ -30,10 +36,13 @@ return {
             "clang-format",
             "prettier", -- prettier formatter
             -- "stylua", -- lua formatter
-            "isort", -- python formatter
-            "black", -- python formatter
-            "mypy", -- python linter
-            "pylint", -- python linter
+
+            -- python
+            -- "isort", -- python formatter
+            -- "black", -- python formatter
+            -- "mypy", -- python linter
+            -- "pylint", -- python linter
+
             "eslint_d", -- js linter
             "markdownlint",
             "jsonlint",

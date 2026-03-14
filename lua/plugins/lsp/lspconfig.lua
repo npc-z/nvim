@@ -163,8 +163,26 @@ return {
         })
 
         -- configure python server
-        vim.lsp.enable("pyright")
-        vim.lsp.config("pyright", {
+        -- vim.lsp.enable("pyright")
+        -- vim.lsp.config("pyright", {
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
+
+        -- vim.lsp.enable("ty")
+        -- vim.lsp.config("ty", {
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
+
+        -- vim.lsp.enable("pyrefly")
+        -- vim.lsp.config("pyrefly", {
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
+
+        vim.lsp.enable("zuban")
+        vim.lsp.config("zuban", {
             capabilities = capabilities,
             on_attach = on_attach,
         })

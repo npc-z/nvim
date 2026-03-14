@@ -70,7 +70,7 @@ return {
             javascriptreact = { "eslint_d" },
             typescriptreact = { "eslint_d" },
             -- python = { "mypy_local_first" },
-            python = { "pylint" },
+            -- python = { "pylint" },
             -- markdown = { "markdownlint" },
             json = { "jsonlint" },
             -- c = { "cpplint" },
