@@ -43,8 +43,6 @@ return {
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-        utils.config_diagnostic()
-
         -- configure nix server
         vim.lsp.enable("nixd")
         vim.lsp.config("nixd", {

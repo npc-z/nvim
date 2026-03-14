@@ -20,10 +20,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
             \ |   exe "normal! g`\""
             \ | endif
         ]])
-
-        -- remove all the others diagnostics.
-        -- for "rachartier/tiny-inline-diagnostic.nvim",
-        utils.config_diagnostic()
     end,
 })
 
