@@ -31,10 +31,6 @@ return {
         require("telescope").load_extension("dap")
 
         require("dap.ext.vscode").json_decode = require("json5").parse
-        require("dap.ext.vscode").load_launchjs(nil, {
-            debugpy = { "python" },
-            cppdbg = { "c", "cpp" },
-        })
 
         require("dap-python").setup("python")
 
