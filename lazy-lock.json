@@ -45,7 +45,7 @@
   },
   "copilot.lua": {
     "branch": "master",
-    "commit": "8e2a91828210d6043744468f6d7027d256a41f42"
+    "commit": "0552b44fceedf0c4cba2cd4953d3976633b2509a"
   },
   "crates.nvim": {
     "branch": "main",
@@ -97,7 +97,7 @@
   },
   "go.nvim": {
     "branch": "master",
-    "commit": "60d5c90eac5b5b6cca7bbbc8599e49222756248f"
+    "commit": "51a6f3b19b59f6e8e5d8d06aa23704ff2b6ed6bd"
   },
   "goto-preview": {
     "branch": "main",
@@ -157,7 +157,7 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "a676ab7282da8d651e175118bcf54483ca11e46d"
+    "commit": "a979821a975897b88493843301950c456a725982"
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
@@ -221,7 +221,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "dd261ad5266ab5bbec249d21efeceda98ff3e1a6"
+    "commit": "841c6d4139aedb8a3f2baf30cef5327371385b93"
   },
   "nvim-nio": {
     "branch": "master",
