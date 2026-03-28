@@ -279,6 +279,10 @@
     "branch": "0.1.x",
     "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"
   },
+  "termite.nvim": {
+    "branch": "main",
+    "commit": "60184a1eaec3bf3f8f404eed4ee69b30f38cfe54"
+  },
   "tiny-inline-diagnostic.nvim": {
     "branch": "main",
     "commit": "ba133b3e932416e4b9507095731a6d7276878fe8"
@@ -286,10 +290,6 @@
   "todo-comments.nvim": {
     "branch": "main",
     "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668"
-  },
-  "toggleterm.nvim": {
-    "branch": "main",
-    "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c"
   },
   "trouble.nvim": {
     "branch": "main",

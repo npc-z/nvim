@@ -17,7 +17,7 @@ A modern, feature-rich Neovim configuration focused on development efficiency an
 - **Git Integration**: Comprehensive git workflows with lazygit, gitsigns, diffview, and conflict resolution
 - **Debugging**: Full DAP (Debug Adapter Protocol) support with UI
 - **Session Management**: Automatic session persistence and restoration
-- **Terminal Integration**: Integrated terminal with toggleterm
+- **Terminal Integration**: Integrated terminal with termite.nvim
 
 ### Language Support
 
