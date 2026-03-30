@@ -46,6 +46,7 @@ return {
 
             window = {
                 position = "right",
+                width = 60,
             },
 
             default_source = "filesystem",
