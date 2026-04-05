@@ -38,5 +38,7 @@ return {
             end)
             :totable()
         require("nvim-treesitter").install(parsersToInstall)
+
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
 }
