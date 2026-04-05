@@ -124,19 +124,6 @@ vim.cmd([[set iskeyword+=-]])
 -- 使用增强状态栏插件后不再需要 vim 的显示提示
 -- vim.o.showmode = false
 
--- 保存 undotree 到本地文件
-vim.cmd([[
-    if has("persistent_undo")
-       let target_path = expand("~/.local/share/nvim/undodir")
-            if !isdirectory(target_path)
-                call mkdir(target_path, "p", 0700)
-            endif
-
-        let &undodir=target_path
-        set undofile
-    endif
-]])
-
 -- Nice and simple folding:
 vim.o.foldenable = true
 vim.o.foldlevel = 99

@@ -295,10 +295,6 @@
     "branch": "main",
     "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a"
   },
-  "undotree": {
-    "branch": "master",
-    "commit": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d"
-  },
   "utf8.nvim": {
     "branch": "main",
     "commit": "954cbbadabe5cd19f202e918fec191d64eea7766"
