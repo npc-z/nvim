@@ -7,13 +7,12 @@ return {
     config = function()
         local lualine = require("lualine")
 
-        local count_cur_buf_words = require("wordcounter").count_cur_buf_words
-        local function words()
-            return "W:" .. count_cur_buf_words()
-        end
-
-        local function total_lines()
-            return "L:" .. vim.api.nvim_buf_line_count(0)
+        local function git_blame()
+            local blame = vim.b.gitsigns_blame_line
+            if blame then
+                return blame
+            end
+            return ""
         end
 
         lualine.setup({
@@ -31,6 +30,7 @@ return {
             sections = {
                 lualine_c = {
                     {
+                        git_blame,
                         "lsp_progress",
                         spinner_symbols = {
                             "🌑 ",
@@ -45,23 +45,8 @@ return {
                     },
                 },
                 lualine_x = {
-                    "filesize",
-                    total_lines,
-                    words,
-                    {
-                        "fileformat",
-                        symbols = {
-                            unix = "", -- e712
-                            dos = "", -- e70f
-                            mac = "", -- e711
-                        },
-                        -- symbols = {
-                        --     unix = "LF",
-                        --     dos = "CRLF",
-                        --     mac = "CR",
-                        -- },
-                    },
                     "encoding",
+                    "fileformat",
                     "filetype",
                 },
             },
