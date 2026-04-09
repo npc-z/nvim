@@ -91,17 +91,9 @@
     "branch": "main",
     "commit": "db486b42299b2e3f5831809617af21becf268a39"
   },
-  "glance.nvim": {
-    "branch": "master",
-    "commit": "bf86d8b79dce808e65fdb6e9269d0b4ed6d2eefc"
-  },
   "go.nvim": {
     "branch": "master",
     "commit": "c97cac0cd9e56b44ae5d4b95034d414cedb20145"
-  },
-  "goto-preview": {
-    "branch": "main",
-    "commit": "d2d6923c9b9e0e43f0b9b566f261a8b1ae016540"
   },
   "grug-far.nvim": {
     "branch": "main",

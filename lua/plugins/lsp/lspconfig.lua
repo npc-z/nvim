@@ -4,272 +4,91 @@ return {
     dependencies = {
         "saghen/blink.cmp",
         { "antosha417/nvim-lsp-file-operations", config = true },
-        {
-            "rmagatti/goto-preview",
-            event = "BufEnter",
-            config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
-        },
-        {
-            "dnlhc/glance.nvim",
-            config = function()
-                require("glance").setup({
-                    -- your configuration
-                })
-            end,
-        },
     },
     config = function()
-        local lspconfig = require("lspconfig")
-        local utils = require("utils")
-
-        -- use conform to formatting
-        local formatter_disabled_lsps = {
-            "clangd",
-            "sqls",
-        }
-
-        local on_attach = function(client, bufnr)
-            local illuminate = require("illuminate")
-            illuminate.on_attach(client)
-
-            if utils.has_value(formatter_disabled_lsps, client.name) then
-                client.server_capabilities.documentFormattingProvider = false
-                client.server_capabilities.documentRangeFormattingProvider = false
-            end
-
-            require("plugins.lsp.after.lspkeymaps").setup_keymaps(bufnr)
-        end
-
-        -- used to enable autocompletion (assign to every lsp server config)
+        -- Shared capabilities for all LSP servers (blink.cmp integration)
         local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-        -- configure nix server
-        vim.lsp.enable("nixd")
-        vim.lsp.config("nixd", {
+        vim.lsp.config("*", {
             capabilities = capabilities,
-            on_attach = on_attach,
-            cmd = { "nixd" },
-            settings = {
-                nixd = {
-                    nixpkgs = {
-                        expr = "import <nixpkgs> { }",
-                    },
-                    formatting = {
-                        command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
-                    },
-                    options = {
-                        nixos = {
-                            expr = "(builtins.getFlake \"/home/npc/.config/nixos\").nixosConfigurations.ser7-nixos.options",
-                        },
-                        home_manager = {
-                            expr = "(builtins.getFlake \"/home/npc/.config/nixos\").homeConfigurations.ser7-nixos.options",
-                        },
-                    },
-                },
-            },
         })
 
-        -- configure html server
-        vim.lsp.config("html", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- LSP servers that should not provide formatting (use conform instead)
+        local formatter_disabled_lsps = { "clangd", "sqls" }
 
-        -- configure typescript server with plugin
-        vim.lsp.config("ts_ls", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        -- configure css server
-        vim.lsp.config("cssls", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        -- configure tailwindcss server
-        vim.lsp.config("tailwindcss", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        -- configure svelte server
-        vim.lsp.config("svelte", {
-            capabilities = capabilities,
-            on_attach = function(client, bufnr)
-                on_attach(client, bufnr)
-
-                vim.api.nvim_create_autocmd("BufWritePost", {
-                    pattern = { "*.js", "*.ts" },
-                    callback = function(ctx)
-                        if client.name == "svelte" then
-                            client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-                        end
-                    end,
-                })
-            end,
-        })
-
-        -- configure graphql language server
-        vim.lsp.config("graphql", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = {
-                "graphql",
-                "gql",
-                "svelte",
-                "typescriptreact",
-                "javascriptreact",
-            },
-        })
-
-        -- configure emmet language server
-        vim.lsp.config("emmet_ls", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = {
-                "html",
-                "typescriptreact",
-                "javascriptreact",
-                "css",
-                "sass",
-                "scss",
-                "less",
-                "svelte",
-            },
-        })
-
-        -- configure c/c++ server
-        vim.lsp.config("clangd", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {},
-        })
-
-        -- configure golang server
-        vim.lsp.config("gopls", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = { "go", "gomod", "gowork", "gotmpl" },
-            settings = {
-                gopls = {
-                    completeUnimported = true,
-                    usePlaceholders = false,
-                    analyses = {
-                        unusedparams = true,
-                    },
-                },
-            },
-        })
-
-        -- configure python server
-        -- vim.lsp.enable("pyright")
-        -- vim.lsp.config("pyright", {
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        -- })
-
-        -- vim.lsp.enable("ty")
-        -- vim.lsp.config("ty", {
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        -- })
-
-        -- vim.lsp.enable("pyrefly")
-        -- vim.lsp.config("pyrefly", {
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        -- })
-
-        vim.lsp.enable("zuban")
-        vim.lsp.config("zuban", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        -- configure lua server (with special settings)
-        vim.lsp.enable("lua_ls")
-        vim.lsp.config("lua_ls", {
-            on_init = function(client)
-                if client.workspace_folders then
-                    local path = client.workspace_folders[1].name
-                    if
-                        path ~= vim.fn.stdpath("config")
-                        and (
-                            vim.uv.fs_stat(path .. "/.luarc.json")
-                            or vim.uv.fs_stat(path .. "/.luarc.jsonc")
-                        )
-                    then
-                        return
-                    end
+        -- LspAttach: unified handler for keymaps, illuminate, etc.
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+            callback = function(ev)
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                if not client then
+                    return
                 end
 
-                client.config.settings.Lua =
-                    vim.tbl_deep_extend("force", client.config.settings.Lua, {
-                        runtime = {
-                            -- Tell the language server which version of Lua you're using (most
-                            -- likely LuaJIT in the case of Neovim)
-                            version = "LuaJIT",
-                            -- Tell the language server how to find Lua modules same way as Neovim
-                            -- (see `:h lua-module-load`)
-                            path = {
-                                "lua/?.lua",
-                                "lua/?/init.lua",
-                            },
-                        },
-                        -- Make the server aware of Neovim runtime files
-                        workspace = {
-                            checkThirdParty = false,
-                            library = {
-                                vim.env.VIMRUNTIME,
-                                -- Depending on the usage, you might want to add additional paths
-                                -- here.
-                                -- '${3rd}/luv/library'
-                                -- '${3rd}/busted/library'
-                            },
-                            -- Or pull in all of 'runtimepath'.
-                            -- NOTE: this is a lot slower and will cause issues when working on
-                            -- your own configuration.
-                            -- See https://github.com/neovim/nvim-lspconfig/issues/3189
-                            -- library = {
-                            --   vim.api.nvim_get_runtime_file('', true),
-                            -- }
-                        },
-                    })
+                local bufnr = ev.buf
+
+                -- Highlight other uses of the word under cursor
+                require("illuminate").on_attach(client)
+
+                -- Disable formatting for specific LSP servers
+                local utils = require("utils")
+                if utils.has_value(formatter_disabled_lsps, client.name) then
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                end
+
+                -- Buffer-local keymaps
+                local map = function(mode, lhs, rhs, desc)
+                    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = desc })
+                end
+
+                -- Navigation (Telescope integration)
+                map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", "LSP definitions (Telescope)")
+                map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+
+                -- Code actions & rename
+                -- default map is `grn`
+                map({ "n", "v" }, "<C-.>", vim.lsp.buf.code_action, "Code actions")
+                map("n", "<leader>rn", require("live-rename").rename, "LSP rename (live)")
+
+                -- Diagnostics
+                map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer diagnostics")
+                map("n", "<leader>d", vim.diagnostic.open_float, "Line diagnostics")
+                map("n", "[d", function()
+                    vim.diagnostic.jump({ count = -1, float = true })
+                end, "Previous diagnostic")
+                map("n", "]d", function()
+                    vim.diagnostic.jump({ count = 1, float = true })
+                end, "Next diagnostic")
+
+                -- Info & help
+                map("n", "gh", vim.lsp.buf.hover, "Hover documentation")
+                map("n", "<leader>k", vim.lsp.buf.signature_help, "Signature help")
+
+                -- Utility
+                -- map("n", "<leader>rs", ":LspRestart<CR>", "Restart LSP")
+                map("n", "<leader>i", function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+                end, "Toggle inlay hints")
             end,
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                Lua = {
-                    -- make the language server recognize "vim" global
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                },
-            },
         })
 
-        -- configure rust server
-        -- vim.lsp.config("rust_analyzer", {
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        --     settings = {
-        --         cargo = { allFeatures = true },
-        --     },
-        -- })
-
-        -- configure sqls server
-        vim.lsp.config("sqls", {
-            capabilities = capabilities,
-            on_attach = on_attach,
+        -- Enable all LSP servers
+        vim.lsp.enable({
+            "nixd",
+            "tix",
+            "html",
+            "ts_ls",
+            "cssls",
+            "tailwindcss",
+            "svelte",
+            "graphql",
+            "emmet_ls",
+            "clangd",
+            "gopls",
+            "zuban",
+            "lua_ls",
+            "sqls",
+            "jdtls",
         })
-
-        -- configure jdtls server for java
-        -- and see java.lua
-        vim.lsp.config("jdtls", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-        vim.lsp.enable("jdtls")
     end,
 }
