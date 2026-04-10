@@ -2,13 +2,17 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
+    branch = "main",
 
     dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            branch = "main",
+        },
         "windwp/nvim-ts-autotag",
     },
 
-    init = function()
+    config = function()
         local ensureInstalled = {
             "python",
             "go",
@@ -31,13 +35,15 @@ return {
             "query",
             "just",
         }
-        local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+
+        local ts = require("nvim-treesitter")
+        local alreadyInstalled = ts.get_installed()
         local parsersToInstall = vim.iter(ensureInstalled)
             :filter(function(parser)
                 return not vim.tbl_contains(alreadyInstalled, parser)
             end)
             :totable()
-        require("nvim-treesitter").install(parsersToInstall)
+        ts.install(parsersToInstall)
 
         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
