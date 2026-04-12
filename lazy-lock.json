@@ -1,8 +1,4 @@
 {
-  "Comment.nvim": {
-    "branch": "master",
-    "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb"
-  },
   "LuaSnip": {
     "branch": "master",
     "commit": "642b0c595e11608b4c18219e93b88d7637af27bc"
@@ -58,10 +54,6 @@
   "diffview.nvim": {
     "branch": "main",
     "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a"
-  },
-  "dressing.nvim": {
-    "branch": "master",
-    "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639"
   },
   "dropbar.nvim": {
     "branch": "master",
@@ -131,6 +123,10 @@
     "branch": "main",
     "commit": "3a3cddf23b89a17992f9ca67afc5858077769462"
   },
+  "lsp-progress.nvim": {
+    "branch": "main",
+    "commit": "f6d5af10563b895ff846346f57cbd4451439f4c1"
+  },
   "lspkind.nvim": {
     "branch": "master",
     "commit": "c7274c48137396526b59d86232eabcdc7fed8a32"
@@ -138,10 +134,6 @@
   "lua-json5": {
     "branch": "master",
     "commit": "713407f19e6155579a6594d56e6cfe616fddb39c"
-  },
-  "lualine-lsp-progress": {
-    "branch": "master",
-    "commit": "56842d097245a08d77912edf5f2a69ba29f275d7"
   },
   "lualine.nvim": {
     "branch": "master",
@@ -235,10 +227,6 @@
     "branch": "master",
     "commit": "40e9d5a6cc3db11b309e39593fc7ac03bb844e38"
   },
-  "nvim-window-picker": {
-    "branch": "main",
-    "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec"
-  },
   "plenary.nvim": {
     "branch": "master",
     "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509"
@@ -269,7 +257,7 @@
   },
   "telescope.nvim": {
     "branch": "0.1.x",
-    "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"
+    "commit": "5255aa27c422de944791318024167ad5d40aad20"
   },
   "termite.nvim": {
     "branch": "main",

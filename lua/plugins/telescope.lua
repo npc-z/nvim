@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    version = "*",
     dependencies = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -20,7 +20,6 @@ return {
     config = function()
         local telescope = require("telescope")
         local builtin = require("telescope.builtin")
-        local actions = require("telescope.actions")
         local search_tab = require("search")
 
         search_tab.setup({

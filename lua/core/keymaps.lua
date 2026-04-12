@@ -153,6 +153,20 @@ vim.api.nvim_set_keymap("!", "<C-BS>", "<C-w>", opt)
 map("n", "<leader>q", ":Neotree close<CR>:q<CR>", opt)
 -- map("n", "<leader>wq", ":wq<CR>", opt)
 
+-- 注释（使用内置 gcc）
+vim.keymap.set(
+    "n",
+    "<C-,>",
+    "gcc",
+    { remap = true, silent = true, desc = "Toggle comment" }
+)
+vim.keymap.set(
+    "v",
+    "<C-,>",
+    "gc",
+    { remap = true, silent = true, desc = "Toggle comment" }
+)
+
 -- 编辑相关
 map("n", "<leader>uw", "gUiw", opt)
 map("n", "<leader>lw", "guiw", opt)

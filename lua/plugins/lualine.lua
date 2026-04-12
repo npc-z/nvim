@@ -2,7 +2,12 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        "arkav/lualine-lsp-progress",
+        {
+            "linrongbin16/lsp-progress.nvim",
+            config = function()
+                require("lsp-progress").setup()
+            end,
+        },
     },
     config = function()
         local lualine = require("lualine")
@@ -29,20 +34,11 @@ return {
             --
             sections = {
                 lualine_c = {
-                    {
-                        git_blame,
-                        "lsp_progress",
-                        spinner_symbols = {
-                            "🌑 ",
-                            "🌒 ",
-                            "🌓 ",
-                            "🌔 ",
-                            "🌕 ",
-                            "🌖 ",
-                            "🌗 ",
-                            "🌘 ",
-                        },
-                    },
+                    git_blame,
+                    function()
+                        -- invoke `progress` here.
+                        return require("lsp-progress").progress()
+                    end,
                 },
                 lualine_x = {
                     "encoding",
