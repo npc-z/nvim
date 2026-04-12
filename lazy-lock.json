@@ -104,8 +104,8 @@
     "commit": "c4f1b5ee1a66dbcef0b2c5ee26e42b9757684f61"
   },
   "haskell-tools.nvim": {
-    "branch": "master",
-    "commit": "5fa6671ff4face61be6a439b085c4977c20a60dc"
+    "branch": "main",
+    "commit": "17c04c9f7a52ee5b6fa4869166b8fcb74a21df70"
   },
   "indent-blankline.nvim": {
     "branch": "master",
@@ -248,8 +248,8 @@
     "commit": "687de727de91a63b0bff9cff4e71d73f9d40fa77"
   },
   "rustaceanvim": {
-    "branch": "master",
-    "commit": "88575b98bb9937fb9983ddec5e532b67e75ce677"
+    "branch": "main",
+    "commit": "7b8dd7abb9a7f442b356aa03714aefce09610339"
   },
   "search.nvim": {
     "branch": "main",
