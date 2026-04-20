@@ -47,10 +47,6 @@
     "branch": "main",
     "commit": "694357861ec9ebf12475ddcdd04ea45a0923c32d"
   },
-  "dashboard-nvim": {
-    "branch": "master",
-    "commit": "f787e3462c2ee2b6117b17c1aa4ddf66cb6f57fe"
-  },
   "diffview.nvim": {
     "branch": "main",
     "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a"
