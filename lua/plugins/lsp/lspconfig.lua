@@ -26,6 +26,10 @@ return {
 
                 local bufnr = ev.buf
 
+                -- codelens & inlay_hint
+                vim.lsp.codelens.enable(false)
+                vim.lsp.inlay_hint.enable(false)
+
                 -- Highlight other uses of the word under cursor
                 require("illuminate").on_attach(client)
 
@@ -67,8 +71,12 @@ return {
                 -- Utility
                 -- map("n", "<leader>rs", ":LspRestart<CR>", "Restart LSP")
                 map("n", "<leader>i", function()
-                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.id_enabled())
                 end, "Toggle inlay hints")
+
+                map("n", "<leader>tc", function()
+                    vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+                end, "Toggle codelens")
             end,
         })
 
