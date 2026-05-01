@@ -42,20 +42,40 @@ return {
 
                 -- Buffer-local keymaps
                 local map = function(mode, lhs, rhs, desc)
-                    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = desc })
+                    vim.keymap.set(
+                        mode,
+                        lhs,
+                        rhs,
+                        { buffer = bufnr, noremap = true, silent = true, desc = desc }
+                    )
                 end
 
                 -- Navigation (Telescope integration)
-                map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", "LSP definitions (Telescope)")
+                map(
+                    "n",
+                    "gd",
+                    "<cmd>Telescope lsp_definitions<CR>",
+                    "LSP definitions (Telescope)"
+                )
                 map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 
                 -- Code actions & rename
                 -- default map is `grn`
                 map({ "n", "v" }, "<C-.>", vim.lsp.buf.code_action, "Code actions")
-                map("n", "<leader>rn", require("live-rename").rename, "LSP rename (live)")
+                map(
+                    "n",
+                    "<leader>rn",
+                    require("live-rename").rename,
+                    "LSP rename (live)"
+                )
 
                 -- Diagnostics
-                map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer diagnostics")
+                map(
+                    "n",
+                    "<leader>D",
+                    "<cmd>Telescope diagnostics bufnr=0<CR>",
+                    "Buffer diagnostics"
+                )
                 map("n", "<leader>d", vim.diagnostic.open_float, "Line diagnostics")
                 map("n", "[d", function()
                     vim.diagnostic.jump({ count = -1, float = true })
