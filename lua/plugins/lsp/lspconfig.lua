@@ -71,7 +71,7 @@ return {
                 -- Utility
                 -- map("n", "<leader>rs", ":LspRestart<CR>", "Restart LSP")
                 map("n", "<leader>i", function()
-                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.id_enabled())
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
                 end, "Toggle inlay hints")
 
                 map("n", "<leader>tc", function()
