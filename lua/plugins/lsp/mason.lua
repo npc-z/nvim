@@ -30,6 +30,9 @@ return {
             "rust_analyzer",
             -- "nil_ls",
             "sqls",
+
+            -- spell checker
+            "harper_ls",
         }
 
         local ensure_installed_tools = {
