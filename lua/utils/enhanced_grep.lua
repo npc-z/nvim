@@ -367,7 +367,7 @@ function M.create_enhanced_grep(opts)
                     table.insert(rg_args, ".")
                 end
 
-                return vim.tbl_flatten({ "rg", rg_args })
+                return vim.iter({ "rg", rg_args }):flatten():totable()
             end, make_entry.gen_from_vimgrep(opts), opts.max_results, opts.cwd),
             previewer = conf.grep_previewer(opts),
             sorter = sorters.highlighter_only(opts),
