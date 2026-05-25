@@ -41,7 +41,7 @@ return {
                 "ForceDouble",
                 "--sort-requires",
                 "--column-width",
-                "88",
+                "120",
                 "--indent-width",
                 "4",
                 "--call-parentheses",
