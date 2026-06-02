@@ -36,7 +36,6 @@ A modern, feature-rich Neovim configuration focused on development efficiency an
 - **Color Scheme**: Kanagawa theme
 - **Status Line**: Feature-rich lualine with LSP progress
 - **Buffer Line**: Elegant buffer management with bufferline
-- **Dashboard**: Custom startup screen
 - **Which-key**: Interactive keybinding help
 - **Code Outline**: Symbol navigation with aerial.nvim
 - **Smooth Scrolling**: Enhanced scrolling experience with neoscroll
