@@ -1,0 +1,8 @@
+words = [
+    "codelldb",
+    "isort",
+    "jsonlint",
+    "markdownlint",
+    "mypy",
+    "sqlfluff",
+]

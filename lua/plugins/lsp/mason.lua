@@ -32,7 +32,7 @@ return {
             "sqls",
 
             -- spell checker
-            "harper_ls",
+            "codebook", -- An unholy spell checker for code: https://github.com/blopker/codebook
         }
 
         local ensure_installed_tools = {
@@ -51,7 +51,6 @@ return {
             "jsonlint",
             "sqlfluff",
             "codelldb",
-            "cspell",
         }
 
         local handle = io.popen("uname -a")
