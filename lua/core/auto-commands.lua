@@ -23,6 +23,18 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     end,
 })
 
+-- 进入插入模式时显示绝对行号，退出时恢复混合模式
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+    callback = function()
+        vim.opt.relativenumber = false
+    end,
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+    callback = function()
+        vim.opt.relativenumber = true
+    end,
+})
+
 vim.cmd([[
     augroup _general_settings
     autocmd!
