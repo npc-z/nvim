@@ -117,7 +117,6 @@ return {
             "lua_ls",
             "sqls",
             "jdtls",
-            "harper_ls", -- a grammar checker, https://writewithharper.com/docs/integrations/language-server
         })
     end,
 }
