@@ -141,8 +141,7 @@ return {
                         score_offset = 100,
                         async = true,
                         transform_items = function(_, items)
-                            local CompletionItemKind =
-                                require("blink.cmp.types").CompletionItemKind
+                            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
                             local kind_idx = #CompletionItemKind + 1
                             CompletionItemKind[kind_idx] = "Copilot"
                             for _, item in ipairs(items) do
@@ -201,13 +200,8 @@ return {
                             kind_icon = {
                                 text = function(ctx)
                                     local icon = ctx.kind_icon
-                                    if
-                                        vim.tbl_contains({ "Path" }, ctx.source_name)
-                                    then
-                                        local dev_icon, _ =
-                                            require("nvim-web-devicons").get_icon(
-                                                ctx.label
-                                            )
+                                    if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                                        local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
                                         if dev_icon then
                                             icon = dev_icon
                                         end
@@ -225,13 +219,8 @@ return {
                                 -- keep the highlight groups in sync with the icons.
                                 highlight = function(ctx)
                                     local hl = ctx.kind_hl
-                                    if
-                                        vim.tbl_contains({ "Path" }, ctx.source_name)
-                                    then
-                                        local dev_icon, dev_hl =
-                                            require("nvim-web-devicons").get_icon(
-                                                ctx.label
-                                            )
+                                    if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                                        local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
                                         if dev_icon then
                                             hl = dev_hl
                                         end
